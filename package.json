@@ -4,11 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --env port=3000 mode=development",
-    "server": "json-server --watch ./json-server/db.json --port 5000",
-    "build:prod": "webpack --env mode=production",
-    "build:dev": "webpack --env mode=development",
-    "unit": "jest --config ./config/jest/jest.config.ts"
+    "start": "webpack serve --env mode=development port=3000",
+    "build": "webpack --env mode=production"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
