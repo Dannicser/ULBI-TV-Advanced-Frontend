@@ -8,7 +8,9 @@
     "allowJs": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true, // позволяет использовать default импорты
-    "esModuleInterop": true // позволяет импортировать через es6, библиотеки , которые должны импортироваться через common js
+    "esModuleInterop": true, // позволяет импортировать через es6, библиотеки , которые должны импортироваться через common js
+    //
+    "baseUrl": "." // для абсолютного импорта
   },
   "ts-node": {
     "compilerOptions": {
