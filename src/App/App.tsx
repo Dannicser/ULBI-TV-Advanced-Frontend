@@ -10,12 +10,13 @@ import { MainPageAsync } from "../page/MainPage/MainPage.async";
 import { AboutPageAsync } from "../page/AboutPage/AboutPage.async";
 
 import "../style/index.scss";
+import { classNames } from "../helpers/classNames/classNames";
 
 export const App: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className={`app ${theme}`}>
+    <div className={classNames("app", { hovered: true, ddf: true }, [theme])}>
       <Header />
       <button onClick={toggleTheme}>Изменить тему</button>
       <Suspense fallback={<div>...</div>}>
