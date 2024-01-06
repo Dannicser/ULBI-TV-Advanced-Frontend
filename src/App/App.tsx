@@ -2,21 +2,21 @@ import { Suspense } from "react";
 
 import { Route, Routes } from "react-router-dom";
 
-import { useTheme } from "../theme/hooks/useTheme";
+import { classNames } from "shared/lib/classNames/classNames";
+import { useTheme } from "./providers/ThemeProvider/lib/useTheme";
 
-import { Header } from "../components/Header/Header";
+import { MainPageAsync } from "page/MainPage";
+import { AboutPageAsync } from "page/AboutPage";
 
-import { MainPageAsync } from "../page/MainPage/MainPage.async";
-import { AboutPageAsync } from "../page/AboutPage/AboutPage.async";
+import { Header } from "widgets/Header/Header";
 
-import "../style/index.scss";
-import { classNames } from "../helpers/classNames/classNames";
+import "./style/index.scss";
 
 export const App: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className={classNames("app", { hovered: true, ddf: true }, [theme])}>
+    <div className={classNames("app", {}, [theme])}>
       <Header />
       <button onClick={toggleTheme}>Изменить тему</button>
       <Suspense fallback={<div>...</div>}>

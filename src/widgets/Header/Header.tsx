@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
 
-import classes from "./Header.module.scss";
-
 export const Header = () => {
   return (
     <>
