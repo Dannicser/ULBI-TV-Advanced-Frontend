@@ -8,7 +8,7 @@ import { Navbar } from "widgets/Navbar";
 import "./style/index.scss";
 
 export const App: React.FC = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
 
   return (
     <div className={classNames("app", {}, [theme])}>

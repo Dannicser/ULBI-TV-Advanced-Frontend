@@ -4,6 +4,7 @@ import { classNames } from "shared/lib/classNames/classNames";
 
 import cls from "./Navbar.module.scss";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
+import { ThemeSwitcher } from "widgets/ThemeSwicher";
 
 interface INavbarProps {
   className?: string; // если снаружи заходим изменить стили
@@ -20,6 +21,8 @@ export const Navbar: React.FC<INavbarProps> = ({ className }) => {
           <span className={""}>About</span>
         </AppLink>
       </div>
+
+      <ThemeSwitcher />
     </div>
   );
 };
