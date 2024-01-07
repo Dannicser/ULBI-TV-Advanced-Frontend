@@ -1,12 +1,7 @@
-import { Suspense } from "react";
-
-import { Route, Routes } from "react-router-dom";
+import { AppRouter } from "./router";
 
 import { classNames } from "shared/lib/classNames/classNames";
 import { useTheme } from "./providers/ThemeProvider/lib/useTheme";
-
-import { MainPageAsync } from "page/MainPage";
-import { AboutPageAsync } from "page/AboutPage";
 
 import { Header } from "widgets/Header/Header";
 
@@ -18,13 +13,7 @@ export const App: React.FC = () => {
   return (
     <div className={classNames("app", {}, [theme])}>
       <Header />
-      <button onClick={toggleTheme}>Изменить тему</button>
-      <Suspense fallback={<div>...</div>}>
-        <Routes>
-          <Route path="/" element={<MainPageAsync />} />
-          <Route path="/about" element={<AboutPageAsync />} />
-        </Routes>{" "}
-      </Suspense>
+      <AppRouter />
     </div>
   );
 };
