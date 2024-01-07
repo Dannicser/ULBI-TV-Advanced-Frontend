@@ -3,7 +3,7 @@ import { AppRouter } from "./router";
 import { classNames } from "shared/lib/classNames/classNames";
 import { useTheme } from "./providers/ThemeProvider/lib/useTheme";
 
-import { Header } from "widgets/Header/Header";
+import { Navbar } from "widgets/Navbar";
 
 import "./style/index.scss";
 
@@ -12,7 +12,7 @@ export const App: React.FC = () => {
 
   return (
     <div className={classNames("app", {}, [theme])}>
-      <Header />
+      <Navbar />
       <AppRouter />
     </div>
   );

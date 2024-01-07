@@ -20,7 +20,7 @@ export function buildLoaders(options: IBuildOptions): webpack.RuleSetRule[] {
         options: {
           modules: {
             auto: (url: string) => Boolean(url.endsWith(".module.scss")),
-            localIdentName: options.isDev ? "[path].[name]" : "[hash:base64:8]", //применяем хеши только к файлам scss с .module.
+            localIdentName: options.isDev ? "[path].[name].[hash:base64:4]" : "[hash:base64:8]", //применяем хеши только к файлам scss с .module.
           },
         },
       },
