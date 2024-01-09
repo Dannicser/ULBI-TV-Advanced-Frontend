@@ -12,3 +12,12 @@
 
   min-height: 100vh; //растягивает приложение на всю высоту браузера
 }
+
+.content-page {
+  display: flex;
+}
+
+.page_wrapper {
+  flex-grow: 1;
+  padding: 15px;
+}

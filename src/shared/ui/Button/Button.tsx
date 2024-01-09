@@ -6,6 +6,7 @@ import cls from "./Button.module.scss";
 
 export enum ThemeButton {
   CLEAR = "clear",
+  PRIMARY = "primary",
 }
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -14,8 +15,6 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button: React.FC<IButtonProps> = ({ className, children, theme, ...other }) => {
-  console.log(theme);
-
   return (
     <button {...other} className={classNames(cls.Button, {}, [className, cls[theme]])}>
       {children}

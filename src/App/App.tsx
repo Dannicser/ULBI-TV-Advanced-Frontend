@@ -6,6 +6,7 @@ import { useTheme } from "./providers/ThemeProvider/lib/useTheme";
 import { Navbar } from "widgets/Navbar";
 
 import "./style/index.scss";
+import { Sidebar } from "widgets/Sidebar";
 
 export const App: React.FC = () => {
   const { theme } = useTheme();
@@ -13,7 +14,10 @@ export const App: React.FC = () => {
   return (
     <div className={classNames("app", {}, [theme])}>
       <Navbar />
-      <AppRouter />
+      <div className="content-page">
+        <Sidebar />
+        <AppRouter />
+      </div>
     </div>
   );
 };
