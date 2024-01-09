@@ -5,3 +5,5 @@ declare module "*.module.scss" {
   const classNames: IClassNames;
   export = classNames;
 }
+
+declare const _IS_DEV_: boolean;
