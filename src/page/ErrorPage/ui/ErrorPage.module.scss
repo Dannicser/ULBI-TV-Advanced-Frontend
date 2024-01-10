@@ -1,0 +1,13 @@
+.ErrorPage {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  height: 100vh;
+}
+
+.title {
+  font: var(--font-l);
+  color: red;
+}
