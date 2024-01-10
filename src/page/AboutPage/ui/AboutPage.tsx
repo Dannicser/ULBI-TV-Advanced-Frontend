@@ -5,7 +5,7 @@ const AboutPage: React.FC = () => {
 
   return (
     <div>
-      {t("AboutPage")}
+      {t("AboutPage")} 
       {t("test")}
     </div>
   );
