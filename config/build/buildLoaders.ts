@@ -1,8 +1,7 @@
 import webpack from "webpack";
 
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-
 import { IBuildOptions } from "./types/config";
+import { buildCssLoaders } from "./loaders/buildCssLoaders";
 
 export function buildLoaders(options: IBuildOptions): webpack.RuleSetRule[] {
   const typescriptLoader = {
@@ -11,23 +10,7 @@ export function buildLoaders(options: IBuildOptions): webpack.RuleSetRule[] {
     exclude: /node_modules/, // то что не надо обрабатывать лоадером
   };
 
-  const scssLoader = {
-    test: /\.s[ac]ss$/i,
-    use: [
-      options.isDev ? "style-loader" : MiniCssExtractPlugin.loader,
-      {
-        loader: "css-loader",
-        options: {
-          modules: {
-            auto: (url: string) => Boolean(url.endsWith(".module.scss")),
-            localIdentName: options.isDev ? "[path].[name].[hash:base64:4]" : "[hash:base64:8]", //применяем хеши только к файлам scss с .module.
-          },
-        },
-      },
-      "sass-loader",
-    ],
-  };
-
+  const scssLoader = buildCssLoaders(options.isDev);
   return [typescriptLoader, scssLoader];
 }
 

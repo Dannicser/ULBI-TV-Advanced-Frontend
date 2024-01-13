@@ -15,3 +15,9 @@
   color: rgb(255, 255, 255);
   background-color: var(--primary-color);
 }
+
+.outline {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  background-color: none;
+}

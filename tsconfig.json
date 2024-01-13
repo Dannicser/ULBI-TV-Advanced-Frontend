@@ -19,5 +19,6 @@
     "compilerOptions": {
       "module": "commonjs"
     }
-  }
+  },
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", ".config/jest/setup.ts"] // подключаем конфиг setup jest (второй)
 }

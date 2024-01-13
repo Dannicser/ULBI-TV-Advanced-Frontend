@@ -6,12 +6,13 @@ export default {
   moduleDirectories: ["node_modules", "src"],
   moduleNameMapper: {
     "\\.scss$": "identity-obj-proxy", // позволяет jest работать с css!!!!!!!
-    "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"), // mapper для работы с svg in jest 24 lesson
+    "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"), // mapper для работы с svg in jest 24
   },
   coveragePathIgnorePatterns: ["\\\\node_modules\\\\"],
   moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "node"],
   roots: ["../../"],
   testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[tj]s?(x)"],
+  // setupFilesAfterEnv: ["<rootDir>config/jest/setup.ts"],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
 
