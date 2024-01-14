@@ -8,5 +8,4 @@ module.exports = {
     builder: "webpack5",
   },
   typescript: { reactDocgen: false },
-  baseUrl: "./src/",
 };
