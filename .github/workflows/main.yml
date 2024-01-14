@@ -16,6 +16,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "${{ matrix.node-version }}"
+          GITHUB_WORKSPACE: /home/runner/work/ULBI-TV-Advanced-Frontend
       - name: install modules
         run: npm i
       - name: unit testing
