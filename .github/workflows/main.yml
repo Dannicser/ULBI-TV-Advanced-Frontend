@@ -23,7 +23,7 @@ jobs:
       - name: build production
         run: npm run build
         env:
-        CI: false
+          CI: false
       - name: build storybook
         run: npm run storybook:build
       - name: scrinshoot testing
