@@ -14,7 +14,7 @@ export default ({ config }: { config: Configuration }) => {
   };
 
   config.resolve?.modules?.push(paths.src);
-  config.resolve?.extensions?.push(".tsx", ".ts");
+  config.resolve?.extensions?.push(".tsx", ".ts", ".js");
   config.module?.rules?.push(buildCssLoaders(true));
 
   config.plugins?.push(new MiniCssExtractPlugin());
