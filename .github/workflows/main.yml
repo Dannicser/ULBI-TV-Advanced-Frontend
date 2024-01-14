@@ -2,7 +2,7 @@ name: testing, building
 on:
   push:
     branches: [ main ]
-jobs:
+  jobs:
     pipeline:
     runs-on: ubuntu-latest
     strategy:
