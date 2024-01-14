@@ -8,8 +8,10 @@
     "build": "webpack --env mode=production",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "npx loki test",
+    "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
     "test:ui:approve": "npx loki approve",
-    "storybook": "start-storybook -p 6006 -c ./config/storybook"
+    "storybook": "start-storybook -p 6006 -c ./config/storybook",
+    "storybook:build": "build-storybook -c ./config/storybook"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
