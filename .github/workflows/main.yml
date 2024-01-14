@@ -5,7 +5,7 @@ name: "testing, building"
       - main
 jobs:
   pipeline:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version:
@@ -17,12 +17,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "${{ matrix.node-version }}"
-          GITHUB_WORKSPACE: /home/runner/work/ULBI-TV-Advanced-Frontend
       - name: install modules
         run: npm i
       - name: unit testing
         run: npm run test:unit
-      - name: build prodiction
+      - name: build production
         run: npm run build
       - name: build storybook
         run: npm run storybook:build
