@@ -3,7 +3,7 @@ on:
   push:
     branches: [ main ]
 jobs:
-  Pipeline:
+  pipeline:
     runs-on: ubuntu-latest
     strategy:
       matrix:
