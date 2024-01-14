@@ -20,6 +20,8 @@ jobs:
         run: npm i
       - name: unit testing
         run: npm run test:unit
+      - name: build prodiction
+        run: npm run build
       - name: build storybook
         run: npm run storybook:build
       - name: scrinshoot testing
