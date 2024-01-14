@@ -3,7 +3,7 @@ import path from "path";
 export default {
   testEnvironment: "jsdom",
   clearMocks: true,
-  moduleDirectories: ["node_modules", "src"],
+  moduleDirectories: ["node_modules", "."],
   moduleNameMapper: {
     "\\.scss$": "identity-obj-proxy", // позволяет jest работать с css!!!!!!!
     "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"), // mapper для работы с svg in jest 24
