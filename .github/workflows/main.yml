@@ -22,6 +22,8 @@ jobs:
         run: npm run test:unit
       - name: build production
         run: npm run build
+        env:
+        CI: false
       - name: build storybook
         run: npm run storybook:build
       - name: scrinshoot testing
