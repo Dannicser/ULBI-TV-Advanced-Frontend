@@ -1,23 +1,24 @@
-name: testing, building
-on:
+name: "testing, building"
+"on":
   push:
     branches:
       - main
 jobs:
-  runs-on: ubuntu-latest
-  strategy:
-    matrix:
+  pipeline:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: null
       node-version:
         - 17.x
-  steps:
-    - uses: actions/checkout@v2
-    - name: Starting Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: install modules
-      run: npm i
-    - name: build production
-      run: npm run build
-    - name: unit testing
-      run: npm run test:unit
+    steps:
+      - uses: actions/checkout@v2
+      - name: Starting Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "${{ matrix.node-version }}"
+      - name: install modules
+        run: npm i
+      - name: build production
+        run: npm run build
+      - name: unit testing
+        run: "npm run test:unit"
