@@ -20,5 +20,6 @@
       "module": "commonjs"
     }
   },
+  "modulePaths": ["<rootDir>/src"],
   "include": ["./src/**/*.ts", "./src/**/*.tsx", ".config/jest/setup.ts"] // подключаем конфиг setup jest (второй)
 }
