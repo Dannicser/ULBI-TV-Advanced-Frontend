@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         node-version: [ 17.x ]
-  steps:
+    steps:
     - uses: actions/checkout@v2
     - name: Starting Node.js
       uses: actions/setup-node@v1
