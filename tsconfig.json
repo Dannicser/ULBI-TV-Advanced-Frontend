@@ -10,9 +10,9 @@
     "allowSyntheticDefaultImports": true, // позволяет использовать default импорты
     "esModuleInterop": true, // позволяет импортировать через es6, библиотеки , которые должны импортироваться через common js
     //
-    "baseUrl": "./src", // для абсолютного импорта
+    "baseUrl": ".", // для абсолютного импорта
     "paths": {
-      "*": ["*"] // все абсолютные импорты должны идти из папки src
+      "*": ["./src/*"] // все абсолютные импорты должны идти из папки src
     }
   },
   "ts-node": {
@@ -20,6 +20,5 @@
       "module": "commonjs"
     }
   },
-  // "include": ["./src/**/*.ts", "./src/**/*.tsx", ".config/jest/setup.ts"] // подключаем конфиг setup jest (второй)
-  "include": ["./config/jest/setupTests.ts", "./config/**/*.ts", "./config/**/*.tsx", "./src/**/*.ts", "./src/**/*.tsx", "./*.ts"]
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", ".config/jest/setup.ts"] // подключаем конфиг setup jest (второй)
 }
