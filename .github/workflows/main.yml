@@ -17,14 +17,19 @@ jobs:
         with:
           node-version: "${{ matrix.node-version }}"
       - name: install modules
+        if: always()
         run: npm ci
       - name: unit testing
+        if: always()
         run: npm run test:unit
       - name: build production
+        if: always()
         run: npm run build
         env:
           CI: false
       - name: build storybook
+        if: always()
         run: npm run storybook:build
       - name: scrinshoot testing
+        if: always()
         run: npm run test:ui:ci

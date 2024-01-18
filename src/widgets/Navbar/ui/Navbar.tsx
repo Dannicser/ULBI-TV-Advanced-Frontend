@@ -7,8 +7,6 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { ThemeSwitcher } from "widgets/ThemeSwicher";
 import { LangSwitcher } from "widgets/LangSwitcher";
 
-import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
-
 import cls from "./Navbar.module.scss";
 
 interface INavbarProps {
@@ -20,14 +18,7 @@ export const Navbar: React.FC<INavbarProps> = ({ className }) => {
 
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>
-      <div className={cls.links}>
-        <AppLink theme={AppLinkTheme.SECONDARY} className={cls.main} to={RoutePath.main}>
-          <span className={""}>{t("Main")}</span>
-        </AppLink>
-        <AppLink theme={AppLinkTheme.SECONDARY} className={cls.about} to={RoutePath.about}>
-          <span className={""}>{t("About")}</span>
-        </AppLink>
-      </div>
+      <div className={cls.links}></div>
       <LangSwitcher />
       <ThemeSwitcher />
     </div>

@@ -10,3 +10,16 @@
 .isCollapsed {
   width: var(--sidebar-width-collapsed);
 }
+
+.isCollapsedBtn {
+  display: block;
+  margin-left: auto;
+
+  cursor: pointer;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}

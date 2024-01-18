@@ -1,7 +1,7 @@
 import type { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
-import { Button, ThemeButton } from "shared/ui/Button/Button";
+import { Button, SizeButton, ThemeButton } from "shared/ui/Button/Button";
 
 export default {
   title: "shared/Button",
@@ -67,3 +67,37 @@ LightOutline.args = {
   theme: ThemeButton.OUTLINE,
 };
 LightOutline.decorators = [ThemeDecorator(Theme.LIGHT)];
+
+//
+//
+
+export const MediumLight = Template.bind({});
+MediumLight.args = {
+  children: "Medium",
+  size: SizeButton.MEDIUM,
+};
+MediumLight.decorators = [ThemeDecorator(Theme.LIGHT)];
+
+export const MediumDark = Template.bind({});
+MediumDark.args = {
+  children: "Medium",
+  size: SizeButton.MEDIUM,
+};
+MediumDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+//
+//
+
+export const LargeLight = Template.bind({});
+LargeLight.args = {
+  children: "Large",
+  size: SizeButton.LARGE,
+};
+MediumLight.decorators = [ThemeDecorator(Theme.LIGHT)];
+
+export const LargeDark = Template.bind({});
+LargeDark.args = {
+  children: "Large",
+  size: SizeButton.LARGE,
+};
+LargeDark.decorators = [ThemeDecorator(Theme.DARK)];
