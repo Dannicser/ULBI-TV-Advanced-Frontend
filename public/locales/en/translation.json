@@ -7,5 +7,6 @@
   "Theme": "Theme",
   "NotFound": "Not found page",
   "ErrorBoundary": "Critical Error has occured",
-  "Open": "Open"
+  "Open": "Open",
+  "SignIn": "Sign in"
 }

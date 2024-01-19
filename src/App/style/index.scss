@@ -4,11 +4,13 @@
 @import url("./themes/dark.scss");
 @import url("./themes/normal.scss");
 
-.app {
-  font: var(--font-m); // по умолчанию используется во всем приложении
-
+body {
   background: var(--bg-color);
   color: var(--primary-color);
+}
+
+.app {
+  font: var(--font-m); // по умолчанию используется во всем приложении
 
   min-height: 100vh; //растягивает приложение на всю высоту браузера
 }
