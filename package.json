@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --env mode=development port=3000",
+    "start:server": "node json-server ./json-server/db.json --port=5000",
     "build": "webpack --env mode=production",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "npx loki test",
