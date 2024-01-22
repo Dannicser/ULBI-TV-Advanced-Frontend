@@ -15,6 +15,7 @@ export const useTheme = (): IUseTheme => {
   };
 
   localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme);
+  document.body.className = theme;
 
   return { theme, toggleTheme };
 };
