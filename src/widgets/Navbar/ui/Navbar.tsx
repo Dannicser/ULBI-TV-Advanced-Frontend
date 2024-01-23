@@ -10,6 +10,7 @@ import cls from "./Navbar.module.scss";
 import { Button } from "shared/ui/Button/Button";
 import { useCallback, useState } from "react";
 import { Modal } from "shared/ui/Modal/Modal";
+import { LoginModal } from "features/AuthByUserName";
 
 interface INavbarProps {
   className?: string; // если снаружи заходим изменить стили
@@ -21,21 +22,24 @@ export const Navbar: React.FC<INavbarProps> = ({ className }) => {
   const { t, i18n } = useTranslation();
 
   // если мы передаем функцию как пропс, ссылку на нее надо сохранять, иначе при перерендере она будет пересоздаваться
-  const toggle = useCallback(() => {
-    setIsAuthModal(!isAuthModal);
+  const onCloseModal = useCallback(() => {
+    setIsAuthModal(false);
+  }, [isAuthModal]);
+
+  // если мы передаем функцию как пропс, ссылку на нее надо сохранять, иначе при перерендере она будет пересоздаваться
+  const onShowModal = useCallback(() => {
+    setIsAuthModal(true);
   }, [isAuthModal]);
 
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>
       <div className={cls.links}>
-        <Button onClick={toggle} className={cls.enter}>
+        <Button onClick={onShowModal} className={cls.enter}>
           {t("SignIn")}
         </Button>
       </div>
 
-      <Modal onClose={toggle} isOpen={isAuthModal}>
-        {t("SignIn")}
-      </Modal>
+      <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
       <LangSwitcher />
       <ThemeSwitcher />
     </div>

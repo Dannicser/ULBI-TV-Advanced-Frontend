@@ -8,13 +8,14 @@ interface IModalProps {
   className?: string;
   isOpen?: boolean;
   onClose?: () => void;
+  isLazy?: boolean; // ленивая модалка, появляется в доме только после открытия
 }
 
 const ANIMATION_DELAY = 300;
 
 export const Modal: React.FC<IModalProps> = (props) => {
-  const { className, children, isOpen, onClose } = props;
-
+  const { className, children, isOpen, onClose, isLazy = false } = props;
+  const [isMounted, setIsMounted] = useState(false); // вмонтирована модалка в дом или нет
   const [isClosing, setIsClosing] = useState(false);
   const timeRef = useRef<ReturnType<typeof setTimeout>>(); // очень удобная конструкция, если не знаешь тип сущности
 
@@ -52,6 +53,16 @@ export const Modal: React.FC<IModalProps> = (props) => {
       window.removeEventListener("keydown", onKeyDown); // чистим слушатель!!!!
     };
   }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
+
+  if (isLazy && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal element={document.body}>
