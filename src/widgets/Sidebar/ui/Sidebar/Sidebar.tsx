@@ -24,7 +24,7 @@ export const Sidebar: React.FC<ISidebarProps> = ({ className }) => {
 
   return (
     <div data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.isCollapsed]: isCollapsed }, [className])}>
-      <Button size={SizeButton.LARGE} theme={ThemeButton.PRIMARY} className={cls.isCollapsedBtn} data-testid="sidebar-toggle" onClick={toggle}>
+      <Button data-testid={"sidebar-button"} size={SizeButton.LARGE} theme={ThemeButton.PRIMARY} className={cls.isCollapsedBtn} onClick={toggle}>
         {t(isCollapsed ? ">" : "<")}
       </Button>
 
