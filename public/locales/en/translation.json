@@ -8,5 +8,8 @@
   "NotFound": "Not found page",
   "ErrorBoundary": "Critical Error has occured",
   "Open": "Open",
-  "SignIn": "Sign in"
+  "SignIn": "Sign in",
+  "Error": "Error",
+  "Auth": "Auth",
+  "SingOut": "Sign out"
 }

@@ -1,4 +1,4 @@
-import { Configuration, RuleSetRule } from "webpack";
+import { Configuration, DefinePlugin, RuleSetRule } from "webpack";
 import { IBuildPaths } from "../build/types/config";
 import path from "path";
 import { buildCssLoaders } from "../build/loaders/buildCssLoaders";
@@ -19,13 +19,15 @@ export default ({ config }: { config: Configuration }) => {
 
   config.plugins?.push(new MiniCssExtractPlugin());
 
-  config.module!.rules = config.module?.rules?.map((rule: any) => {
-    if (/svg/.test(rule?.test as string)) {
-      return { ...rule, exclude: "/.svg$/i" }; // лоадер больше не будет обрабатывать svg
-    }
+  config.plugins?.push(new DefinePlugin({ __IS_DEV__: true }));
 
-    return rule;
-  }); // для опрделенных лоадеров, которые необходимо исключить
+  // config.module!.rules = config.module?.rules?.map((rule: any) => {
+  //   if (/svg/.test(rule?.test as string)) {
+  //     return { ...rule, exclude: "/.svg$/i" }; // лоадер больше не будет обрабатывать svg
+  //   }
+
+  //   return rule;
+  // }); // для опрделенных лоадеров, которые необходимо исключить
 
   return config;
 };
