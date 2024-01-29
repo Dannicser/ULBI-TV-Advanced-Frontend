@@ -1,9 +1,10 @@
-import { LoginForm } from "../LoginForm/LoginForm";
-
 import { classNames } from "shared/lib/classNames/classNames";
 import { Modal } from "shared/ui/Modal/Modal";
 
+import { LoginFormAsync } from "../LoginForm/LoginForm.async";
+
 import cls from "./LoginModal.module.scss";
+import { Suspense } from "react";
 
 interface ILoginModalProps {
   className?: string;
@@ -14,7 +15,9 @@ interface ILoginModalProps {
 export const LoginModal: React.FC<ILoginModalProps> = ({ className, isOpen, onClose }) => {
   return (
     <Modal isLazy={true} isOpen={isOpen} onClose={onClose} className={classNames(cls.LoginModal, {}, [className])}>
-      <LoginForm />
+      <Suspense fallback={"..."}>
+        <LoginFormAsync />
+      </Suspense>
     </Modal>
   );
 };

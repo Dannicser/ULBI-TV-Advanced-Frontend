@@ -7,22 +7,35 @@ import { Button } from "shared/ui/Button/Button";
 import { Input } from "shared/ui/Input/Input";
 import { Text, ThemeText } from "shared/ui/Text";
 
-import { getLoginState } from "../../model/selectors/getLoginState/getLoginState";
-import { loginActions } from "../../model/slices/loginSlice";
+import { loginActions, loginReducer } from "../../model/slices/loginSlice";
 import { loginByUserName } from "../../model/services/loginByUserName/loginByUserName";
 
+import { DynamicModelLoader, ReducersList } from "shared/lib/components/DynamicModelLoader";
+import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLoginUsername";
+import { getLoginPassword } from "../..//model/selectors/getLoginPassword/getLoginPassword";
+import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading/getLoginIsLoading";
+import { getLoginError } from "../../model/selectors/getLoginError/getLoginError";
+
 import cls from "./LoginForm.module.scss";
+
+//выносим сверху, чтобы при каждом рендере компонента не перерысовывать детей (ссылка будет новая)
+const initialReducers: ReducersList = {
+  loginForm: loginReducer,
+};
 
 interface ILoginFormProps {
   className?: string;
 }
 
-export const LoginForm: React.FC<ILoginFormProps> = memo(({ className }) => {
+const LoginForm: React.FC<ILoginFormProps> = memo(({ className }) => {
   const { t, i18n } = useTranslation();
 
-  const { username, password, isLoading, error } = useSelector(getLoginState);
-
   const dispatch = useDispatch();
+
+  const username = useSelector(getLoginUsername);
+  const password = useSelector(getLoginPassword);
+  const isLoading = useSelector(getLoginIsLoading);
+  const error = useSelector(getLoginError);
 
   //useCallBack - потому что передаем вниз
   const onChangeUsername = useCallback(
@@ -46,15 +59,19 @@ export const LoginForm: React.FC<ILoginFormProps> = memo(({ className }) => {
   }, [dispatch, password, username]);
 
   return (
-    <div className={classNames(cls.LoginForm, {}, [className])}>
-      <Text title={t("Auth")} />
-      <Input value={username} onChange={onChangeUsername} isAutoFocus={true} type="text" />
-      <Input value={password} onChange={onChangePassword} type="text" />
-      <Button disabled={isLoading} onClick={onLoginClick}>
-        {t("SignIn")}
-      </Button>
+    <DynamicModelLoader isRemoveAfterUnmount={true} reducers={initialReducers}>
+      <div className={classNames(cls.LoginForm, {}, [className])}>
+        <Text title={t("Auth")} />
+        <Input value={username} onChange={onChangeUsername} isAutoFocus={true} type="text" />
+        <Input value={password} onChange={onChangePassword} type="text" />
+        <Button disabled={isLoading} onClick={onLoginClick}>
+          {t("SignIn")}
+        </Button>
 
-      {error && <Text title={error} theme={ThemeText.ERROR} />}
-    </div>
+        {error && <Text title={error} theme={ThemeText.ERROR} />}
+      </div>
+    </DynamicModelLoader>
   );
 });
+
+export default LoginForm;
