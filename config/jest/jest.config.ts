@@ -14,6 +14,7 @@ export default {
   testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[tj]s?(x)"],
   globals: {
     _IS_DEV_: true, // глобальные перемененные, о которых не знает jest
+    __API__: "",
   },
   // setupFilesAfterEnv: ["<rootDir>config/jest/setup.ts"],
 

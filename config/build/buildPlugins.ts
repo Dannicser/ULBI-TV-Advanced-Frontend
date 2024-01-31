@@ -6,13 +6,14 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { IBuildOptions } from "./types/config";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 
-export function buildPlugins({ paths, isDev }: IBuildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlugins({ paths, isDev, apiUrl }: IBuildOptions): webpack.WebpackPluginInstance[] {
   const plugins = [
     new HtmlWebpackPlugin({ template: paths.html }),
     new webpack.ProgressPlugin(),
     new MiniCssExtractPlugin({ filename: "css/[name].[contenthash:8].css" }),
     new webpack.DefinePlugin({
       _IS_DEV_: JSON.stringify(isDev),
+      __API__: JSON.stringify(apiUrl),
     }),
   ];
 

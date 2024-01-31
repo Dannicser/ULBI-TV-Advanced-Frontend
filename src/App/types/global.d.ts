@@ -7,3 +7,4 @@ declare module "*.module.scss" {
 }
 
 declare const _IS_DEV_: boolean;
+declare const __API__: string;

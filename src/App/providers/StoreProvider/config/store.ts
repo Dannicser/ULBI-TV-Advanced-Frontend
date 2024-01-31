@@ -1,10 +1,17 @@
-import { ReducersMapObject, configureStore } from "@reduxjs/toolkit";
+import { ReducersMapObject, configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { StateSchema } from "./StateSchema";
 import { counterReducer } from "entities/Counter";
 import { userReducer } from "entities/User";
 import { createReducerManager } from "./reducerManager";
 
-export function createReduxStore(initialState?: StateSchema, asyncReducers?: ReducersMapObject<StateSchema>) {
+import { api } from "shared/api/api";
+import { NavigateOptions, To } from "react-router-dom";
+
+export function createReduxStore(
+  initialState?: StateSchema,
+  asyncReducers?: ReducersMapObject<StateSchema>,
+  navigate?: (to: To, options?: NavigateOptions) => void
+) {
   // корневой редьюсер, содержит только обязательные редьюсеры
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
@@ -14,10 +21,20 @@ export function createReduxStore(initialState?: StateSchema, asyncReducers?: Red
 
   const reducerManager = createReducerManager(rootReducers);
 
-  const store = configureStore<StateSchema>({
+  const store = configureStore({
     reducer: reducerManager.reduce, // при использованнии менеджера редакс СЮДА ПЕРЕДАЕМ САМ МЕНЕДЖЕР
     devTools: _IS_DEV_,
     preloadedState: initialState, // данные для тестов
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        thunk: {
+          // доп фичи в thunkApi
+          extraArgument: {
+            api: api,
+            navigate,
+          },
+        },
+      }),
   });
 
   //@ts-ignore

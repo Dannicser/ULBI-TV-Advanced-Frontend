@@ -13,14 +13,16 @@ import "./app/style/index.scss";
 import "shared/config/i18n/i18n"; // обязательный импорт для работы i18n
 
 render(
-  <StoreProvider>
-    <BrowserRouter>
+  <BrowserRouter>
+    <StoreProvider>
       <ErrorBoundary>
         <ThemeProvider>
           <App />
         </ThemeProvider>
       </ErrorBoundary>
-    </BrowserRouter>
-  </StoreProvider>,
+    </StoreProvider>
+  </BrowserRouter>,
   document.getElementById("root")
 );
+
+//BrowserRouter - выше
