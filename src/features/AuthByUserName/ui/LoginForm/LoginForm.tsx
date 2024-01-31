@@ -1,6 +1,7 @@
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 
 import { classNames } from "shared/lib/classNames/classNames";
 import { Button } from "shared/ui/Button/Button";
@@ -25,12 +26,13 @@ const initialReducers: ReducersList = {
 
 interface ILoginFormProps {
   className?: string;
+  onSuccess?: () => void;
 }
 
-const LoginForm: React.FC<ILoginFormProps> = memo(({ className }) => {
+const LoginForm: React.FC<ILoginFormProps> = memo(({ className, onSuccess }) => {
   const { t, i18n } = useTranslation();
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
@@ -54,9 +56,13 @@ const LoginForm: React.FC<ILoginFormProps> = memo(({ className }) => {
   );
 
   //useCallBack - потому что передаем вниз
-  const onLoginClick = useCallback(() => {
-    dispatch(loginByUserName({ password, username }));
-  }, [dispatch, password, username]);
+  const onLoginClick = useCallback(async () => {
+    const res = await dispatch(loginByUserName({ password, username })); // можно забрать payload даже в компоненте!!!!
+
+    if (res.meta.requestStatus === "fulfilled") {
+      return onSuccess();
+    }
+  }, [onSuccess, dispatch, password, username]);
 
   return (
     <DynamicModelLoader isRemoveAfterUnmount={true} reducers={initialReducers}>

@@ -11,5 +11,6 @@
   "SignIn": "Sign in",
   "Error": "Error",
   "Auth": "Auth",
-  "SingOut": "Sign out"
+  "SingOut": "Sign out",
+  "Profile": "Profile"
 }

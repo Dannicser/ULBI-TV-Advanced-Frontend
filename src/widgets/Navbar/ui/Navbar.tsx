@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
 import { classNames } from "shared/lib/classNames/classNames";
@@ -14,6 +14,7 @@ import { LoginModal } from "features/AuthByUserName";
 import { userActions, getAuthData } from "entities/User";
 
 import cls from "./Navbar.module.scss";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 
 interface INavbarProps {
   className?: string; // если снаружи заходим изменить стили
@@ -22,7 +23,7 @@ interface INavbarProps {
 export const Navbar: React.FC<INavbarProps> = ({ className }) => {
   const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const authData = useSelector(getAuthData);
 

@@ -8,7 +8,14 @@
     { "id": "2", "text": "another comment about post 1", "postId": "1" }
   ],
   "profile": {
-    "name": "typicode"
+    "firstname": "Даниил",
+    "lastname": "Дмитриев",
+    "age": "21",
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Moscow",
+    "username": "danik",
+    "avatar": "https://avataaars.io/?avatarStyle=Circle&topType=LongHairNotTooLong&accessoriesType=Blank&hairColor=BrownDark&facialHairType=BeardMedium&facialHairColor=BrownDark&clotheType=CollarSweater&clotheColor=PastelBlue&eyeType=Surprised&eyebrowType=Default&mouthType=Smile&skinColor=Light"
   },
   "users": [{ "username": "admin", "password": "123", "id": "1" }]
 }

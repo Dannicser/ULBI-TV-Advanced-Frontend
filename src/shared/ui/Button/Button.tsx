@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, memo } from "react";
 
 import { classNames } from "shared/lib/classNames/classNames";
 
@@ -22,7 +22,7 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
 }
 
-export const Button: React.FC<IButtonProps> = (props) => {
+export const Button: React.FC<IButtonProps> = memo((props) => {
   const { className, children, theme = ThemeButton.CLEAR, size = SizeButton.MEDIUM, disabled = false, ...other } = props;
 
   return (
@@ -30,4 +30,4 @@ export const Button: React.FC<IButtonProps> = (props) => {
       {children}
     </button>
   );
-};
+});

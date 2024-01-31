@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import { classNames } from "shared/lib/classNames/classNames";
 
@@ -7,7 +7,9 @@ import { useTranslation } from "react-i18next";
 
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { Button, SizeButton, ThemeButton } from "shared/ui/Button/Button";
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
+
+import { SidebarItemsList } from "widgets/Sidebar/model/items";
+import { SidebarItem } from "../SidebarItem/SidebarItem";
 
 interface ISidebarProps {
   className?: string;
@@ -22,6 +24,12 @@ export const Sidebar: React.FC<ISidebarProps> = ({ className }) => {
     return setIsCollapsed((prev) => !prev);
   }
 
+  // предотвращение перерисовки через useMemo
+
+  // const itemsList = useMemo(() => {
+  //   return SidebarItemsList.map((el) => <SidebarItem item={el} />);
+  // }, []);
+
   return (
     <div data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.isCollapsed]: isCollapsed }, [className])}>
       <Button data-testid={"sidebar-button"} size={SizeButton.LARGE} theme={ThemeButton.PRIMARY} className={cls.isCollapsedBtn} onClick={toggle}>
@@ -29,12 +37,9 @@ export const Sidebar: React.FC<ISidebarProps> = ({ className }) => {
       </Button>
 
       <div className={cls.items}>
-        <AppLink theme={AppLinkTheme.SECONDARY} className={cls.main} to={RoutePath.main}>
-          <span className={""}>{t("Main")}</span>
-        </AppLink>
-        <AppLink theme={AppLinkTheme.SECONDARY} className={cls.about} to={RoutePath.about}>
-          <span className={""}>{t("About")}</span>
-        </AppLink>
+        {SidebarItemsList.map((el) => (
+          <SidebarItem key={el.path} item={el} />
+        ))}
       </div>
     </div>
   );

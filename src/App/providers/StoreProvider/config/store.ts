@@ -27,3 +27,5 @@ export function createReduxStore(initialState?: StateSchema, asyncReducers?: Red
 }
 
 // createReduxStore будет удобно потом в стокибуке или там, где нужны декораторы
+
+export type AppDispatch = ReturnType<typeof createReduxStore>["dispatch"];
