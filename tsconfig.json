@@ -10,6 +10,7 @@
     "allowSyntheticDefaultImports": true, // позволяет использовать default импорты
     "esModuleInterop": true, // позволяет импортировать через es6, библиотеки , которые должны импортироваться через common js
     //
+    "strict": true,
     "forceConsistentCasingInFileNames": false,
     "baseUrl": ".", // для абсолютного импорта
     "paths": {
