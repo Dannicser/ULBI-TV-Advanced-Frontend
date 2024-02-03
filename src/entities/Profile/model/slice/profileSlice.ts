@@ -20,6 +20,7 @@ export const profileSlice = createSlice({
         state.error = undefined;
       })
       .addCase(fetchProfileData.fulfilled, (state, action) => {
+        console.log(action);
         state.data = action.payload;
         state.isLoading = false;
       })

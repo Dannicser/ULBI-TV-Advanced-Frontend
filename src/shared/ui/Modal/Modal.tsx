@@ -1,13 +1,13 @@
 import { classNames } from "shared/lib/classNames/classNames";
 
 import cls from "./Modal.module.scss";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { MutableRefObject, useCallback, useEffect, useRef, useState } from "react";
 import { Portal } from "../Portal/Portal";
 
 interface IModalProps {
   className?: string;
   isOpen?: boolean;
-  onClose?: () => void;
+  onClose: () => void;
   isLazy?: boolean; // ленивая модалка, появляется в доме только после открытия
 }
 
@@ -17,7 +17,8 @@ export const Modal: React.FC<IModalProps> = (props) => {
   const { className, children, isOpen, onClose, isLazy = false } = props;
   const [isMounted, setIsMounted] = useState(false); // вмонтирована модалка в дом или нет
   const [isClosing, setIsClosing] = useState(false);
-  const timeRef = useRef<ReturnType<typeof setTimeout>>(); // очень удобная конструкция, если не знаешь тип сущности
+
+  const timeRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>; // очень удобная конструкция, если не знаешь тип сущности
 
   function onContentClick(event: React.MouseEvent) {
     // предотвращает всплытие

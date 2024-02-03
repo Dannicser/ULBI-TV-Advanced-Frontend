@@ -26,7 +26,7 @@ const initialReducers: ReducersList = {
 
 interface ILoginFormProps {
   className?: string;
-  onSuccess?: () => void;
+  onSuccess: () => void;
 }
 
 const LoginForm: React.FC<ILoginFormProps> = memo(({ className, onSuccess }) => {

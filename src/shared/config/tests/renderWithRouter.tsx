@@ -16,12 +16,13 @@ export function componentRender(compotent: ReactNode, options: IrenderWithRouter
   const { route = "/", initialState = {} } = options;
 
   return render(
-    <StoreProvider initialState={initialState}>
-      <MemoryRouter initialEntries={[route]}>
+    <MemoryRouter initialEntries={[route]}>
+      <StoreProvider initialState={initialState}>
         <I18nextProvider i18n={i18nForTests}>{compotent}</I18nextProvider>
-      </MemoryRouter>
-    </StoreProvider>
+      </StoreProvider>{" "}
+    </MemoryRouter>
   );
 }
 
+//MemoryRouter должен оборачивать все!!!! как и index.ts!!
 //решает проблему импортов элементов в реакт роутера при юнит тестировании, делал похожую функцию в сторибуке, чтобы испортировать

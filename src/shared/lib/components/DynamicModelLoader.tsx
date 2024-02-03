@@ -10,8 +10,6 @@ export type ReducersList = {
   [name in StateSchemaKey]?: Reducer;
 };
 
-type ReducerListEntry = [StateSchemaKey, Reducer];
-
 interface IDynamicModelLoaderProps {
   reducers: ReducersList;
   isRemoveAfterUnmount?: boolean;
@@ -27,15 +25,15 @@ export const DynamicModelLoader: React.FC<IDynamicModelLoaderProps> = (props) =>
   useEffect(() => {
     // в момент монтирования ассинхронного компонента нужно добавить редьюсер
 
-    Object.entries(reducers).forEach(([name, reducer]: ReducerListEntry) => {
-      store.reducerManager.add(name, reducer);
+    Object.entries(reducers).forEach(([name, reducer]) => {
+      store.reducerManager.add(name as StateSchemaKey, reducer);
       dispatch({ type: `@INIT ${name} reducer` });
     });
 
     return () => {
       if (isRemoveAfterUnmount) {
-        Object.entries(reducers).forEach(([name, reducer]: ReducerListEntry) => {
-          store.reducerManager.remove(name);
+        Object.entries(reducers).forEach(([name, reducer]) => {
+          store.reducerManager.remove(name as StateSchemaKey);
           dispatch({ type: `@DESTROY ${name} reducer` });
         });
       }

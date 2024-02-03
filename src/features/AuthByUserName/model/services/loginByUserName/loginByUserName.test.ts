@@ -1,8 +1,9 @@
-import axios from "axios";
+import axios, { AxiosStatic } from "axios";
 import { loginByUserName } from "./loginByUserName";
 import { Dispatch } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
 import { userActions } from "entities/User";
+import { api } from "shared/api/api";
 
 jest.mock("axios");
 
@@ -11,10 +12,14 @@ const mockedAxios = jest.mocked(axios, true); // глубокое мокание
 describe("loginByUserName", () => {
   let dispatch: Dispatch;
   let getState: () => StateSchema;
+  let navigate: jest.MockedFn<any>; // для extra api
+  let api: jest.MockedFunctionDeep<AxiosStatic>;
 
   beforeEach(() => {
     dispatch = jest.fn();
     getState = jest.fn();
+    navigate = jest.fn();
+    api = mockedAxios;
   }); // отрабатывает перед каждым тестом
 
   test("success auth", async () => {
@@ -24,11 +29,11 @@ describe("loginByUserName", () => {
 
     const action = loginByUserName({ username: "123", password: "123" });
 
-    const result = await action(dispatch, getState, undefined);
+    const result = await action(dispatch, getState, { api, navigate });
 
     expect(dispatch).toHaveBeenCalledTimes(3); // !!
     expect(dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue));
-    expect(mockedAxios.post).toHaveBeenCalled(); // запрос на сервер был отправлен
+    expect(api.post).toHaveBeenCalled(); // запрос на сервер был отправлен // теперь обращаемся к api extra
     expect(result.meta.requestStatus).toBe("fulfilled");
     expect(result.payload).toEqual(userValue);
   });
@@ -38,10 +43,10 @@ describe("loginByUserName", () => {
 
     const action = loginByUserName({ username: "123", password: "123" });
 
-    const result = await action(dispatch, getState, undefined);
+    const result = await action(dispatch, getState, { api, navigate });
 
     expect(dispatch).toHaveBeenCalledTimes(2); // !
-    expect(mockedAxios.post).toHaveBeenCalled();
+    expect(api.post).toHaveBeenCalled(); // теперь обращаемся к api extra
     expect(result.meta.requestStatus).toBe("rejected");
     expect(result.payload).toBe("Error");
   });

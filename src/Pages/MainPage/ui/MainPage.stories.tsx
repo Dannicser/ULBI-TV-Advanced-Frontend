@@ -15,7 +15,7 @@ export default {
 } as ComponentMeta<typeof MainPage>;
 
 const Template: ComponentStory<typeof MainPage> = (arg) => {
-  return <MainPage {...arg}></MainPage>;
+  return <MainPage></MainPage>;
 };
 
 export const Light = Template.bind({});

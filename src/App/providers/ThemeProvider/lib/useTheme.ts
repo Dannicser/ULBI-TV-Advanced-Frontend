@@ -8,10 +8,10 @@ interface IUseTheme {
 }
 
 export const useTheme = (): IUseTheme => {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme = Theme.LIGHT, setTheme } = useContext(ThemeContext);
 
   const toggleTheme = () => {
-    setTheme(theme === Theme.DARK ? Theme.LIGHT : Theme.DARK);
+    setTheme?.(theme === Theme.DARK ? Theme.LIGHT : Theme.DARK); // optional chaning operator for function!
   };
 
   localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme);

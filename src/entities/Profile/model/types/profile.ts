@@ -1,7 +1,7 @@
 import { County, Currency } from "shared/const/common";
 
 export interface IProfileSchema {
-  data: IProfile;
+  data?: IProfile;
   isLoading: boolean;
   error?: string;
   readonly: boolean;

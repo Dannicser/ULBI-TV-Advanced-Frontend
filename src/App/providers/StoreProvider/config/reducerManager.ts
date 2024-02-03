@@ -13,6 +13,7 @@ export function createReducerManager(initialReducers: ReducersMapObject<StateSch
   return {
     getReducerMap: () => reducers,
 
+    //обыкновенный редьюсер, но возвращает комбайн!
     reduce: (state: StateSchema, action: AnyAction) => {
       if (keysToRemove.length > 0) {
         state = { ...state };

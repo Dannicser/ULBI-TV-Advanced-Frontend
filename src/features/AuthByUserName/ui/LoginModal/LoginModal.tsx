@@ -9,7 +9,7 @@ import { Suspense } from "react";
 interface ILoginModalProps {
   className?: string;
   isOpen?: boolean;
-  onClose?: () => void;
+  onClose: () => void;
 }
 
 export const LoginModal: React.FC<ILoginModalProps> = ({ className, isOpen, onClose }) => {

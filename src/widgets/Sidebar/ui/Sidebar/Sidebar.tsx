@@ -2,14 +2,14 @@ import { useMemo, useState } from "react";
 
 import { classNames } from "shared/lib/classNames/classNames";
 
-import cls from "./Sidebar.module.scss";
 import { useTranslation } from "react-i18next";
 
-import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { Button, SizeButton, ThemeButton } from "shared/ui/Button/Button";
 
 import { SidebarItemsList } from "widgets/Sidebar/model/items";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
+
+import cls from "./Sidebar.module.scss";
 
 interface ISidebarProps {
   className?: string;

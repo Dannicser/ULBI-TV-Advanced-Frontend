@@ -1,4 +1,4 @@
-import { ReducersMapObject, configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import { CombinedState, Reducer, ReducersMapObject, configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { StateSchema } from "./StateSchema";
 import { counterReducer } from "entities/Counter";
 import { userReducer } from "entities/User";
@@ -21,18 +21,18 @@ export function createReduxStore(
 
   const reducerManager = createReducerManager(rootReducers);
 
+  const extraArgument = { api: api, navigate };
+
   const store = configureStore({
-    reducer: reducerManager.reduce, // при использованнии менеджера редакс СЮДА ПЕРЕДАЕМ САМ МЕНЕДЖЕР
+    reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>, // при использованнии менеджера редакс СЮДА ПЕРЕДАЕМ САМ МЕНЕДЖЕР
     devTools: _IS_DEV_,
     preloadedState: initialState, // данные для тестов
+
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         thunk: {
           // доп фичи в thunkApi
-          extraArgument: {
-            api: api,
-            navigate,
-          },
+          extraArgument: extraArgument,
         },
       }),
   });
