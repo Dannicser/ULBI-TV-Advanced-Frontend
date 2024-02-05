@@ -36,4 +36,5 @@ export interface IThunkExtraArg {
 export interface IThunkConfig<T> {
   rejectValue: T;
   extra: IThunkExtraArg;
+  state: StateSchema; // для getState - чтобы вынимать его в фанке и знать типы
 }

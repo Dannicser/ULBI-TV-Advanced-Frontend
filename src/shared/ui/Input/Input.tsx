@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, memo, useEffect, useRef, useState } from "react";
+import { InputHTMLAttributes, memo, useEffect, useRef } from "react";
 
 import { classNames } from "shared/lib/classNames/classNames";
 
@@ -9,7 +9,7 @@ type HtmlInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "value" | "onC
 
 interface IInputProps extends HtmlInputProps {
   className?: string;
-  value?: string;
+  value?: string | number;
   onChange?: (value: string) => void;
   isAutoFocus?: boolean;
 }

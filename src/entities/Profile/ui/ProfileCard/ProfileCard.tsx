@@ -1,41 +1,70 @@
-import { useSelector } from "react-redux";
-import { getProfileData } from "entities/Profile/model/selectors/getProfileData/getProfileData";
-
-import { useTranslation } from "react-i18next";
-
 import { classNames } from "shared/lib/classNames/classNames";
+import { AlignText, Text, ThemeText } from "shared/ui/Text";
 
-import { getProfileLoading } from "entities/Profile/model/selectors/getProfileLoading/getProfileLoading";
-import { getProfileError } from "entities/Profile/model/selectors/getProfileError/getProfileError";
-import { Text } from "shared/ui/Text";
-import { Button } from "shared/ui/Button/Button";
+import { IProfile } from "entities/Profile/model/types/profile";
+import { PageLoader } from "widgets/PageLoader";
+import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Input } from "shared/ui/Input/Input";
+
+import { Currency, CurrencySelect } from "entities/Currency";
+import { CountrySelector, County } from "entities/Country";
 
 import cls from "./ProfileCard.module.scss";
 
 interface IProfileCardProps {
   className?: string;
+  data?: IProfile;
+  isLoading?: boolean;
+  error?: string;
+  readonly?: boolean;
+  onChangeFirstname: (firstName: string) => void;
+  onChangeLastname: (lastName: string) => void;
+  onChangeCity: (city: string) => void;
+  onChangeAge: (age: string) => void;
+  onChangeUsername: (username: string) => void;
+  onChangeCurrency: (currency: Currency) => void;
+  onChangeCountry: (country: County) => void;
 }
 
-export const ProfileCard: React.FC<IProfileCardProps> = ({ className }) => {
-  const { t, i18n } = useTranslation("profile");
+export const ProfileCard: React.FC<IProfileCardProps> = (props) => {
+  const {
+    className,
+    data,
+    isLoading,
+    error,
+    onChangeLastname,
+    onChangeFirstname,
+    readonly,
+    onChangeAge,
+    onChangeCity,
+    onChangeUsername,
+    onChangeCurrency,
+    onChangeCountry,
+  } = props;
 
-  const data = useSelector(getProfileData);
-  const isLoading = useSelector(getProfileLoading);
-  const error = useSelector(getProfileError);
+  if (isLoading) {
+    return <PageLoader />;
+  }
+
+  if (error) {
+    return <Text align={AlignText.CENTER} title="Произошла ошибка" text="Попробуйте обновить страницу" theme={ThemeText.ERROR} />;
+  }
 
   return (
     <div className={classNames(cls.ProfileCard, {}, [className])}>
-      <div className={cls.header}>
-        <Text title={t("Profile")} />
-        <Button>{t("Editing")}</Button>
-      </div>
-
       <div>
-        <Input className={cls.inp} value={data?.firstname} />
+        <div>{data?.avatar && <Avatar src={data?.avatar} />}</div>
+        <Input disabled={readonly} onChange={onChangeFirstname} className={cls.inp} value={data?.firstname} />
+        <Input disabled={readonly} onChange={onChangeLastname} className={cls.inp} value={data?.lastname} />
+        <Input disabled={readonly} onChange={onChangeAge} className={cls.inp} value={data?.age} />
+        <Input disabled={readonly} onChange={onChangeCity} className={cls.inp} value={data?.city} />
+        <Input disabled={readonly} onChange={onChangeUsername} className={cls.inp} value={data?.username} />
 
-        <Input className={cls.inp} value={data?.lastname} />
+        <CurrencySelect readonly={readonly} onChange={onChangeCurrency} value={data?.currency} />
+        <CountrySelector readonly={readonly} onChange={onChangeCountry} value={data?.country} />
       </div>
     </div>
   );
 };
+
+//55:00

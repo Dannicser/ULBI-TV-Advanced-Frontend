@@ -1,21 +1,41 @@
 {
   "posts": [
-    { "id": "1", "title": "a title" },
-    { "id": "2", "title": "another title" }
+    {
+      "id": "1",
+      "title": "a title"
+    },
+    {
+      "id": "2",
+      "title": "another title"
+    }
   ],
   "comments": [
-    { "id": "1", "text": "a comment about post 1", "postId": "1" },
-    { "id": "2", "text": "another comment about post 1", "postId": "1" }
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
   ],
   "profile": {
-    "firstname": "Даниил",
-    "lastname": "Дмитриев",
-    "age": "21",
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Moscow",
-    "username": "danik",
+    "firstname": "Даниилsaя",
+    "lastname": "Дмитриевzяq",
+    "age": 112,
+    "currency": "USD",
+    "country": "RUSSIA",
+    "city": "Елец",
+    "username": "danics",
     "avatar": "https://avataaars.io/?avatarStyle=Circle&topType=LongHairNotTooLong&accessoriesType=Blank&hairColor=BrownDark&facialHairType=BeardMedium&facialHairColor=BrownDark&clotheType=CollarSweater&clotheColor=PastelBlue&eyeType=Surprised&eyebrowType=Default&mouthType=Smile&skinColor=Light"
   },
-  "users": [{ "username": "admin", "password": "123", "id": "1" }]
+  "users": [
+    {
+      "username": "admin",
+      "password": "123",
+      "id": "1"
+    }
+  ]
 }

@@ -1,4 +1,5 @@
-import { County, Currency } from "shared/const/common";
+import { County } from "entities/Country";
+import { Currency } from "entities/Currency";
 
 export interface IProfileSchema {
   data?: IProfile;
@@ -8,12 +9,12 @@ export interface IProfileSchema {
 }
 
 export interface IProfile {
-  firstname: string;
-  lastname: string;
-  age: string;
-  currency: Currency;
-  country: County;
-  city: string;
-  username: string;
-  avatar: string;
+  firstname?: string;
+  lastname?: string;
+  age?: number;
+  currency?: Currency;
+  country?: County;
+  city?: string;
+  username?: string;
+  avatar?: string;
 }
