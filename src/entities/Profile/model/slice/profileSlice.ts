@@ -7,6 +7,7 @@ const initialState: IProfileSchema = {
   data: undefined,
   isLoading: false,
   error: undefined,
+  validateErrors: undefined,
   readonly: true,
 };
 
@@ -16,6 +17,7 @@ export const profileSlice = createSlice({
   reducers: {
     setReadonly: (state) => {
       state.readonly = !state.readonly;
+      state.validateErrors = undefined;
     },
     updateProfile: (state, action: PayloadAction<IProfile>) => {
       state.data = { ...state.data, ...action.payload };
@@ -40,14 +42,16 @@ export const profileSlice = createSlice({
       .addCase(updateProfiledata.pending, (state) => {
         state.isLoading = true;
         state.error = undefined;
+        state.validateErrors = undefined;
       })
       .addCase(updateProfiledata.fulfilled, (state, action) => {
         state.isLoading = false;
         state.readonly = true;
+        state.validateErrors = undefined;
       })
       .addCase(updateProfiledata.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload;
+        state.validateErrors = action.payload;
       });
   },
 });

@@ -1,5 +1,8 @@
 {
   "Editing": "Editing",
   "Profile": "Profile",
-  "Save": "Save"
+  "Save": "Save",
+  "INCORRECT_USER_AGE": "incorrect age",
+  "INCORRECT_USER_COUNTRY": "incorrect country",
+  "INCORRECT_USER_NAME": "incorrect username"
 }

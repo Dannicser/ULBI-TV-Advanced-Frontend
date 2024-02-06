@@ -1,5 +1,8 @@
 {
   "Editing": "Редактирование",
   "Profile": "Профиль",
-  "Save": "Сохранить"
+  "Save": "Сохранить",
+  "INCORRECT_USER_AGE": "Неверный формат возраста",
+  "INCORRECT_USER_COUNTRY": "Неверный формат страны",
+  "INCORRECT_USER_NAME": "Неверное имя пользовалеля"
 }

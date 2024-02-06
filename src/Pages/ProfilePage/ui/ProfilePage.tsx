@@ -18,6 +18,9 @@ import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 import cls from "./ProfilePage.module.scss";
 import { Currency } from "entities/Currency";
 import { County } from "entities/Country";
+import { getProfileValidateErrors } from "entities/Profile/model/selectors/getProfileValidateErrors/getProfileValidateError";
+import { ValidateProfileError } from "entities/Profile/model/types/profile";
+import { Text, ThemeText } from "shared/ui/Text";
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -28,7 +31,7 @@ interface IProfilePageProps {
 }
 
 const ProfilePage: React.FC<IProfilePageProps> = ({ className }) => {
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation("profile");
 
   const dispatch = useAppDispatch();
 
@@ -36,6 +39,16 @@ const ProfilePage: React.FC<IProfilePageProps> = ({ className }) => {
   const isLoading = useSelector(getProfileLoading);
   const error = useSelector(getProfileError);
   const readOnly = useSelector(getProfileReadonly);
+
+  const validateErrors = useSelector(getProfileValidateErrors);
+
+  const validateErrorTranslates = {
+    [ValidateProfileError.INCORRECT_USER_AGE]: t("INCORRECT_USER_AGE"),
+    [ValidateProfileError.INCORRECT_USER_COUNTRY]: t("INCORRECT_USER_COUNTRY"),
+    [ValidateProfileError.INCORRECT_USER_NAME]: t("INCORRECT_USER_NAME"),
+    [ValidateProfileError.NO_DATA]: t("NO_DATA"),
+    [ValidateProfileError.SERVER_ERROR]: t("SERVER_ERROR"),
+  };
 
   const onChangeFirstname = useCallback((firstname: string) => {
     dispatch(profileActions.updateProfile({ firstname }));
@@ -73,6 +86,9 @@ const ProfilePage: React.FC<IProfilePageProps> = ({ className }) => {
     <DynamicModelLoader isRemoveAfterUnmount={true} reducers={reducers}>
       <div className={classNames(cls.ProfilePage, {}, [className])}>
         <ProfilePageHeader />
+        {validateErrors?.map((error) => {
+          return <Text theme={ThemeText.ERROR} text={validateErrorTranslates[error]} key={error} />;
+        })}
         <ProfileCard
           readonly={readOnly}
           onChangeLastname={onChangeLastname}
