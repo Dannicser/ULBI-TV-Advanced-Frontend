@@ -3,10 +3,10 @@ import { Currency } from "entities/Currency";
 
 export interface IProfileSchema {
   data?: IProfile;
-  isLoading: boolean;
+  isLoading?: boolean;
   error?: string;
   validateErrors?: ValidateProfileError[];
-  readonly: boolean;
+  readonly?: boolean;
 }
 
 export interface IProfile {

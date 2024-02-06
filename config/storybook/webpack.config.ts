@@ -19,7 +19,7 @@ export default ({ config }: { config: Configuration }) => {
 
   config.plugins?.push(new MiniCssExtractPlugin());
 
-  config.plugins?.push(new DefinePlugin({ __IS_DEV__: true, __API__: "" }));
+  config.plugins?.push(new DefinePlugin({ __IS_DEV__: true, __API__: "", __ENVIROMENT__: "storybook" }));
 
   // config.module!.rules = config.module?.rules?.map((rule: any) => {
   //   if (/svg/.test(rule?.test as string)) {

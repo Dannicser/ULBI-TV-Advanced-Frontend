@@ -19,4 +19,7 @@ export interface IBuildOptions {
   isDev: boolean;
   port: number;
   apiUrl: string;
+  enviroment?: Enviroment;
 }
+
+export type Enviroment = "storybook" | "frontend" | "jest";

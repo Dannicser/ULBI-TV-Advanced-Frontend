@@ -3,13 +3,14 @@ import webpack from "webpack";
 import path from "path";
 
 import { buildWebpackConfig } from "./config/build/buildWebpackConfig";
-import { IBuildEnv, IBuildPaths } from "./config/build/types/config";
+import { Enviroment, IBuildEnv, IBuildPaths } from "./config/build/types/config";
 
 export default (env: IBuildEnv) => {
   const mode = env.mode || "development";
   const isDev = mode === "development" ? true : false;
   const port = env.port || 3000;
   const apiUrl = env.apiUrl || "http://localhost:5000";
+  const enviroment: Enviroment = "frontend";
 
   const paths: IBuildPaths = {
     entry: path.resolve(__dirname, "src", "index.tsx"),
@@ -24,6 +25,7 @@ export default (env: IBuildEnv) => {
     isDev,
     port,
     apiUrl,
+    enviroment,
   });
 
   return config;

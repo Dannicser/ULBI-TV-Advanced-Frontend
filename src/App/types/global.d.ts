@@ -8,6 +8,7 @@ declare module "*.module.scss" {
 
 declare const _IS_DEV_: boolean;
 declare const __API__: string;
+declare const __ENVIROMENT__: "storybook" | "frontend" | "jest";
 
 type DeepPartial<T> = T extends object
   ? {

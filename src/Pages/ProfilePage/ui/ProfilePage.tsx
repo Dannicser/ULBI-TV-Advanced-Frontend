@@ -18,7 +18,7 @@ import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 import cls from "./ProfilePage.module.scss";
 import { Currency } from "entities/Currency";
 import { County } from "entities/Country";
-import { getProfileValidateErrors } from "entities/Profile/model/selectors/getProfileValidateErrors/getProfileValidateError";
+import { getProfileValidateErrors } from "entities/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors";
 import { ValidateProfileError } from "entities/Profile/model/types/profile";
 import { Text, ThemeText } from "shared/ui/Text";
 

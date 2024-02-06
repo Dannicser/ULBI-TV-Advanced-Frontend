@@ -3,7 +3,6 @@ import { loginByUserName } from "./loginByUserName";
 import { Dispatch } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
 import { userActions } from "entities/User";
-import { api } from "shared/api/api";
 
 jest.mock("axios");
 

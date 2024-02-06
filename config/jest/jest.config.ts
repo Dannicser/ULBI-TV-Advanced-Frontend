@@ -15,6 +15,7 @@ export default {
   globals: {
     _IS_DEV_: true, // глобальные перемененные, о которых не знает jest
     __API__: "",
+    __ENVIROMENT__: "jest",
   },
   // setupFilesAfterEnv: ["<rootDir>config/jest/setup.ts"],
 
