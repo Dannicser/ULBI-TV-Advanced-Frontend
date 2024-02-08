@@ -1,6 +1,7 @@
 export enum Theme {
   LIGHT = "light",
   DARK = "dark",
+  ORANGE = "orange",
 }
 
 export interface IThemeContextProps {
