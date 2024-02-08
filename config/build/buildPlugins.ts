@@ -2,6 +2,7 @@ import webpack from "webpack";
 
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 
 import { IBuildOptions } from "./types/config";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
@@ -18,7 +19,8 @@ export function buildPlugins({ paths, isDev, apiUrl, enviroment }: IBuildOptions
     }),
   ];
 
-  if (!isDev) {
+  if (isDev) {
+    plugins.push(new ReactRefreshWebpackPlugin());
     plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
   }
 

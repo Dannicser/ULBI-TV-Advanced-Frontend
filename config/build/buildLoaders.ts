@@ -2,6 +2,7 @@ import webpack from "webpack";
 
 import { IBuildOptions } from "./types/config";
 import { buildCssLoaders } from "./loaders/buildCssLoaders";
+import { buildBabelLoader } from "./loaders/buildBabelLoader";
 
 export function buildLoaders(options: IBuildOptions): webpack.RuleSetRule[] {
   const typescriptLoader = {
@@ -11,6 +12,7 @@ export function buildLoaders(options: IBuildOptions): webpack.RuleSetRule[] {
   };
 
   const scssLoader = buildCssLoaders(options.isDev);
+
   return [typescriptLoader, scssLoader];
 }
 
