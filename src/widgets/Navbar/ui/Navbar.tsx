@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { memo, useCallback, useState } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
@@ -20,7 +20,7 @@ interface INavbarProps {
   className?: string; // если снаружи заходим изменить стили
 }
 
-export const Navbar: React.FC<INavbarProps> = ({ className }) => {
+export const Navbar: React.FC<INavbarProps> = memo(({ className }) => {
   const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
 
   const dispatch = useAppDispatch();
@@ -42,6 +42,8 @@ export const Navbar: React.FC<INavbarProps> = ({ className }) => {
   const onLogout = useCallback(() => {
     dispatch(userActions.logout());
   }, []);
+
+  console.log(authData);
 
   if (authData) {
     return (
@@ -71,4 +73,4 @@ export const Navbar: React.FC<INavbarProps> = ({ className }) => {
       <ThemeSwitcher />
     </div>
   );
-};
+});

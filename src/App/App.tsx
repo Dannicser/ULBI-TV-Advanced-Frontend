@@ -1,5 +1,5 @@
 import { Suspense, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { AppRouter } from "./router";
 
@@ -8,14 +8,15 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "widgets/Sidebar";
 
-import { userActions } from "entities/User";
+import { getUserInited, userActions } from "entities/User";
 
 export const App: React.FC = () => {
   const dispatch = useDispatch();
+  const inited = useSelector(getUserInited);
 
   useEffect(() => {
     dispatch(userActions.initAuthData());
-  }, []);
+  }, [dispatch]); // ????????????????????????????///
 
   return (
     <div className={classNames("app", {}, [])}>
@@ -23,7 +24,7 @@ export const App: React.FC = () => {
         <Navbar />
         <div className="content-page">
           <Sidebar />
-          <AppRouter />
+          {inited && <AppRouter />}
         </div>
       </Suspense>
     </div>

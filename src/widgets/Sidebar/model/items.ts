@@ -3,10 +3,11 @@ import { RoutePath } from "shared/config/routeConfig/routeConfig";
 export interface SidebarItemType {
   path: string;
   text: string;
+  authOnly: boolean;
 }
 
 export const SidebarItemsList: SidebarItemType[] = [
-  { path: RoutePath.main, text: "Main" },
-  { path: RoutePath.about, text: "About" },
-  { path: RoutePath.profile, text: "Profile" },
+  { path: RoutePath.main, text: "Main", authOnly: false },
+  { path: RoutePath.about, text: "About", authOnly: false },
+  { path: RoutePath.profile, text: "Profile", authOnly: true },
 ];
