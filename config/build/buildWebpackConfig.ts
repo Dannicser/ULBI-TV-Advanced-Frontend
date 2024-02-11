@@ -16,6 +16,7 @@ export function buildWebpackConfig(options: IBuildOptions): webpack.Configuratio
       filename: "[name].[contenthash].js",
       path: paths.build,
       clean: true, // чистит лишние файлы
+      publicPath: "/", // берет статику из корня
     },
     plugins: buildPlugins(options),
     module: {

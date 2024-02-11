@@ -66,7 +66,7 @@ const LoginForm: React.FC<ILoginFormProps> = memo(({ className, onSuccess }) => 
 
   return (
     <DynamicModelLoader isRemoveAfterUnmount={true} reducers={initialReducers}>
-      <div className={classNames(cls.LoginForm, {}, [className])}>
+      <form className={classNames(cls.LoginForm, {}, [className])}>
         <Text title={t("Auth")} />
         <Input value={username} onChange={onChangeUsername} isAutoFocus={true} type="text" />
         <Input value={password} onChange={onChangePassword} type="text" />
@@ -75,7 +75,7 @@ const LoginForm: React.FC<ILoginFormProps> = memo(({ className, onSuccess }) => 
         </Button>
 
         {error && <Text title={error} theme={ThemeText.ERROR} />}
-      </div>
+      </form>
     </DynamicModelLoader>
   );
 });
