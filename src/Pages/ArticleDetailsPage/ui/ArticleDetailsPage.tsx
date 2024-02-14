@@ -1,4 +1,8 @@
+import { useParams } from "react-router-dom";
+
 import { useTranslation } from "react-i18next";
+
+import { ArticleDetails } from "entities/Article";
 
 import { classNames } from "shared/lib/classNames/classNames";
 
@@ -11,7 +15,17 @@ interface IArticleDetailsPageProps {
 const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({ className }) => {
   const { t, i18n } = useTranslation();
 
-  return <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>Article Detail</div>;
+  const { id } = useParams<{ id: string }>();
+
+  if (!id) {
+    return null;
+  }
+
+  return (
+    <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+      <ArticleDetails id={id} />
+    </div>
+  );
 };
 
 export default ArticleDetailsPage;

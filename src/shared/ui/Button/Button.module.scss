@@ -3,6 +3,10 @@
   padding: 3px;
   margin: 0px;
   font-size: 14px;
+
+  &:hover {
+    opacity: 0.9;
+  }
 }
 
 .clear {
@@ -28,7 +32,4 @@
 
 .large {
   font-size: var(--font-size-l);
-}
-
-.disabled {
 }
