@@ -111,7 +111,8 @@
     {
       "username": "admin",
       "password": "123",
-      "id": "1"
+      "id": "1",
+      "avatar": "https://avataaars.io/?avatarStyle=Circle&topType=LongHairNotTooLong&accessoriesType=Blank&hairColor=BrownDark&facialHairType=BeardMedium&facialHairColor=BrownDark&clotheType=CollarSweater&clotheColor=PastelBlue&eyeType=Surprised&eyebrowType=Default&mouthType=Smile&skinColor=Light"
     }
   ]
 }

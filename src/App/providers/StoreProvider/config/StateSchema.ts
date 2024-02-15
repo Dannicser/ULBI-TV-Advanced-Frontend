@@ -1,10 +1,11 @@
 import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
 import { AxiosInstance } from "axios";
-import { IActicleDetailsSchema } from "entities/Article";
+import { IArticleDetailsSchema } from "entities/Article";
 import { ICounterSchema } from "entities/Counter";
 import { IProfileSchema } from "entities/Profile";
 import { IUserSchema } from "entities/User";
 import { ILoginSchema } from "features/AuthByUserName";
+import { IArticleDetailsCommentSchema } from "pages/ArticleDetailsPage";
 import { NavigateOptions, To } from "react-router-dom";
 
 export interface StateSchema {
@@ -14,7 +15,8 @@ export interface StateSchema {
   // ассинхронные редьюсеры
   loginForm?: ILoginSchema;
   profile?: IProfileSchema;
-  articleDetails?: IActicleDetailsSchema;
+  articleDetails?: IArticleDetailsSchema;
+  articleDetailsComments?: IArticleDetailsCommentSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema; //названия редьюсеров

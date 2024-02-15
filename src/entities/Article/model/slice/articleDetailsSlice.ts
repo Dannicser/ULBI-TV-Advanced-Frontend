@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IActicleDetailsSchema } from "../types/articleDetailsSchema";
+import { IArticleDetailsSchema } from "../types/articleDetailsSchema";
 import { fetchArticleById } from "../services/fetchArticleById/fetchArticleById";
 
-const initialState: IActicleDetailsSchema = {
+const initialState: IArticleDetailsSchema = {
   data: undefined,
   isLoading: false,
   error: undefined,

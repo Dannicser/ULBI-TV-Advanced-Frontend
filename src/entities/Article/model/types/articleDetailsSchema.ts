@@ -1,6 +1,6 @@
 import { IArticle } from "./article";
 
-export interface IActicleDetailsSchema {
+export interface IArticleDetailsSchema {
   isLoading?: boolean;
   error?: string;
   data?: IArticle;
