@@ -6,9 +6,10 @@ import { Text } from "shared/ui/Text";
 
 import cls from "./ProfilePageHeader.module.scss";
 import { useSelector } from "react-redux";
-import { getProfileReadonly, profileActions, updateProfiledata } from "entities/Profile";
+import { getProfileData, getProfileReadonly, profileActions, updateProfiledata } from "entities/Profile";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { memo } from "react";
+import { getAuthData } from "entities/User";
 
 interface IProfilePageHeaderProps {
   className?: string;
@@ -20,6 +21,10 @@ export const ProfilePageHeader: React.FC<IProfilePageHeaderProps> = memo(({ clas
   const dispatch = useAppDispatch();
 
   const readOnly = useSelector(getProfileReadonly);
+  const authData = useSelector(getAuthData);
+  const profileData = useSelector(getProfileData);
+
+  const isEdit = authData?.id === profileData?.id;
 
   const onEdit = () => {
     dispatch(profileActions.setReadonly());
@@ -27,14 +32,14 @@ export const ProfilePageHeader: React.FC<IProfilePageHeaderProps> = memo(({ clas
 
   const onSave = () => {
     dispatch(profileActions.setReadonly());
-    dispatch(updateProfiledata());
+    dispatch(updateProfiledata(profileData?.id));
   };
 
   return (
     <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
       <div className={cls.header}>
         <Text title={t("Profile")} />
-        <div>{readOnly ? <Button onClick={onEdit}>{t("Editing")}</Button> : <Button onClick={onSave}>{t("Save")}</Button>}</div>
+        {isEdit && <div>{readOnly ? <Button onClick={onEdit}>{t("Editing")}</Button> : <Button onClick={onSave}>{t("Save")}</Button>}</div>}
       </div>
     </div>
   );

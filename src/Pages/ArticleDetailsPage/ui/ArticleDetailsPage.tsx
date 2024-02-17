@@ -12,12 +12,16 @@ import { Text } from "shared/ui/Text";
 import { classNames } from "shared/lib/classNames/classNames";
 import { DynamicModelLoader, ReducersList } from "shared/lib/components/DynamicModelLoader";
 
-import cls from "./ArticleDetailsPage.module.scss";
 import { useSelector } from "react-redux";
 import { getArticleCommentsError, getArticleCommentsIsLoading } from "../model/selectors/comments";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { fetchCommentsByArticleId } from "../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+
+import { AddCommentFormAsync } from "features/AddCommentForm";
+import { addCommentForArticle } from "../model/services/addCommentForArticle/addCommentForArticle";
+
+import cls from "./ArticleDetailsPage.module.scss";
 
 const reducers: ReducersList = {
   articleDetailsComments: articleDetailsCommentsReducer,
@@ -43,6 +47,10 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({ className }) =
     return null;
   }
 
+  const onSendComment = useCallback((text: string) => {
+    dispatch(addCommentForArticle(text));
+  }, []);
+
   useEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
   }, []);
@@ -51,13 +59,12 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({ className }) =
     <DynamicModelLoader reducers={reducers} isRemoveAfterUnmount>
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <ArticleDetails id={id} />
+        <AddCommentFormAsync onSendComment={onSendComment} />
         <Text title="Комментарии" />
         <CommentList comments={comments} isLoading={isLoading} />
       </div>
     </DynamicModelLoader>
   );
 };
-
-//39:00
 
 export default ArticleDetailsPage;

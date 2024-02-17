@@ -10,6 +10,7 @@ const commentsAdapter = createEntityAdapter<IComment>({
   selectId: (comment: IComment) => comment.id, // поле по которому идет нормализация
 });
 
+//selector
 export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
   (state) => state.articleDetailsComments || commentsAdapter.getInitialState()
 );
@@ -38,6 +39,7 @@ const articleDetailsCommentsSlice = createSlice({
   },
 });
 
+export const { actions: articleDetailsCommentsActions } = articleDetailsCommentsSlice;
 export const { reducer: articleDetailsCommentsReducer } = articleDetailsCommentsSlice;
 
 // EntityState

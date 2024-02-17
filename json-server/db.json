@@ -17,7 +17,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -79,40 +81,156 @@
   ],
   "comments": [
     {
-      "id": "1",
-      "text": "some comment",
       "articleId": "1",
-      "userId": "1"
+      "userId": "1",
+      "text": "ей пидор",
+      "id": 1
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "ыв",
+      "id": 2
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "пидор",
+      "id": 3
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "ну ты пидр",
+      "id": 4
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "1",
+      "id": 5
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "1",
+      "id": 6
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "x",
+      "id": 7
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "x",
+      "id": 8
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "sd",
+      "id": 9
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "xc",
+      "id": 10
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "ss",
+      "id": 11
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "пидор",
+      "id": 12
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "s",
+      "id": 13
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "c",
+      "id": 14
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "x",
+      "id": 15
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "x",
+      "id": 16
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "s",
+      "id": 17
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "a",
+      "id": 18
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "a",
+      "id": 19
+    }
+  ],
+  "profile": [
+    {
+      "id": "1",
+      "firstname": "Даниилsaя",
+      "lastname": "Дмитриевzяq1ййййй",
+      "age": 112,
+      "currency": "RUB",
+      "country": "USA",
+      "city": "Елец",
+      "username": "danics",
+      "avatar": "https://avataaars.io/?avatarStyle=Circle&topType=LongHairNotTooLong&accessoriesType=Blank&hairColor=BrownDark&facialHairType=BeardMedium&facialHairColor=BrownDark&clotheType=CollarSweater&clotheColor=PastelBlue&eyeType=Surprised&eyebrowType=Default&mouthType=Smile&skinColor=Light"
     },
     {
       "id": "2",
-      "text": "some comment 2",
-      "articleId": "1",
-      "userId": "1"
-    },
-    {
-      "id": "3",
-      "text": "some comment 3",
-      "articleId": "1",
-      "userId": "1"
+      "firstname": "Василий",
+      "lastname": "Пупкин",
+      "age": 35,
+      "currency": "RUB",
+      "country": "USA",
+      "city": "Становое",
+      "username": "danics",
+      "avatar": "https://avataaars.io/?avatarStyle=Circle&topType=LongHairNotTooLong&accessoriesType=Blank&hairColor=BrownDark&facialHairType=BeardMedium&facialHairColor=BrownDark&clotheType=CollarSweater&clotheColor=PastelBlue&eyeType=Surprised&eyebrowType=Default&mouthType=Smile&skinColor=Dark"
     }
   ],
-  "profile": {
-    "firstname": "Даниилsaя",
-    "lastname": "Дмитриевzяq",
-    "age": 112,
-    "currency": "RUB",
-    "country": "USA",
-    "city": "Елец",
-    "username": "danics",
-    "avatar": "https://avataaars.io/?avatarStyle=Circle&topType=LongHairNotTooLong&accessoriesType=Blank&hairColor=BrownDark&facialHairType=BeardMedium&facialHairColor=BrownDark&clotheType=CollarSweater&clotheColor=PastelBlue&eyeType=Surprised&eyebrowType=Default&mouthType=Smile&skinColor=Light"
-  },
   "users": [
     {
+      "id": "1",
       "username": "admin",
       "password": "123",
-      "id": "1",
       "avatar": "https://avataaars.io/?avatarStyle=Circle&topType=LongHairNotTooLong&accessoriesType=Blank&hairColor=BrownDark&facialHairType=BeardMedium&facialHairColor=BrownDark&clotheType=CollarSweater&clotheColor=PastelBlue&eyeType=Surprised&eyebrowType=Default&mouthType=Smile&skinColor=Light"
+    },
+    {
+      "id": "2",
+      "username": "vasya",
+      "password": "123",
+      "avatar": "https://avataaars.io/?avatarStyle=Circle&topType=LongHairNotTooLong&accessoriesType=Blank&hairColor=BrownDark&facialHairType=BeardMedium&facialHairColor=BrownDark&clotheType=CollarSweater&clotheColor=PastelBlue&eyeType=Surprised&eyebrowType=Default&mouthType=Smile&skinColor=Dark"
     }
   ]
 }

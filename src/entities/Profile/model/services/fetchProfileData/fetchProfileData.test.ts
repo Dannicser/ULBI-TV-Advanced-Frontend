@@ -28,7 +28,7 @@ describe("fetchProfiledata", () => {
 
     mockedAxios.get.mockReturnValue(Promise.resolve({ data: response }));
 
-    const thunk = fetchProfileData(); // создаем сам thunk (createAsyncThunk только создает фанк, его еще нужно вызвать)
+    const thunk = fetchProfileData("1"); // создаем сам thunk (createAsyncThunk только создает фанк, его еще нужно вызвать)
 
     const result = await thunk(dispatch, getState, { api, navigate }); // мокаем thunkApi
 
@@ -40,7 +40,7 @@ describe("fetchProfiledata", () => {
   test("fail auth error", async () => {
     mockedAxios.get.mockReturnValue(Promise.resolve({ status: 403 }));
 
-    const thunk = fetchProfileData();
+    const thunk = fetchProfileData("1");
 
     const result = await thunk(dispatch, getState, { api, navigate });
 

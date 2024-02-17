@@ -21,6 +21,7 @@ import { County } from "entities/Country";
 import { getProfileValidateErrors } from "entities/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors";
 import { ValidateProfileError } from "entities/Profile/model/types/profile";
 import { Text, ThemeText } from "shared/ui/Text";
+import { useParams } from "react-router-dom";
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -41,6 +42,8 @@ const ProfilePage: React.FC<IProfilePageProps> = ({ className }) => {
   const readOnly = useSelector(getProfileReadonly);
 
   const validateErrors = useSelector(getProfileValidateErrors);
+
+  const { id } = useParams<{ id: string }>();
 
   const validateErrorTranslates = {
     [ValidateProfileError.INCORRECT_USER_AGE]: t("INCORRECT_USER_AGE"),
@@ -78,8 +81,12 @@ const ProfilePage: React.FC<IProfilePageProps> = ({ className }) => {
     dispatch(profileActions.updateProfile({ country: country }));
   }, []);
 
+  if (!id) {
+    return null;
+  }
+
   useEffect(() => {
-    dispatch(fetchProfileData());
+    dispatch(fetchProfileData(id));
   }, []);
 
   return (

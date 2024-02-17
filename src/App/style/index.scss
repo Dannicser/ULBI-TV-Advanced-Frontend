@@ -25,5 +25,5 @@ body {
 
   height: calc(100vh - var(--navbar-height));
   overflow-x: auto;
-  width: 100%;
+  flex-shrink: 100;
 }

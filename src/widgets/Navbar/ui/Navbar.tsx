@@ -43,8 +43,6 @@ export const Navbar: React.FC<INavbarProps> = memo(({ className }) => {
     dispatch(userActions.logout());
   }, []);
 
-  console.log(authData);
-
   if (authData) {
     return (
       <div className={classNames(cls.Navbar, {}, [className])}>

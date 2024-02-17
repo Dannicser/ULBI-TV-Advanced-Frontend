@@ -10,6 +10,7 @@ export interface IProfileSchema {
 }
 
 export interface IProfile {
+  id?: string;
   firstname?: string;
   lastname?: string;
   age?: number;

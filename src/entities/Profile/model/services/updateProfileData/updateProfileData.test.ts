@@ -38,7 +38,7 @@ describe("updateProfileData", () => {
 
     mockedAxios.put.mockReturnValue(Promise.resolve({ data: response }));
 
-    const thunk = updateProfiledata();
+    const thunk = updateProfiledata("1");
 
     const result = await thunk(dispatch, getState, { api, navigate });
 
@@ -50,7 +50,7 @@ describe("updateProfileData", () => {
   test("server error", async () => {
     mockedAxios.put.mockReturnValue(Promise.resolve({ status: 403 }));
 
-    const thunk = updateProfiledata();
+    const thunk = updateProfiledata("1");
 
     const result = await thunk(dispatch, getState, { api, navigate });
 
