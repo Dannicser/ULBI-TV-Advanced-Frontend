@@ -21,7 +21,7 @@ export function createReduxStore(
 
   const reducerManager = createReducerManager(rootReducers);
 
-  const extraArgument = { api: api, navigate };
+  const extraArgument = { api, navigate };
 
   const store = configureStore({
     reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>, // при использованнии менеджера редакс СЮДА ПЕРЕДАЕМ САМ МЕНЕДЖЕР

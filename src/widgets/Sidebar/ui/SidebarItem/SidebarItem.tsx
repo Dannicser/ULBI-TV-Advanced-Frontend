@@ -4,7 +4,7 @@ import { classNames } from "shared/lib/classNames/classNames";
 
 import cls from "./SidebarItem.module.scss";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
-import { SidebarItemType } from "../../model/items";
+import { SidebarItemType } from "../../model/types/sidebar";
 import { memo } from "react";
 import { useSelector } from "react-redux";
 import { getAuthData } from "entities/User";

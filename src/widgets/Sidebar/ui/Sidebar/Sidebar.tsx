@@ -6,10 +6,11 @@ import { useTranslation } from "react-i18next";
 
 import { Button, SizeButton, ThemeButton } from "shared/ui/Button/Button";
 
-import { SidebarItemsList } from "widgets/Sidebar/model/items";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 
 import cls from "./Sidebar.module.scss";
+import { useSelector } from "react-redux";
+import { getSidebarItems } from "widgets/Sidebar/model/selectors/getSidebarItems";
 
 interface ISidebarProps {
   className?: string;
@@ -17,6 +18,8 @@ interface ISidebarProps {
 
 export const Sidebar: React.FC<ISidebarProps> = ({ className }) => {
   const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
+
+  const SidebarItemsList = useSelector(getSidebarItems);
 
   const { t, i18n } = useTranslation();
 
@@ -26,9 +29,9 @@ export const Sidebar: React.FC<ISidebarProps> = ({ className }) => {
 
   // предотвращение перерисовки через useMemo
 
-  // const itemsList = useMemo(() => {
-  //   return SidebarItemsList.map((el) => <SidebarItem item={el} />);
-  // }, []);
+  const itemsList = useMemo(() => {
+    return SidebarItemsList.map((el) => <SidebarItem key={el.path} item={el} />);
+  }, [SidebarItemsList]);
 
   return (
     <div data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.isCollapsed]: isCollapsed }, [className])}>
@@ -36,11 +39,7 @@ export const Sidebar: React.FC<ISidebarProps> = ({ className }) => {
         {t(isCollapsed ? ">" : "<")}
       </Button>
 
-      <div className={cls.items}>
-        {SidebarItemsList.map((el) => (
-          <SidebarItem key={el.path} item={el} />
-        ))}
-      </div>
+      <div className={cls.items}>{itemsList}</div>
     </div>
   );
 };

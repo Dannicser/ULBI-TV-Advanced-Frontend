@@ -38,6 +38,7 @@ const ProfilePage: React.FC<IProfilePageProps> = ({ className }) => {
 
   const data = useSelector(getProfileData);
   const isLoading = useSelector(getProfileLoading);
+
   const error = useSelector(getProfileError);
   const readOnly = useSelector(getProfileReadonly);
 

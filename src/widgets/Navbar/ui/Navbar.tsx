@@ -41,7 +41,7 @@ export const Navbar: React.FC<INavbarProps> = memo(({ className }) => {
 
   const onLogout = useCallback(() => {
     dispatch(userActions.logout());
-  }, []);
+  }, [dispatch]);
 
   if (authData) {
     return (

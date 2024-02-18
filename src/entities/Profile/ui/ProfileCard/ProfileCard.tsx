@@ -53,7 +53,13 @@ export const ProfileCard: React.FC<IProfileCardProps> = (props) => {
   return (
     <div className={classNames(cls.ProfileCard, {}, [className])}>
       <div>
-        <div>{data?.avatar && <Avatar src={data?.avatar} />}</div>
+        <div className={cls.avatar}>
+          {data?.avatar ? (
+            <Avatar src={data?.avatar} />
+          ) : (
+            <Avatar src="https://cdn3.iconfinder.com/data/icons/avatars-neutral/48/bl_816_avatar_race_neutral_man_empty_woman_male_female-512.png" />
+          )}
+        </div>
         <Input disabled={readonly} onChange={onChangeFirstname} className={cls.inp} value={data?.firstname} />
         <Input disabled={readonly} onChange={onChangeLastname} className={cls.inp} value={data?.lastname} />
         <Input disabled={readonly} onChange={onChangeAge} className={cls.inp} value={data?.age} />
@@ -66,5 +72,3 @@ export const ProfileCard: React.FC<IProfileCardProps> = (props) => {
     </div>
   );
 };
-
-//55:00
