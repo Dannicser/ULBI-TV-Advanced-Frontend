@@ -1,0 +1,18 @@
+.ArticleList {
+  margin: 5px;
+}
+
+.SMALL {
+  display: flex;
+  flex-wrap: wrap;
+
+  .card {
+    margin: 15px;
+  }
+}
+
+.BIG {
+  .card {
+    margin-bottom: 20px;
+  }
+}

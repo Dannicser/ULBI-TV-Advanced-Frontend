@@ -9,7 +9,7 @@ export interface IArticle {
   blocks: IArticleBlock[];
 }
 
-enum ArticleType {
+export enum ArticleType {
   IT = "IT",
   SCIENCE = "SCIENCE",
 }
@@ -42,4 +42,11 @@ export interface IArticleTextBlock extends IArticleBlockBase {
   type: ArticleBlockType.TEXT;
   paragraphs: string[];
   title?: string;
+}
+
+//list
+
+export enum ArticleView {
+  SMALL = "SMALL",
+  BIG = "BIG",
 }

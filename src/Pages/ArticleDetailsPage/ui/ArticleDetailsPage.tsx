@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
 
@@ -22,6 +22,8 @@ import { AddCommentFormAsync } from "features/AddCommentForm";
 import { addCommentForArticle } from "../model/services/addCommentForArticle/addCommentForArticle";
 
 import cls from "./ArticleDetailsPage.module.scss";
+import { Button, ThemeButton } from "shared/ui/Button/Button";
+import { RoutePath } from "shared/config/routeConfig/routeConfig";
 
 const reducers: ReducersList = {
   articleDetailsComments: articleDetailsCommentsReducer,
@@ -38,6 +40,8 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({ className }) =
 
   const dispatch = useAppDispatch();
 
+  const navigate = useNavigate();
+
   const isLoading = useSelector(getArticleCommentsIsLoading);
   const error = useSelector(getArticleCommentsError);
 
@@ -46,6 +50,10 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({ className }) =
   if (!id) {
     return null;
   }
+
+  const onBackToList = () => {
+    navigate(RoutePath.articles);
+  };
 
   const onSendComment = useCallback((text: string) => {
     dispatch(addCommentForArticle(text));
@@ -58,6 +66,9 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({ className }) =
   return (
     <DynamicModelLoader reducers={reducers} isRemoveAfterUnmount>
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+        <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>
+          Назад
+        </Button>
         <ArticleDetails id={id} />
         <AddCommentFormAsync onSendComment={onSendComment} />
         <Text title="Комментарии" />
