@@ -8,9 +8,9 @@ import { Skeleton } from "shared/ui/Skeleton/Skeleton";
 
 interface IArticleListProps {
   className?: string;
-  isLoading: boolean;
+  isLoading?: boolean;
   articles: IArticle[];
-  view: ArticleView;
+  view?: ArticleView;
 }
 
 export const ArticleList: React.FC<IArticleListProps> = (props) => {

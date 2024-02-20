@@ -4,5 +4,6 @@ import { ArticleDetails } from "./ui/ArticleDetail/ArticleDetails";
 
 import { getArticleDetailsData } from "./model/selectors/getArticleDetails";
 import { ArticleList } from "./ui/ArticleList/ArticleList";
+import { ArticleViewSwitcher } from "./ui/ArticleViewSwitcher/ArticleViewSwitcher";
 
-export { ArticleDetails, IArticle, IArticleDetailsSchema, getArticleDetailsData, ArticleView, ArticleList, ArticleType };
+export { ArticleDetails, IArticle, IArticleDetailsSchema, getArticleDetailsData, ArticleView, ArticleViewSwitcher, ArticleList, ArticleType };

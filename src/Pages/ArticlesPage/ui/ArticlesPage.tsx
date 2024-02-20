@@ -1,98 +1,54 @@
-import { useTranslation } from "react-i18next";
+import { ArticleList, ArticleView, ArticleViewSwitcher } from "entities/Article";
 
 import { classNames } from "shared/lib/classNames/classNames";
 
+import { DynamicModelLoader, ReducersList } from "shared/lib/components/DynamicModelLoader";
+import { articlePageSlice, articlesPageActions, articlesPageReducer, getArticles } from "../model/slice/articlePageSlice";
+
+import { useCallback, useEffect } from "react";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+import { fetchArticlesList } from "../model/services/fetchArticlesList/fetchArticlesList";
+import { useSelector } from "react-redux";
+import { getArticlesPageLoading, getArticlesPageView } from "../model/selectors/getArticlePageSelectors/getArticlePageSelectors";
+
 import cls from "./ArticlesPage.module.scss";
-import { ArticleList, ArticleView, IArticle, ArticleType } from "entities/Article";
+
+const reducers: ReducersList = {
+  articlePage: articlesPageReducer,
+};
 
 interface IArticlesPageProps {
   className?: string;
 }
 
 const ArticlesPage: React.FC<IArticlesPageProps> = ({ className }) => {
-  const { t, i18n } = useTranslation();
+  const dispatch = useAppDispatch();
+
+  const articles = useSelector(getArticles.selectAll);
+  const view = useSelector(getArticlesPageView);
+
+  const isLoading = useSelector(getArticlesPageLoading);
+
+  useEffect(() => {
+    dispatch(fetchArticlesList());
+    dispatch(articlesPageActions.setInit());
+  }, []);
+
+  const onChangeView = useCallback(
+    (view: ArticleView) => {
+      dispatch(articlesPageActions.setView(view));
+    },
+    [dispatch]
+  );
 
   return (
-    <div className={classNames(cls.ArticlesPage, {}, [className])}>
-      <ArticleList isLoading={false} view={ArticleView.SMALL} articles={articles} />
-    </div>
+    <DynamicModelLoader reducers={reducers}>
+      <div className={classNames(cls.ArticlesPage, {}, [className])}>
+        <ArticleViewSwitcher onChangeView={onChangeView} view={view} />
+        <ArticleList isLoading={isLoading} view={view} articles={articles} />
+      </div>
+    </DynamicModelLoader>
   );
 };
 
 export default ArticlesPage;
-
-const articles: any = [
-  {
-    id: "1",
-    title: "Javascript news",
-    subtitle: "Что нового в JS за 2022 год?",
-    img: "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-    views: 67672,
-    createdAt: "26.02.2022",
-    type: ["IT", "IT", "IT", "IT", "IT", "IT", "IT", "IT", "IT", "IT", "IT"],
-    blocks: [
-      {
-        id: "1",
-        type: "TEXT",
-        title: "Заголовок этого блока",
-        paragraphs: [
-          "Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.",
-          "JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.",
-          "Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:",
-        ],
-      },
-    ],
-  },
-  {
-    id: "2",
-    title: "Typescript news",
-    subtitle: "Что нового в JS за 2024 год?",
-    img: "https://cdn-icons-png.flaticon.com/512/5968/5968381.png",
-    views: 3454,
-    createdAt: "26.02.2022",
-    type: [ArticleType.IT, ArticleType.SCIENCE],
-    blocks: [
-      {
-        id: "1",
-        type: "TEXT",
-        title: "Заголовок этого блока",
-        paragraphs: [
-          "Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.",
-          "JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.",
-          "Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:",
-        ],
-      },
-    ],
-  },
-  {
-    id: "3",
-    title: "SQL news",
-    subtitle: "Что нового в JS за 2021 год?",
-    img: "https://cdn-icons-png.flaticon.com/512/4299/4299956.png",
-    views: 121,
-    createdAt: "26.02.2022",
-    type: [],
-    blocks: [
-      {
-        id: "1",
-        type: "TEXT",
-        title: "Заголовок этого блока",
-        paragraphs: [
-          "Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.",
-          "JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.",
-          "Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:",
-        ],
-      },
-    ],
-  },
-  {
-    id: "4",
-    title: "Mongo news",
-    subtitle: "Что нового в JS за 2021 год?",
-    img: "https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg",
-    views: 12,
-    createdAt: "26.02.2022",
-    type: [],
-    blocks: [],
-  },
-];

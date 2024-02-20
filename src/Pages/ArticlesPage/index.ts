@@ -1,3 +1,5 @@
 import { ArticlesPageAsync } from "./ui/ArticlesPage.async";
 
-export { ArticlesPageAsync };
+import { IArticlePageSchema } from "./model/types/articlePageSchema";
+
+export { ArticlesPageAsync, IArticlePageSchema };

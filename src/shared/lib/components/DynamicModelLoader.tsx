@@ -16,7 +16,7 @@ interface IDynamicModelLoaderProps {
 }
 
 export const DynamicModelLoader: React.FC<IDynamicModelLoaderProps> = (props) => {
-  const { children, reducers, isRemoveAfterUnmount = false } = props;
+  const { children, reducers, isRemoveAfterUnmount = true } = props;
 
   const store = useStore() as IReduxStoreWithManager;
 
