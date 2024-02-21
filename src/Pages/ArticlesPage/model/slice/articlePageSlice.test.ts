@@ -11,6 +11,7 @@ describe("articlePageSlice", () => {
       limit: 0,
       hasMore: true,
       page: 1,
+      _inited: false,
     };
 
     expect(articlesPageReducer(state as IArticlePageSchema, articlesPageActions.setInit())).toEqual({
@@ -41,6 +42,7 @@ describe("articlePageSlice", () => {
       limit: 0,
       hasMore: true,
       page: 1,
+      _inited: false,
     };
 
     expect(articlesPageReducer(state as IArticlePageSchema, articlesPageActions.setView(ArticleView.SMALL))).toEqual({

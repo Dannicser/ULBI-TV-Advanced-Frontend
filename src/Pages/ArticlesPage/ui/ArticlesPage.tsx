@@ -7,18 +7,15 @@ import { articlesPageActions, articlesPageReducer, getArticles } from "../model/
 
 import { useCallback, useEffect } from "react";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { fetchArticlesList } from "../model/services/fetchArticlesList/fetchArticlesList";
-import { useSelector } from "react-redux";
-import {
-  getArticlesPageCount,
-  getArticlesPageHasMore,
-  getArticlesPageLoading,
-  getArticlesPageView,
-} from "../model/selectors/getArticlePageSelectors/getArticlePageSelectors";
 
-import cls from "./ArticlesPage.module.scss";
+import { useSelector } from "react-redux";
+import { getArticlesPageLoading, getArticlesPageView } from "../model/selectors/getArticlePageSelectors/getArticlePageSelectors";
+
 import { Page } from "shared/ui/Page/Page";
 import { fetchNextArticlesPage } from "../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
+import { initArticlesPage } from "../model/services/initArticlesPage/initArticlesPage";
+
+import cls from "./ArticlesPage.module.scss";
 
 const reducers: ReducersList = {
   articlePage: articlesPageReducer,
@@ -41,8 +38,7 @@ const ArticlesPage: React.FC<IArticlesPageProps> = ({ className }) => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(articlesPageActions.setInit());
-    dispatch(fetchArticlesList({ page: 1 }));
+    dispatch(initArticlesPage());
   }, []);
 
   const onChangeView = useCallback(
@@ -53,7 +49,7 @@ const ArticlesPage: React.FC<IArticlesPageProps> = ({ className }) => {
   );
 
   return (
-    <DynamicModelLoader reducers={reducers}>
+    <DynamicModelLoader isRemoveAfterUnmount={false} reducers={reducers}>
       <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlesPage, {}, [className])}>
         <ArticleViewSwitcher onChangeView={onChangeView} view={view} />
         <ArticleList isLoading={isLoading} view={view} articles={articles} />

@@ -10,7 +10,7 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: "ru", // язык по умолчанию
-    debug: _IS_DEV_ ? true : false, // глобальная переменная через webpack DefinePlugin
+    debug: _IS_DEV_ ? false : false, // глобальная переменная через webpack DefinePlugin
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
