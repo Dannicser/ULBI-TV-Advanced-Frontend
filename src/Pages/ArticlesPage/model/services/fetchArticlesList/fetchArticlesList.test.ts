@@ -28,7 +28,7 @@ describe("fetchArticlesList", () => {
 
     mockedAxios.get.mockReturnValue(Promise.resolve({ data: response }));
 
-    const thunk = fetchArticlesList();
+    const thunk = fetchArticlesList({ page: 1 });
 
     const result = await thunk(dispatch, getState, { api, navigate });
 
@@ -40,7 +40,7 @@ describe("fetchArticlesList", () => {
   test("fail", async () => {
     mockedAxios.get.mockReturnValue(Promise.resolve({ status: 403 }));
 
-    const thunk = fetchArticlesList();
+    const thunk = fetchArticlesList({ page: 1 });
 
     const result = await thunk(dispatch, getState, { api, navigate });
 

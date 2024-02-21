@@ -45,7 +45,7 @@ export const Navbar: React.FC<INavbarProps> = memo(({ className }) => {
 
   if (authData) {
     return (
-      <div className={classNames(cls.Navbar, {}, [className])}>
+      <header className={classNames(cls.Navbar, {}, [className])}>
         <div className={cls.links}>
           <Button onClick={onLogout} className={cls.enter}>
             {t("SingOut")}
@@ -54,12 +54,12 @@ export const Navbar: React.FC<INavbarProps> = memo(({ className }) => {
 
         <LangSwitcher />
         <ThemeSwitcher />
-      </div>
+      </header>
     );
   }
 
   return (
-    <div className={classNames(cls.Navbar, {}, [className])}>
+    <header className={classNames(cls.Navbar, {}, [className])}>
       <div className={cls.links}>
         <Button onClick={onShowModal} className={cls.enter}>
           {t("SignIn")}
@@ -69,6 +69,6 @@ export const Navbar: React.FC<INavbarProps> = memo(({ className }) => {
       {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
       <LangSwitcher />
       <ThemeSwitcher />
-    </div>
+    </header>
   );
 });

@@ -11,7 +11,7 @@ export const AppRouter: React.FC = () => {
   const renderWithWrapper = useCallback((route: AppRouteProps) => {
     const element = (
       <Suspense fallback={<PageLoader />}>
-        <div className="page_wrapper">{route.element}</div>
+        <>{route.element}</>
       </Suspense>
     ); // отрисовываем компонент
 

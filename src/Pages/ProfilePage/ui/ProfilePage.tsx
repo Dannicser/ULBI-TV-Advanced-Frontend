@@ -22,6 +22,7 @@ import { getProfileValidateErrors } from "entities/Profile/model/selectors/getPr
 import { ValidateProfileError } from "entities/Profile/model/types/profile";
 import { Text, ThemeText } from "shared/ui/Text";
 import { useParams } from "react-router-dom";
+import { Page } from "shared/ui/Page/Page";
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -92,7 +93,7 @@ const ProfilePage: React.FC<IProfilePageProps> = ({ className }) => {
 
   return (
     <DynamicModelLoader isRemoveAfterUnmount={true} reducers={reducers}>
-      <div className={classNames(cls.ProfilePage, {}, [className])}>
+      <Page className={classNames(cls.ProfilePage, {}, [className])}>
         <ProfilePageHeader />
         {validateErrors?.map((error) => {
           return <Text theme={ThemeText.ERROR} text={validateErrorTranslates[error]} key={error} />;
@@ -110,7 +111,7 @@ const ProfilePage: React.FC<IProfilePageProps> = ({ className }) => {
           isLoading={isLoading}
           data={data}
         />
-      </div>
+      </Page>
     </DynamicModelLoader>
   );
 };

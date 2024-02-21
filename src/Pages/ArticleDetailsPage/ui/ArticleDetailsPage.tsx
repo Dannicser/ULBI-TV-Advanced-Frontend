@@ -24,6 +24,7 @@ import { addCommentForArticle } from "../model/services/addCommentForArticle/add
 import cls from "./ArticleDetailsPage.module.scss";
 import { Button, ThemeButton } from "shared/ui/Button/Button";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
+import { Page } from "shared/ui/Page/Page";
 
 const reducers: ReducersList = {
   articleDetailsComments: articleDetailsCommentsReducer,
@@ -65,7 +66,7 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({ className }) =
 
   return (
     <DynamicModelLoader reducers={reducers} isRemoveAfterUnmount>
-      <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>
           Назад
         </Button>
@@ -73,7 +74,7 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({ className }) =
         <AddCommentFormAsync onSendComment={onSendComment} />
         <Text title="Комментарии" />
         <CommentList comments={comments} isLoading={isLoading} />
-      </div>
+      </Page>
     </DynamicModelLoader>
   );
 };

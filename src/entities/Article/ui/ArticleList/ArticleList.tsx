@@ -16,7 +16,11 @@ interface IArticleListProps {
 export const ArticleList: React.FC<IArticleListProps> = (props) => {
   const { className, articles, view = ArticleView.SMALL, isLoading } = props;
 
-  if (isLoading) {
+  const renderArticle = (article: IArticle) => {
+    return <ArticleListItem key={article.id} className={cls.card} view={view} article={article} />;
+  };
+
+  const getSkeletons = () => {
     return (
       <>
         <Skeleton />
@@ -24,15 +28,13 @@ export const ArticleList: React.FC<IArticleListProps> = (props) => {
         <Skeleton />
       </>
     );
-  }
-
-  const renderArticle = (article: IArticle) => {
-    return <ArticleListItem key={article.id} className={cls.card} view={view} article={article} />;
   };
 
   return (
     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
       {articles.length ? articles.map((article) => renderArticle(article)) : null}
+      {isLoading && getSkeletons()}
+      {/* для бесконечноц ленты нужно изменять ui только внутри, без if, иначе триггер элемент будет прыгать и хоатично работать*/}
     </div>
   );
 };
