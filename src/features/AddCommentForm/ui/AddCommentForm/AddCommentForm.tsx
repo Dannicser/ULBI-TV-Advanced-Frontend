@@ -39,7 +39,7 @@ const AddCommentForm: React.FC<IAddCommentFormProps> = ({ className, onSendComme
   return (
     <DynamicModelLoader reducers={reducers} isRemoveAfterUnmount={true}>
       <div className={classNames(cls.AddCommentForm, {}, [className])}>
-        <Input className={cls.input} onChange={onCommentTextChange} value={text} placeholder="Введите текст комментария" />
+        <Input isAutoFocus className={cls.input} onChange={onCommentTextChange} value={text} placeholder="Введите текст комментария" />
 
         <Button onClick={onSendHandler}>Отправить</Button>
       </div>

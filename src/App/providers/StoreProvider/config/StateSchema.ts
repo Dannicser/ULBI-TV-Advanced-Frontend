@@ -6,14 +6,16 @@ import { IProfileSchema } from "entities/Profile";
 import { IUserSchema } from "entities/User";
 import { IAddCommentFormSchema } from "features/AddCommentForm";
 import { ILoginSchema } from "features/AuthByUserName";
+import { IScrollSaveSchema } from "features/ScrollSave";
 import { IArticleDetailsCommentSchema } from "pages/ArticleDetailsPage";
 import { IArticlePageSchema } from "pages/ArticlesPage";
 import { NavigateOptions, To } from "react-router-dom";
 
 export interface StateSchema {
+  //синхронные редьюсеры
   counter: ICounterSchema;
   user: IUserSchema;
-
+  scrollSave: IScrollSaveSchema;
   // ассинхронные редьюсеры
   loginForm?: ILoginSchema;
   profile?: IProfileSchema;

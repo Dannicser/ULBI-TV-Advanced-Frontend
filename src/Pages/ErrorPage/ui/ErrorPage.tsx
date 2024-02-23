@@ -4,7 +4,7 @@ import { classNames } from "shared/lib/classNames/classNames";
 
 import cls from "./ErrorPage.module.scss";
 import { Button, ThemeButton } from "shared/ui/Button/Button";
-import { Page } from "shared/ui/Page/Page";
+import { Page } from "widgets/Page/Page";
 
 interface IErrorPageProps {
   className?: string;

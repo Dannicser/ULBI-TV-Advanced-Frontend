@@ -22,7 +22,7 @@ import { getProfileValidateErrors } from "entities/Profile/model/selectors/getPr
 import { ValidateProfileError } from "entities/Profile/model/types/profile";
 import { Text, ThemeText } from "shared/ui/Text";
 import { useParams } from "react-router-dom";
-import { Page } from "shared/ui/Page/Page";
+import { Page } from "widgets/Page/Page";
 
 const reducers: ReducersList = {
   profile: profileReducer,
