@@ -12,6 +12,7 @@ export interface IArticle {
 export enum ArticleType {
   IT = "IT",
   SCIENCE = "SCIENCE",
+  ALL = "ALL",
 }
 
 export type IArticleBlock = IArticleCodeBlock | IArticleImageBlock | IArticleTextBlock;
@@ -49,4 +50,12 @@ export interface IArticleTextBlock extends IArticleBlockBase {
 export enum ArticleView {
   SMALL = "SMALL",
   BIG = "BIG",
+}
+
+// sort
+
+export enum ArticleSortField {
+  VIEWS = "views",
+  TITLE = "title",
+  CREATED = "createdAt",
 }

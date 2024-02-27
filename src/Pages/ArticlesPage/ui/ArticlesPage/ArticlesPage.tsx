@@ -1,19 +1,25 @@
-import { ArticleList, ArticleView, ArticleViewSwitcher } from "entities/Article";
+import { useCallback, useEffect } from "react";
+
+import { useSearchParams } from "react-router-dom";
+
+import { ArticleList } from "entities/Article";
 
 import { classNames } from "shared/lib/classNames/classNames";
 
-import { DynamicModelLoader, ReducersList } from "shared/lib/components/DynamicModelLoader";
-import { articlesPageActions, articlesPageReducer, getArticles } from "../model/slice/articlePageSlice";
+import { Page } from "widgets/Page/Page";
 
-import { useCallback, useEffect } from "react";
+import { DynamicModelLoader, ReducersList } from "shared/lib/components/DynamicModelLoader";
+import { articlesPageReducer, getArticles } from "../../model/slice/articlePageSlice";
+
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 
 import { useSelector } from "react-redux";
-import { getArticlesPageLoading, getArticlesPageView } from "../model/selectors/getArticlePageSelectors/getArticlePageSelectors";
+import { getArticlesPageLoading, getArticlesPageView } from "../../model/selectors/getArticlePageSelectors/getArticlePageSelectors";
 
-import { Page } from "widgets/Page/Page";
-import { fetchNextArticlesPage } from "../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
-import { initArticlesPage } from "../model/services/initArticlesPage/initArticlesPage";
+import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
+import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
+
+import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
 
 import cls from "./ArticlesPage.module.scss";
 
@@ -28,6 +34,8 @@ interface IArticlesPageProps {
 const ArticlesPage: React.FC<IArticlesPageProps> = ({ className }) => {
   const dispatch = useAppDispatch();
 
+  const [searchParams] = useSearchParams();
+
   const articles = useSelector(getArticles.selectAll);
   const view = useSelector(getArticlesPageView);
 
@@ -38,20 +46,13 @@ const ArticlesPage: React.FC<IArticlesPageProps> = ({ className }) => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(initArticlesPage());
+    dispatch(initArticlesPage(searchParams));
   }, []);
-
-  const onChangeView = useCallback(
-    (view: ArticleView) => {
-      dispatch(articlesPageActions.setView(view));
-    },
-    [dispatch]
-  );
 
   return (
     <DynamicModelLoader isRemoveAfterUnmount={false} reducers={reducers}>
       <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlesPage, {}, [className])}>
-        <ArticleViewSwitcher onChangeView={onChangeView} view={view} />
+        <ArticlesPageFilters />
         <ArticleList isLoading={isLoading} view={view} articles={articles} />
       </Page>
     </DynamicModelLoader>
@@ -59,3 +60,5 @@ const ArticlesPage: React.FC<IArticlesPageProps> = ({ className }) => {
 };
 
 export default ArticlesPage;
+
+//25.00

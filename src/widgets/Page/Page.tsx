@@ -42,7 +42,8 @@ export const Page: React.FC<IPageProps> = memo(({ className, children, onScrollE
   return (
     <section onScroll={onScroll} ref={wrapperRef} className={classNames(cls.Page, {}, [className])}>
       {children}
-      <div ref={triggerRef} /> {/* при достижении этого дива срабатывает callback - trigger */}
+      {/* при достижении этого дива срабатывает callback - trigger */}
+      {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
     </section>
   );
 });

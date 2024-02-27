@@ -1,25 +1,26 @@
-import { useTranslation } from "react-i18next";
+import { useMemo } from "react";
 
 import { classNames } from "shared/lib/classNames/classNames";
 
 import cls from "./Select.module.scss";
-import { ReactElement, SelectHTMLAttributes, memo, useCallback, useMemo } from "react";
 
-interface ISelectOptions {
-  value: string;
+export interface ISelectOptions<T extends string> {
+  value: T;
   content: string;
 }
 
-interface ISelectProps {
+interface ISelectProps<T extends string> {
   className?: string;
   label?: string;
-  options: ISelectOptions[];
-  value?: string;
-  onChange?: (value: string) => void;
+  options: ISelectOptions<T>[];
+  value?: T;
+  onChange?: (value: T) => void;
   readonly?: boolean;
 }
 
-export const Select: React.FC<ISelectProps> = memo((props) => {
+// пример дженерик компонента
+
+export const Select = <T extends string>(props: ISelectProps<T>) => {
   const { label, options, value, onChange, className, readonly } = props;
 
   const optionList = useMemo(() => {
@@ -31,7 +32,7 @@ export const Select: React.FC<ISelectProps> = memo((props) => {
   }, []);
 
   const onChangeHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    onChange?.(event.target.value); // либо ?. либо условная конструкция
+    onChange?.(event.target.value as T); // либо ?. либо условная конструкция
   };
 
   return (
@@ -43,4 +44,4 @@ export const Select: React.FC<ISelectProps> = memo((props) => {
       </select>
     </div>
   );
-});
+};

@@ -1,9 +1,10 @@
 import { PayloadAction, createEntityAdapter, createSlice } from "@reduxjs/toolkit";
-import { ArticleView, IArticle } from "entities/Article";
+import { ArticleSortField, ArticleType, ArticleView, IArticle } from "entities/Article";
 import { IArticlePageSchema } from "../types/articlePageSchema";
 import { StateSchema } from "app/providers/StoreProvider";
 import { fetchArticlesList } from "../services/fetchArticlesList/fetchArticlesList";
 import { ARTICLE_VIEW_KEY } from "shared/const/localStorage";
+import { SortOrder } from "shared/types";
 
 // суть нормализации - относиться к данным в стейте, как в базе данных, НЕ ХРАНИТЬ ОДИНАКОВЫЕ ДАННЫЕ!
 
@@ -24,7 +25,11 @@ export const articlePageSlice = createSlice({
     view: ArticleView.SMALL,
     page: 1,
     hasMore: true,
-    limit: undefined, // сколько подгружать за раз
+    limit: 6, // сколько подгружать за раз
+    search: "",
+    sort: ArticleSortField.CREATED,
+    order: "asc",
+    type: ArticleType.ALL,
     _inited: false,
   }),
   reducers: {
@@ -39,19 +44,41 @@ export const articlePageSlice = createSlice({
       const initial = (window.localStorage.getItem(ARTICLE_VIEW_KEY) as ArticleView) || ArticleView.SMALL;
 
       state.view = initial;
-      state.limit = initial === ArticleView.BIG ? 3 : 4;
+      state.limit = initial === ArticleView.BIG ? 3 : 6;
       state._inited = true;
+    },
+    setOrder: (state, action: PayloadAction<SortOrder>) => {
+      state.order = action.payload;
+    },
+    setSearch: (state, action: PayloadAction<string>) => {
+      state.search = action.payload;
+    },
+    setSort: (state, action: PayloadAction<ArticleSortField>) => {
+      state.sort = action.payload;
+    },
+    setType: (state, action: PayloadAction<ArticleType>) => {
+      state.type = action.payload;
     },
   },
   extraReducers(builder) {
     builder
-      .addCase(fetchArticlesList.pending, (state) => {
+      .addCase(fetchArticlesList.pending, (state, action) => {
         state.isLoading = true;
+
+        if (action.meta.arg.isReplace) {
+          articlesPageAdapter.removeAll(state);
+        }
       })
-      .addCase(fetchArticlesList.fulfilled, (state, action: PayloadAction<IArticle[]>) => {
+      .addCase(fetchArticlesList.fulfilled, (state, action) => {
         state.isLoading = false;
-        articlesPageAdapter.addMany(state, action.payload); // !!! сам все сделает за нас, добавляем в конец для беск ленты
-        state.hasMore = action.payload.length > 0; // если [], то и данных нет больше
+        state.hasMore = action.payload.length === state.limit; // если с бека пришло статей меньше чем лимит, но их там просто больше нет и еще один запрос не нужен
+
+        //в поле meta хранятся аргументы, которые мы прокидываем в фанк
+        if (action.meta.arg.isReplace) {
+          articlesPageAdapter.setAll(state, action.payload);
+        } else {
+          articlesPageAdapter.addMany(state, action.payload); // !!! сам все сделает за нас, добавляем в конец для беск ленты
+        }
       })
       .addCase(fetchArticlesList.rejected, (state) => {
         state.isLoading = false;

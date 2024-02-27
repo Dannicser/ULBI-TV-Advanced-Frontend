@@ -1,0 +1,14 @@
+.Tabs {
+  display: flex;
+  gap: 5px;
+}
+
+.item {
+  padding: 5px;
+  border: 1px solid var(--primary-color);
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

@@ -3,8 +3,9 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { ArticleView, IArticle } from "entities/Article/model/types/article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 
-import cls from "./ArticleList.module.scss";
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
+import cls from "./ArticleList.module.scss";
+import { Text } from "shared/ui/Text";
 
 interface IArticleListProps {
   className?: string;
@@ -29,6 +30,10 @@ export const ArticleList: React.FC<IArticleListProps> = (props) => {
       </>
     );
   };
+
+  if (!articles.length && !isLoading) {
+    return <Text title={"Статьи не найдены"} />;
+  }
 
   return (
     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
