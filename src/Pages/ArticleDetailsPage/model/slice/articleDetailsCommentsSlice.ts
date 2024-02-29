@@ -1,8 +1,8 @@
 import { PayloadAction, createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
 import { IComment } from "entities/Comment";
-import { IArticleDetailsCommentSchema } from "../types/ArticleDetailsCommentSchema";
 import { fetchCommentsByArticleId } from "../services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import { IArticleDetailsCommentsSchema } from "../types/ArticleDetailsCommentSchema";
 
 // суть нормализации - относиться к данным в стейте, как в базе данных, НЕ ХРАНИТЬ ОДИНАКОВЫЕ ДАННЫЕ!
 
@@ -11,13 +11,13 @@ const commentsAdapter = createEntityAdapter<IComment>({
 });
 
 //selector
-export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
-  (state) => state.articleDetailsComments || commentsAdapter.getInitialState()
-);
+export const getArticleComments = commentsAdapter.getSelectors<StateSchema>((state) => {
+  return state.articleDetailsPage?.comments || commentsAdapter.getInitialState();
+});
 
 const articleDetailsCommentsSlice = createSlice({
   name: "articleDetailsCommentsSlice",
-  initialState: commentsAdapter.getInitialState<IArticleDetailsCommentSchema>({
+  initialState: commentsAdapter.getInitialState<IArticleDetailsCommentsSchema>({
     isLoading: false,
     error: undefined,
     ids: [],

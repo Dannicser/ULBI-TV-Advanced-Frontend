@@ -7,7 +7,8 @@ import { IUserSchema } from "entities/User";
 import { IAddCommentFormSchema } from "features/AddCommentForm";
 import { ILoginSchema } from "features/AuthByUserName";
 import { IScrollSaveSchema } from "features/ScrollSave";
-import { IArticleDetailsCommentSchema } from "pages/ArticleDetailsPage";
+import { IArticleDetailsPageSchema } from "pages/ArticleDetailsPage";
+
 import { IArticlePageSchema } from "pages/ArticlesPage";
 import { NavigateOptions, To } from "react-router-dom";
 
@@ -20,9 +21,10 @@ export interface StateSchema {
   loginForm?: ILoginSchema;
   profile?: IProfileSchema;
   articleDetails?: IArticleDetailsSchema;
-  articleDetailsComments?: IArticleDetailsCommentSchema;
+
   articlePage?: IArticlePageSchema;
   addCommentForm?: IAddCommentFormSchema;
+  articleDetailsPage?: IArticleDetailsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema; //названия редьюсеров

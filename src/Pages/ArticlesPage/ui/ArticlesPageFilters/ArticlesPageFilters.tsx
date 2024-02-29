@@ -60,7 +60,7 @@ export const ArticlesPageFilters: React.FC<IArticlesPageFiltersProps> = ({ class
     (newSort: ArticleSortField) => {
       dispatch(articlesPageActions.setSort(newSort));
       dispatch(articlesPageActions.setPage(1));
-      debouncedFetchData();
+      fetchData();
     },
     [dispatch, debouncedFetchData]
   );
@@ -69,7 +69,7 @@ export const ArticlesPageFilters: React.FC<IArticlesPageFiltersProps> = ({ class
     (newOrder: SortOrder) => {
       dispatch(articlesPageActions.setOrder(newOrder));
       dispatch(articlesPageActions.setPage(1));
-      debouncedFetchData();
+      fetchData();
     },
     [dispatch, debouncedFetchData]
   );

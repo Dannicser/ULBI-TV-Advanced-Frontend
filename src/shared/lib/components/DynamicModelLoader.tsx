@@ -1,14 +1,18 @@
 import { Reducer } from "@reduxjs/toolkit";
 import { IReduxStoreWithManager } from "app/providers/StoreProvider";
-import { StateSchemaKey } from "app/providers/StoreProvider/config/StateSchema";
+import { StateSchema, StateSchemaKey } from "app/providers/StoreProvider/config/StateSchema";
 
 import { useEffect } from "react";
 import { useStore } from "react-redux";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 
+// очень грамотная типизация
+
 export type ReducersList = {
-  [name in StateSchemaKey]?: Reducer;
+  [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
 };
+
+//NonNullable - исключает null и undefined from type
 
 interface IDynamicModelLoaderProps {
   reducers: ReducersList;

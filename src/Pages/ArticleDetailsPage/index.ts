@@ -1,4 +1,4 @@
 import { ArticlesPageAsync } from "pages/ArticlesPage";
-import { IArticleDetailsCommentSchema } from "./model/types/ArticleDetailsCommentSchema";
+import { IArticleDetailsPageSchema } from "./model/types/index";
 
-export { ArticlesPageAsync, IArticleDetailsCommentSchema };
+export { ArticlesPageAsync, IArticleDetailsPageSchema };

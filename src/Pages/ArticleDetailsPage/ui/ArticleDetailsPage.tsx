@@ -2,9 +2,9 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
 
-import { ArticleDetails } from "entities/Article";
+import { ArticleDetails, ArticleList } from "entities/Article";
 
-import { articleDetailsCommentsReducer, getArticleComments } from "../model/slice/articleDetailsCommentsSlice";
+import { getArticleComments } from "../model/slice/articleDetailsCommentsSlice";
 
 import { CommentList } from "entities/Comment";
 
@@ -21,13 +21,18 @@ import { fetchCommentsByArticleId } from "../model/services/fetchCommentsByArtic
 import { AddCommentFormAsync } from "features/AddCommentForm";
 import { addCommentForArticle } from "../model/services/addCommentForArticle/addCommentForArticle";
 
-import cls from "./ArticleDetailsPage.module.scss";
 import { Button, ThemeButton } from "shared/ui/Button/Button";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { Page } from "widgets/Page/Page";
+import { fetchArticleRecommendations } from "../model/services/fetchArticleRecommendations/fetchArticleRecommendations";
+import { articleDetailsPageReducer } from "../model/slice";
+import { getArticleRecommendationsIsLoading } from "../model/selectors/recommendations";
+import { getArticleRecommendations } from "../model/slice/articleDetailsRecommendationSlice";
+
+import cls from "./ArticleDetailsPage.module.scss";
 
 const reducers: ReducersList = {
-  articleDetailsComments: articleDetailsCommentsReducer,
+  articleDetailsPage: articleDetailsPageReducer,
 };
 
 interface IArticleDetailsPageProps {
@@ -42,6 +47,11 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({ className }) =
   const dispatch = useAppDispatch();
 
   const navigate = useNavigate();
+
+  //
+  const recommendations = useSelector(getArticleRecommendations.selectAll);
+  const isRecommendationsLoading = useSelector(getArticleRecommendationsIsLoading);
+  //
 
   const isLoading = useSelector(getArticleCommentsIsLoading);
   const error = useSelector(getArticleCommentsError);
@@ -62,6 +72,7 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({ className }) =
 
   useEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
+    dispatch(fetchArticleRecommendations());
   }, []);
 
   return (
@@ -71,8 +82,10 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({ className }) =
           Назад
         </Button>
         <ArticleDetails id={id} />
-        <AddCommentFormAsync onSendComment={onSendComment} />
+        <Text title="Рекомендуем" />
+        <ArticleList target="_blank" className={cls.recommendations} articles={recommendations} isLoading={isRecommendationsLoading} />
         <Text title="Комментарии" />
+        <AddCommentFormAsync onSendComment={onSendComment} />
         <CommentList comments={comments} isLoading={isLoading} />
       </Page>
     </DynamicModelLoader>

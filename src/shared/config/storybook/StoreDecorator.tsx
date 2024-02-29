@@ -6,13 +6,13 @@ import { loginReducer } from "features/AuthByUserName/model/slices/loginSlice";
 import { ReducersList } from "shared/lib/components/DynamicModelLoader";
 
 const defaultAsyncReducers: ReducersList = {
-  loginForm: loginReducer,
-  profile: profileReducer,
+  // loginForm: loginReducer,
+  // profile: profileReducer,
 };
 
 export const StoreDecorator = (state: DeepPartial<StateSchema>) => (StoryComponent: Story) => {
   return (
-    <StoreProvider asyncReducers={defaultAsyncReducers} initialState={state}>
+    <StoreProvider asyncReducers={{}} initialState={state}>
       {StoryComponent}
     </StoreProvider>
   );
