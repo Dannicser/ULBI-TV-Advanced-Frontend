@@ -1,7 +1,8 @@
 import { AboutPageAsync } from "Pages/AboutPage";
 import { MainPageAsync } from "Pages/MainPage";
 import { NotFoundPage } from "Pages/NotFoundPage";
-import { ArticleDetailPageAsync } from "pages/ArticleDetailsPage/ui/ArticleDetailPage.async";
+import { ArticleDetailPageAsync } from "pages/ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailPage.async";
+import { ArticleEditPageAsync } from "pages/ArticleEditPage";
 import { ArticlesPageAsync } from "pages/ArticlesPage";
 import { ProfilePageAsync } from "pages/ProfilePage";
 import { RouteProps } from "react-router-dom";
@@ -16,6 +17,8 @@ export enum AppRoutes {
   ABOUT = "about",
   PROFILE = "profile",
   ARTICLES = "articles",
+  ACTICLE_CREATE = "acticle_create",
+  ARTICLE_EDIT = "acticle_edit",
   ACTICLE_DETAIL = "acticle_details",
   NOT_FOUND = "not_found",
 }
@@ -26,6 +29,8 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.PROFILE]: "/profile/", // +id
   [AppRoutes.ARTICLES]: "/articles",
   [AppRoutes.ACTICLE_DETAIL]: "/articles/", // +id
+  [AppRoutes.ACTICLE_CREATE]: "/articles/new",
+  [AppRoutes.ARTICLE_EDIT]: "/articles/:id/edit", // +id
   [AppRoutes.NOT_FOUND]: "*",
 };
 
@@ -53,6 +58,16 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
   [AppRoutes.ACTICLE_DETAIL]: {
     path: `${RoutePath.acticle_details}:id`,
     element: <ArticleDetailPageAsync />,
+    authOnly: true,
+  },
+  [AppRoutes.ARTICLE_EDIT]: {
+    path: `${RoutePath.acticle_edit}`,
+    element: <ArticleEditPageAsync />,
+    authOnly: true,
+  },
+  [AppRoutes.ACTICLE_CREATE]: {
+    path: `${RoutePath.acticle_create}`,
+    element: <ArticleEditPageAsync />,
     authOnly: true,
   },
   [AppRoutes.NOT_FOUND]: {

@@ -12,5 +12,7 @@
   "Auth": "Авторизация",
   "SingOut": "Выйти",
   "SignIn": "Войти",
-  "Profile": "Профиль"
+  "Profile": "Профиль",
+  "CreateArticle": "Создать статью",
+  "Articles": "Статьи"
 }

@@ -7,6 +7,7 @@ export interface IArticle {
   createdAt: string;
   type: ArticleType[];
   blocks: IArticleBlock[];
+  userId?: string;
 }
 
 export enum ArticleType {

@@ -12,5 +12,7 @@
   "Error": "Error",
   "Auth": "Auth",
   "SingOut": "Sign out",
-  "Profile": "Profile"
+  "Profile": "Profile",
+  "CreateArticle": "Create article",
+  "Articles": "Articles"
 }

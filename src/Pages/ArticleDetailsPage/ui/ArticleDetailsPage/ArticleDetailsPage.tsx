@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 
 import { ArticleDetails, ArticleList } from "entities/Article";
 
-import { getArticleComments } from "../model/slice/articleDetailsCommentsSlice";
+import { getArticleComments } from "../../model/slice/articleDetailsCommentsSlice";
 
 import { CommentList } from "entities/Comment";
 
@@ -13,23 +13,24 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { DynamicModelLoader, ReducersList } from "shared/lib/components/DynamicModelLoader";
 
 import { useSelector } from "react-redux";
-import { getArticleCommentsError, getArticleCommentsIsLoading } from "../model/selectors/comments";
+import { getArticleCommentsError, getArticleCommentsIsLoading } from "../../model/selectors/comments";
 import { useCallback, useEffect } from "react";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { fetchCommentsByArticleId } from "../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 
 import { AddCommentFormAsync } from "features/AddCommentForm";
-import { addCommentForArticle } from "../model/services/addCommentForArticle/addCommentForArticle";
+import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 
 import { Button, ThemeButton } from "shared/ui/Button/Button";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { Page } from "widgets/Page/Page";
-import { fetchArticleRecommendations } from "../model/services/fetchArticleRecommendations/fetchArticleRecommendations";
-import { articleDetailsPageReducer } from "../model/slice";
-import { getArticleRecommendationsIsLoading } from "../model/selectors/recommendations";
-import { getArticleRecommendations } from "../model/slice/articleDetailsRecommendationSlice";
+import { fetchArticleRecommendations } from "../../model/services/fetchArticleRecommendations/fetchArticleRecommendations";
+import { articleDetailsPageReducer } from "../../model/slice";
+import { getArticleRecommendationsIsLoading } from "../../model/selectors/recommendations";
+import { getArticleRecommendations } from "../../model/slice/articleDetailsRecommendationSlice";
 
 import cls from "./ArticleDetailsPage.module.scss";
+import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
 
 const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,
@@ -46,8 +47,6 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({ className }) =
 
   const dispatch = useAppDispatch();
 
-  const navigate = useNavigate();
-
   //
   const recommendations = useSelector(getArticleRecommendations.selectAll);
   const isRecommendationsLoading = useSelector(getArticleRecommendationsIsLoading);
@@ -62,10 +61,6 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({ className }) =
     return null;
   }
 
-  const onBackToList = () => {
-    navigate(RoutePath.articles);
-  };
-
   const onSendComment = useCallback((text: string) => {
     dispatch(addCommentForArticle(text));
   }, []);
@@ -78,9 +73,7 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({ className }) =
   return (
     <DynamicModelLoader reducers={reducers} isRemoveAfterUnmount>
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>
-          Назад
-        </Button>
+        <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
         <Text title="Рекомендуем" />
         <ArticleList target="_blank" className={cls.recommendations} articles={recommendations} isLoading={isRecommendationsLoading} />

@@ -13,8 +13,11 @@ import { LoginModal } from "features/AuthByUserName";
 
 import { userActions, getAuthData } from "entities/User";
 
-import cls from "./Navbar.module.scss";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+
+import cls from "./Navbar.module.scss";
+import { AppLink } from "shared/ui/AppLink/AppLink";
+import { RoutePath } from "shared/config/routeConfig/routeConfig";
 
 interface INavbarProps {
   className?: string; // если снаружи заходим изменить стили
@@ -50,6 +53,10 @@ export const Navbar: React.FC<INavbarProps> = memo(({ className }) => {
           <Button onClick={onLogout} className={cls.enter}>
             {t("SingOut")}
           </Button>
+
+          <AppLink className={cls.create} to={RoutePath.acticle_create}>
+            <Button>{t("CreateArticle")}</Button>
+          </AppLink>
         </div>
 
         <LangSwitcher />
