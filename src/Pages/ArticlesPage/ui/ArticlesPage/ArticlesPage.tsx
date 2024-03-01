@@ -60,5 +60,3 @@ const ArticlesPage: React.FC<IArticlesPageProps> = ({ className }) => {
 };
 
 export default ArticlesPage;
-
-//25.00

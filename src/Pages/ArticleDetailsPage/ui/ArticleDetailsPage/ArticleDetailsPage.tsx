@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
 
@@ -21,16 +21,15 @@ import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByAr
 import { AddCommentFormAsync } from "features/AddCommentForm";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 
-import { Button, ThemeButton } from "shared/ui/Button/Button";
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { Page } from "widgets/Page/Page";
 import { fetchArticleRecommendations } from "../../model/services/fetchArticleRecommendations/fetchArticleRecommendations";
 import { articleDetailsPageReducer } from "../../model/slice";
 import { getArticleRecommendationsIsLoading } from "../../model/selectors/recommendations";
 import { getArticleRecommendations } from "../../model/slice/articleDetailsRecommendationSlice";
 
-import cls from "./ArticleDetailsPage.module.scss";
 import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
+
+import cls from "./ArticleDetailsPage.module.scss";
 
 const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,

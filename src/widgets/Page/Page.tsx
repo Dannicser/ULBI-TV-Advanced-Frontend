@@ -15,6 +15,8 @@ interface IPageProps {
   onScrollEnd?: () => void;
 }
 
+export const PAGE_ID = "PAGE_ID";
+
 export const Page: React.FC<IPageProps> = memo(({ className, children, onScrollEnd }) => {
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -40,7 +42,7 @@ export const Page: React.FC<IPageProps> = memo(({ className, children, onScrollE
   useInfiniteScroll({ callback: onScrollEnd, wrapperRef, triggerRef });
 
   return (
-    <section onScroll={onScroll} ref={wrapperRef} className={classNames(cls.Page, {}, [className])}>
+    <section id={PAGE_ID} onScroll={onScroll} ref={wrapperRef} className={classNames(cls.Page, {}, [className])}>
       {children}
       {/* при достижении этого дива срабатывает callback - trigger */}
       {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
