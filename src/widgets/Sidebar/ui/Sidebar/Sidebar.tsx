@@ -38,14 +38,14 @@ export const Sidebar: React.FC<ISidebarProps> = ({ className }) => {
   }, [SidebarItemsList]);
 
   return (
-    <menu data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.isCollapsed]: isCollapsed }, [className])}>
+    <aside data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.isCollapsed]: isCollapsed }, [className])}>
       <Button data-testid={"sidebar-button"} size={SizeButton.LARGE} theme={ThemeButton.PRIMARY} className={cls.isCollapsedBtn} onClick={toggle}>
         {t(isCollapsed ? ">" : "<")}
       </Button>
 
-      <VStack className={cls.items} align="start" gap="8">
+      <VStack role="navigation" className={cls.items} align="start" gap="8">
         {itemsList}
       </VStack>
-    </menu>
+    </aside>
   );
 };

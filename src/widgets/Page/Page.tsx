@@ -42,10 +42,10 @@ export const Page: React.FC<IPageProps> = memo(({ className, children, onScrollE
   useInfiniteScroll({ callback: onScrollEnd, wrapperRef, triggerRef });
 
   return (
-    <section id={PAGE_ID} onScroll={onScroll} ref={wrapperRef} className={classNames(cls.Page, {}, [className])}>
+    <main id={PAGE_ID} onScroll={onScroll} ref={wrapperRef} className={classNames(cls.Page, {}, [className])}>
       {children}
       {/* при достижении этого дива срабатывает callback - trigger */}
       {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
-    </section>
+    </main>
   );
 });
