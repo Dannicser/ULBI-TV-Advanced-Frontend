@@ -1,5 +1,7 @@
 import { useMemo, useState } from "react";
 
+import { useSelector } from "react-redux";
+
 import { classNames } from "shared/lib/classNames/classNames";
 
 import { useTranslation } from "react-i18next";
@@ -8,9 +10,11 @@ import { Button, SizeButton, ThemeButton } from "shared/ui/Button/Button";
 
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 
-import cls from "./Sidebar.module.scss";
-import { useSelector } from "react-redux";
 import { getSidebarItems } from "widgets/Sidebar/model/selectors/getSidebarItems";
+
+import cls from "./Sidebar.module.scss";
+import { HStack } from "shared/ui/Stack/HStack/HStack";
+import { VStack } from "shared/ui/Stack/VStack/VStack";
 
 interface ISidebarProps {
   className?: string;
@@ -39,7 +43,9 @@ export const Sidebar: React.FC<ISidebarProps> = ({ className }) => {
         {t(isCollapsed ? ">" : "<")}
       </Button>
 
-      <div className={cls.items}>{itemsList}</div>
+      <VStack className={cls.items} align="start" gap="8">
+        {itemsList}
+      </VStack>
     </menu>
   );
 };
