@@ -9,6 +9,8 @@ import { County } from "entities/Country";
 import { Select } from "shared/ui/Select/Select";
 
 import { Currency } from "../model/types/currency";
+import { Listbox } from "@headlessui/react";
+import MyListbox from "shared/ui/ListBox/ListBox";
 
 interface ICurrencySelectorProps {
   className?: string;
@@ -19,8 +21,8 @@ interface ICurrencySelectorProps {
 
 //выноси вверх, не будет перерисовок или memo
 const options = [
-  { value: Currency.RUB, content: Currency.RUB },
-  { value: Currency.USD, content: Currency.USD },
+  { value: Currency.RUB, content: Currency.RUB, disabled: false },
+  { value: Currency.USD, content: Currency.USD, disabled: false },
 ];
 
 export const CurrencySelect: React.FC<ICurrencySelectorProps> = memo((props) => {
@@ -33,7 +35,15 @@ export const CurrencySelect: React.FC<ICurrencySelectorProps> = memo((props) => 
 
   return (
     <div className={classNames("", {}, [className])}>
-      <Select readonly={readonly} value={value} onChange={onChangeHander} options={options} label="Валюта" />
+      <MyListbox
+        label="Выберите валюту"
+        direction="top"
+        readonly={readonly}
+        value={value}
+        defaultValue={value}
+        onChange={onChangeHander}
+        items={options}
+      />
     </div>
   );
 });

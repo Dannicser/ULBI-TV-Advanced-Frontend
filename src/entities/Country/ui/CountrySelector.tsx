@@ -2,7 +2,8 @@ import { memo } from "react";
 
 import { classNames } from "shared/lib/classNames/classNames";
 import { County } from "../model/types/country";
-import { Select } from "shared/ui/Select/Select";
+
+import MyListbox from "shared/ui/ListBox/ListBox";
 
 interface ICountrySelectorProps {
   className?: string;
@@ -13,8 +14,8 @@ interface ICountrySelectorProps {
 
 //выноси вверх, не будет перерисовок или memo
 const options = [
-  { value: County.RUSSIA, content: County.RUSSIA },
-  { value: County.USA, content: County.USA },
+  { value: County.RUSSIA, content: County.RUSSIA, disabled: false },
+  { value: County.USA, content: County.USA, disabled: false },
 ];
 
 export const CountrySelector: React.FC<ICountrySelectorProps> = memo((props) => {
@@ -26,7 +27,15 @@ export const CountrySelector: React.FC<ICountrySelectorProps> = memo((props) => 
 
   return (
     <div className={classNames("", {}, [className])}>
-      <Select readonly={readonly} value={value} onChange={onChangeHander} options={options} label="Страна" />
+      <MyListbox
+        label="Выберите страну"
+        direction="bottom"
+        items={options}
+        readonly={readonly}
+        defaultValue={value}
+        value={value}
+        onChange={onChangeHander}
+      />
     </div>
   );
 });
