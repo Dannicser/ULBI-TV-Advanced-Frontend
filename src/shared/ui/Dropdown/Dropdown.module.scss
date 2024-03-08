@@ -1,0 +1,52 @@
+.Dropdown {
+  position: relative;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.itemBtn {
+  width: 100%;
+}
+
+.menu {
+  background-color: var(--primary-color);
+  position: absolute;
+  z-index: 100;
+  border: 1px solid var(--inverted-primary-color);
+}
+
+.item {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: none;
+  outline: none;
+  color: var(--inverted-primary-color);
+  cursor: pointer;
+}
+
+.active {
+  opacity: 0.8;
+}
+
+.topLeft {
+  right: 0;
+  bottom: 100%;
+}
+
+.topRight {
+  left: 0;
+  bottom: 100%;
+}
+
+.bottomLeft {
+  right: 0;
+  top: 100%;
+}
+
+.bottomRight {
+  left: 0;
+  top: 100%;
+}

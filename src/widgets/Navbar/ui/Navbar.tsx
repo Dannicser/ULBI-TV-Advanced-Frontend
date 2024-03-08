@@ -15,9 +15,11 @@ import { userActions, getAuthData } from "entities/User";
 
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 
-import cls from "./Navbar.module.scss";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
+import MyDropdown from "shared/ui/Dropdown/Dropdown";
+
+import cls from "./Navbar.module.scss";
 
 interface INavbarProps {
   className?: string; // если снаружи заходим изменить стили
@@ -49,11 +51,18 @@ export const Navbar: React.FC<INavbarProps> = memo(({ className }) => {
   if (authData) {
     return (
       <header className={classNames(cls.Navbar, {}, [className])}>
-        <div className={cls.links}>
-          <Button onClick={onLogout} className={cls.enter}>
-            {t("SingOut")}
-          </Button>
+        <div className={cls.options}>
+          <MyDropdown
+            items={[
+              { content: "Выйти", onClick: onLogout },
+              { content: "Профиль", href: RoutePath.profile + authData.id },
+            ]}
+            direction="bottomRight"
+            trigger={<Button>Oптиции</Button>}
+          />
+        </div>
 
+        <div className={cls.links}>
           <AppLink className={cls.create} to={RoutePath.acticle_create}>
             <Button>{t("CreateArticle")}</Button>
           </AppLink>
