@@ -2,7 +2,7 @@ import { Dispatch } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
 import axios, { AxiosStatic } from "axios";
 import { updateProfiledata } from "./updateProfileData";
-import { ValidateProfileError } from "../../types/profile";
+import { ValidateProfileError } from "../../types/EditableProfileCardSchema";
 
 jest.mock("axios");
 

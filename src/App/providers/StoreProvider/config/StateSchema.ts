@@ -2,21 +2,26 @@ import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } f
 import { AxiosInstance } from "axios";
 import { IArticleDetailsSchema } from "entities/Article";
 import { ICounterSchema } from "entities/Counter";
-import { IProfileSchema } from "entities/Profile";
+
 import { IUserSchema } from "entities/User";
 import { IAddCommentFormSchema } from "features/AddCommentForm";
 import { ILoginSchema } from "features/AuthByUserName";
+import { IProfileSchema } from "features/EditableProfileCard";
 import { IScrollSaveSchema } from "features/ScrollSave";
 import { IArticleDetailsPageSchema } from "pages/ArticleDetailsPage";
 
 import { IArticlePageSchema } from "pages/ArticlesPage";
 import { NavigateOptions, To } from "react-router-dom";
+import { rtkApi } from "shared/api/rtkApi";
 
 export interface StateSchema {
   //синхронные редьюсеры
   counter: ICounterSchema;
   user: IUserSchema;
   scrollSave: IScrollSaveSchema;
+  //rtk
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
+
   // ассинхронные редьюсеры
   loginForm?: ILoginSchema;
   profile?: IProfileSchema;

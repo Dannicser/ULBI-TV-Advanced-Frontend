@@ -1,4 +1,4 @@
-import { ValidateProfileError } from "../../types/profile";
+import { ValidateProfileError } from "../../types/EditableProfileCardSchema";
 import { validateProfileData } from "./validateProfileData";
 
 describe("validateProfileData", () => {

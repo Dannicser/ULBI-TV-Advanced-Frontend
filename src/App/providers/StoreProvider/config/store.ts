@@ -1,4 +1,4 @@
-import { CombinedState, Reducer, ReducersMapObject, configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import { CombinedState, Reducer, ReducersMapObject, configureStore } from "@reduxjs/toolkit";
 import { StateSchema } from "./StateSchema";
 import { counterReducer } from "entities/Counter";
 import { userReducer } from "entities/User";
@@ -7,6 +7,7 @@ import { createReducerManager } from "./reducerManager";
 import { api } from "shared/api/api";
 import { NavigateOptions, To } from "react-router-dom";
 import { scrollSaveReducer } from "features/ScrollSave";
+import { rtkApi } from "shared/api/rtkApi";
 
 export function createReduxStore(
   initialState?: StateSchema,
@@ -19,6 +20,10 @@ export function createReduxStore(
     counter: counterReducer,
     user: userReducer,
     scrollSave: scrollSaveReducer,
+
+    //rtk
+
+    [rtkApi.reducerPath]: rtkApi.reducer,
   };
 
   const reducerManager = createReducerManager(rootReducers);
@@ -36,7 +41,7 @@ export function createReduxStore(
           // доп фичи в thunkApi
           extraArgument: extraArgument,
         },
-      }),
+      }).concat(rtkApi.middleware), //  не забываем добавить rtkApi сюда!
   });
 
   //@ts-ignore

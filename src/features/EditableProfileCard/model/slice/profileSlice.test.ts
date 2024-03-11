@@ -1,4 +1,4 @@
-import { IProfileSchema } from "../types/profile";
+import { IProfileSchema } from "../types/EditableProfileCardSchema";
 import { profileActions, profileReducer } from "./profileSlice";
 
 describe("profileSlice", () => {

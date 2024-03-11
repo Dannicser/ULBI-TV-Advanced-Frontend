@@ -1,5 +1,3 @@
-import { memo } from "react";
-
 import { useTranslation } from "react-i18next";
 import { Button } from "shared/ui/Button/Button";
 
@@ -12,17 +10,18 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 
 import { getAuthData } from "entities/User";
 
-import cls from "./ProfilePageHeader.module.scss";
 import { getProfileReadonly } from "features/EditableProfileCard";
 import { getProfileData } from "features/EditableProfileCard";
 import { profileActions } from "features/EditableProfileCard";
 import { updateProfiledata } from "features/EditableProfileCard";
 
-interface IProfilePageHeaderProps {
+import cls from "./EditableProfileCardHeader.module.scss";
+
+interface IEditableProfileCardHeaderProps {
   className?: string;
 }
 
-export const ProfilePageHeader: React.FC<IProfilePageHeaderProps> = memo(({ className }) => {
+export const EditableProfileCardHeader: React.FC<IEditableProfileCardHeaderProps> = ({ className }) => {
   const { t, i18n } = useTranslation("profile");
 
   const dispatch = useAppDispatch();
@@ -50,4 +49,4 @@ export const ProfilePageHeader: React.FC<IProfilePageHeaderProps> = memo(({ clas
       </div>
     </div>
   );
-});
+};
