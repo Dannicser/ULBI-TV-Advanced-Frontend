@@ -3,7 +3,7 @@ import { memo } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import { County } from "../model/types/country";
 
-import MyListbox from "shared/ui/ListBox/ListBox";
+import { Select } from "shared/ui/Select/Select";
 
 interface ICountrySelectorProps {
   className?: string;
@@ -27,15 +27,7 @@ export const CountrySelect: React.FC<ICountrySelectorProps> = memo((props) => {
 
   return (
     <div className={classNames("", {}, [className])}>
-      <MyListbox
-        label="Выберите страну"
-        direction="bottom"
-        items={options}
-        readonly={readonly}
-        defaultValue={value}
-        value={value}
-        onChange={onChangeHander}
-      />
+      <Select label="Выберите страну" options={options} readonly={readonly} value={value} onChange={onChangeHander} />
     </div>
   );
 });

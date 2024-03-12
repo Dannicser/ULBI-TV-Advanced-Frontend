@@ -66,8 +66,8 @@ export const ProfileCard: React.FC<IProfileCardProps> = (props) => {
         <Input data-testid={"ProfileCard.city"} disabled={readonly} onChange={onChangeCity} className={cls.inp} value={data?.city} />
         <Input data-testid={"ProfileCard.username"} disabled={readonly} onChange={onChangeUsername} className={cls.inp} value={data?.username} />
 
-        {/* <CurrencySelect readonly={readonly} onChange={onChangeCurrency} value={data?.currency} />
-        <CountrySelect readonly={readonly} onChange={onChangeCountry} value={data?.country} /> */}
+        <CurrencySelect readonly={readonly} onChange={onChangeCurrency} value={data?.currency} />
+        <CountrySelect readonly={readonly} onChange={onChangeCountry} value={data?.country} />
       </div>
     </div>
   );

@@ -4,12 +4,10 @@ import { useTranslation } from "react-i18next";
 
 import { classNames } from "shared/lib/classNames/classNames";
 
-import { County } from "entities/Country";
-
 import { Select } from "shared/ui/Select/Select";
 
 import { Currency } from "../model/types/currency";
-import { Listbox } from "@headlessui/react";
+
 import MyListbox from "shared/ui/ListBox/ListBox";
 
 interface ICurrencySelectorProps {
@@ -35,15 +33,7 @@ export const CurrencySelect: React.FC<ICurrencySelectorProps> = memo((props) => 
 
   return (
     <div className={classNames("", {}, [className])}>
-      <MyListbox
-        label="Выберите валюту"
-        direction="top"
-        readonly={readonly}
-        value={value}
-        defaultValue={value}
-        onChange={onChangeHander}
-        items={options}
-      />
+      <Select label="Выберите валюту" readonly={readonly} value={value} onChange={onChangeHander} options={options} />
     </div>
   );
 });
