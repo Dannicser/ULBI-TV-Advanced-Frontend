@@ -1,0 +1,121 @@
+import "@testing-library/jest-dom";
+import userEvent from "@testing-library/user-event";
+import { screen } from "@testing-library/react";
+
+import { componentRender } from "shared/config/tests/renderWithRouter";
+import { EditableProfileCard } from "./EditableProfileCard";
+import { profileReducer } from "../../model/slice/profileSlice";
+import { api } from "shared/api/api";
+
+describe("EditableProfileCard", () => {
+  test("switch to edit mode successfully", () => {
+    componentRender(<EditableProfileCard id={"1"} />, {
+      initialState: {
+        profile: {
+          readonly: true,
+          data: {
+            id: "1",
+            firstname: "dan",
+            lastname: "dmitriev",
+          },
+        },
+        user: {
+          authData: { id: "1", username: "danic" },
+        },
+      },
+
+      //@ts-ignore
+      asyncReducers: { profile: profileReducer },
+    });
+    userEvent.click(screen.getByTestId("EditableProfileCardHeader.EditButton"));
+    expect(screen.getByTestId("EditableProfileCardHeader.SaveButton")).toBeInTheDocument();
+  });
+
+  test("switch to edit mode unsuccessfully", () => {
+    componentRender(<EditableProfileCard id={"1"} />, {
+      initialState: {
+        profile: {
+          readonly: true,
+          data: {
+            id: "1",
+            firstname: "dan",
+            lastname: "dmitriev",
+          },
+        },
+        user: {
+          authData: { id: "2", username: "danic" },
+        },
+      },
+
+      //@ts-ignore
+      asyncReducers: { profile: profileReducer },
+    });
+
+    expect(screen.queryByTestId("EditableProfileCardHeader.EditButton")).not.toBeInTheDocument();
+  });
+
+  test("switch to edit mode and back successfully", () => {
+    componentRender(<EditableProfileCard id={"1"} />, {
+      initialState: {
+        profile: {
+          readonly: true,
+          data: {
+            id: "1",
+            firstname: "dan",
+            lastname: "dmitriev",
+          },
+        },
+        user: {
+          authData: { id: "1", username: "danic" },
+        },
+      },
+
+      //@ts-ignore
+      asyncReducers: { profile: profileReducer },
+    });
+
+    userEvent.click(screen.getByTestId("EditableProfileCardHeader.EditButton"));
+    expect(screen.getByTestId("EditableProfileCardHeader.SaveButton")).toBeInTheDocument();
+    userEvent.click(screen.getByTestId("EditableProfileCardHeader.SaveButton"));
+    expect(screen.getByTestId("EditableProfileCardHeader.EditButton")).toBeInTheDocument();
+  });
+
+  test("change firstname", async () => {
+    // const mockPutReq = jest.spyOn(api, "put");
+
+    componentRender(<EditableProfileCard id={"1"} />, {
+      initialState: {
+        profile: {
+          readonly: true,
+          data: {
+            id: "1",
+            firstname: "dan",
+            lastname: "dmitriev",
+          },
+        },
+        user: {
+          authData: { id: "1", username: "danic" },
+        },
+      },
+
+      //@ts-ignore
+      asyncReducers: { profile: profileReducer },
+    });
+
+    const editButton = screen.getByTestId("EditableProfileCardHeader.EditButton");
+
+    userEvent.click(editButton);
+
+    expect(screen.getByTestId("ProfileCard.firstname")).toBeInTheDocument();
+
+    userEvent.clear(screen.getByTestId("ProfileCard.firstname"));
+
+    userEvent.type(screen.getByTestId("ProfileCard.firstname"), "hello world");
+
+    expect(screen.getByTestId("ProfileCard.firstname")).toHaveValue("hello world");
+
+    const saveButton = screen.getByTestId("EditableProfileCardHeader.SaveButton");
+
+    userEvent.click(saveButton);
+  });
+});

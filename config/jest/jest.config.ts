@@ -19,7 +19,7 @@ export default {
   },
   reporters: [
     "default",
-    ["jest-html-reporters", { publicPath: "<rootDir>/reports/unit", inlineSource: true, filename: "report.html", openReport: true }],
+    ["jest-html-reporters", { publicPath: "<rootDir>/reports/unit", inlineSource: true, filename: "report.html", openReport: false }],
   ],
   // setupFilesAfterEnv: ["<rootDir>config/jest/setup.ts"],
 

@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, useState } from "react";
+import { ReactNode } from "react";
 
 import { Listbox } from "@headlessui/react";
 
@@ -33,8 +33,6 @@ const mapDirectionClass: Record<DropdownDirection, string> = {
 
 export default function MyListbox(props: IListBoxProps) {
   const { items, value, className, defaultValue, onChange, readonly = true, direction = "top", label } = props;
-
-  console.log(mapDirectionClass[direction]);
 
   return (
     <Listbox disabled={readonly} value={value} onChange={onChange} as={"div"} className={classNames(cls.ListBox, {}, [className])}>

@@ -45,7 +45,19 @@ export const EditableProfileCardHeader: React.FC<IEditableProfileCardHeaderProps
     <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
       <div className={cls.header}>
         <Text title={t("Profile")} />
-        {isEdit && <div>{readOnly ? <Button onClick={onEdit}>{t("Editing")}</Button> : <Button onClick={onSave}>{t("Save")}</Button>}</div>}
+        {isEdit && (
+          <div>
+            {readOnly ? (
+              <Button data-testid={"EditableProfileCardHeader.EditButton"} onClick={onEdit}>
+                {t("Editing")}
+              </Button>
+            ) : (
+              <Button data-testid={"EditableProfileCardHeader.SaveButton"} onClick={onSave}>
+                {t("Save")}
+              </Button>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

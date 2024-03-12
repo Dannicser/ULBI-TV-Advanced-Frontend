@@ -1,4 +1,4 @@
 import { County } from "./model/types/country";
-import { CountrySelector } from "./ui/CountrySelector";
+import { CountrySelect } from "./ui/CountrySelect";
 
-export { County, CountrySelector };
+export { County, CountrySelect };

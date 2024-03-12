@@ -87,14 +87,14 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   }, []);
 
   useEffect(() => {
-    dispatch(fetchProfileData(id));
+    if (__ENVIROMENT__ !== "jest") dispatch(fetchProfileData(id));
   }, []);
 
   return (
     <DynamicModelLoader isRemoveAfterUnmount reducers={reducers}>
       <EditableProfileCardHeader />
       {validateErrors?.map((error) => {
-        return <Text theme={ThemeText.ERROR} text={validateErrorTranslates[error]} key={error} />;
+        return <Text data-testid={"EditableProfileCard.Error"} theme={ThemeText.ERROR} text={validateErrorTranslates[error]} key={error} />;
       })}
       <ProfileCard
         readonly={readOnly}

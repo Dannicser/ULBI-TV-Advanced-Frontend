@@ -18,7 +18,7 @@ const options = [
   { value: County.USA, content: County.USA, disabled: false },
 ];
 
-export const CountrySelector: React.FC<ICountrySelectorProps> = memo((props) => {
+export const CountrySelect: React.FC<ICountrySelectorProps> = memo((props) => {
   const { value, onChange, readonly, className } = props;
 
   const onChangeHander = (value: string) => {
