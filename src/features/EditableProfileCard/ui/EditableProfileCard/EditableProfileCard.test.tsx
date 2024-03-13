@@ -5,10 +5,9 @@ import { screen } from "@testing-library/react";
 import { componentRender } from "shared/config/tests/renderWithRouter";
 import { EditableProfileCard } from "./EditableProfileCard";
 import { profileReducer } from "../../model/slice/profileSlice";
-import { api } from "shared/api/api";
 
 describe("EditableProfileCard", () => {
-  test("switch to edit mode successfully", () => {
+  test("switch to edit mode successfully", async () => {
     componentRender(<EditableProfileCard id={"1"} />, {
       initialState: {
         profile: {
@@ -27,11 +26,12 @@ describe("EditableProfileCard", () => {
       //@ts-ignore
       asyncReducers: { profile: profileReducer },
     });
-    userEvent.click(screen.getByTestId("EditableProfileCardHeader.EditButton"));
+
+    await userEvent.click(screen.getByTestId("EditableProfileCardHeader.EditButton"));
     expect(screen.getByTestId("EditableProfileCardHeader.SaveButton")).toBeInTheDocument();
   });
 
-  test("switch to edit mode unsuccessfully", () => {
+  test("switch to edit mode unsuccessfully", async () => {
     componentRender(<EditableProfileCard id={"1"} />, {
       initialState: {
         profile: {
@@ -54,7 +54,7 @@ describe("EditableProfileCard", () => {
     expect(screen.queryByTestId("EditableProfileCardHeader.EditButton")).not.toBeInTheDocument();
   });
 
-  test("switch to edit mode and back successfully", () => {
+  test("switch to edit mode and back successfully", async () => {
     componentRender(<EditableProfileCard id={"1"} />, {
       initialState: {
         profile: {
@@ -74,9 +74,9 @@ describe("EditableProfileCard", () => {
       asyncReducers: { profile: profileReducer },
     });
 
-    userEvent.click(screen.getByTestId("EditableProfileCardHeader.EditButton"));
+    await userEvent.click(screen.getByTestId("EditableProfileCardHeader.EditButton"));
     expect(screen.getByTestId("EditableProfileCardHeader.SaveButton")).toBeInTheDocument();
-    userEvent.click(screen.getByTestId("EditableProfileCardHeader.SaveButton"));
+    await userEvent.click(screen.getByTestId("EditableProfileCardHeader.SaveButton"));
     expect(screen.getByTestId("EditableProfileCardHeader.EditButton")).toBeInTheDocument();
   });
 
@@ -104,18 +104,18 @@ describe("EditableProfileCard", () => {
 
     const editButton = screen.getByTestId("EditableProfileCardHeader.EditButton");
 
-    userEvent.click(editButton);
+    await userEvent.click(editButton);
 
     expect(screen.getByTestId("ProfileCard.firstname")).toBeInTheDocument();
 
-    userEvent.clear(screen.getByTestId("ProfileCard.firstname"));
+    await userEvent.clear(screen.getByTestId("ProfileCard.firstname"));
 
-    userEvent.type(screen.getByTestId("ProfileCard.firstname"), "hello world");
+    await userEvent.type(screen.getByTestId("ProfileCard.firstname"), "hello world");
 
     expect(screen.getByTestId("ProfileCard.firstname")).toHaveValue("hello world");
 
     const saveButton = screen.getByTestId("EditableProfileCardHeader.SaveButton");
 
-    userEvent.click(saveButton);
+    await userEvent.click(saveButton);
   });
 });

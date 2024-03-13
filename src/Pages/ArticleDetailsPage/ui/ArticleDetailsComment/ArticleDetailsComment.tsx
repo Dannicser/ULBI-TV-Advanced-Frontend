@@ -9,7 +9,7 @@ import { Text } from "shared/ui/Text";
 import { CommentList } from "entities/Comment";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 
-import { getArticleCommentsError, getArticleCommentsIsLoading } from "../../model/selectors/comments";
+import { getArticleCommentsError, getArticleCommentsIsLoading } from "../../model/selectors/comments/comments";
 
 import { getArticleComments } from "../../model/slice/articleDetailsCommentsSlice";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";

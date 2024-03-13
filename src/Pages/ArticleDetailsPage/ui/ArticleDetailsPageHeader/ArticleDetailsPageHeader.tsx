@@ -9,7 +9,7 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { Button, ThemeButton } from "shared/ui/Button/Button";
 
-import { getCanUserEditArticle } from "pages/ArticleDetailsPage/model/selectors/article";
+import { getCanUserEditArticle } from "pages/ArticleDetailsPage/model/selectors/article/article";
 
 import cls from "./ArticleDetailsPageHeader.module.scss";
 import { getArticleDetailsData } from "entities/Article";
