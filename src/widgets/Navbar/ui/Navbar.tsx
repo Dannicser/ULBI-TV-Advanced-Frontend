@@ -11,7 +11,7 @@ import { Button } from "shared/ui/Button/Button";
 
 import { LoginModal } from "features/AuthByUserName";
 
-import { userActions, getAuthData } from "entities/User";
+import { userActions, getAuthData, isUserAdmin, isUserManager } from "entities/User";
 
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 
@@ -32,6 +32,9 @@ export const Navbar: React.FC<INavbarProps> = memo(({ className }) => {
 
   const authData = useSelector(getAuthData);
 
+  const isAdmin = useSelector(isUserAdmin);
+  const isManager = useSelector(isUserManager);
+
   const { t, i18n } = useTranslation();
 
   // если мы передаем функцию как пропс, ссылку на нее надо сохранять, иначе при перерендере она будет пересоздаваться
@@ -48,6 +51,8 @@ export const Navbar: React.FC<INavbarProps> = memo(({ className }) => {
     dispatch(userActions.logout());
   }, [dispatch]);
 
+  const isAdminPanelAvaliable = isAdmin || isManager;
+
   if (authData) {
     return (
       <header className={classNames(cls.Navbar, {}, [className])}>
@@ -56,6 +61,8 @@ export const Navbar: React.FC<INavbarProps> = memo(({ className }) => {
             items={[
               { content: "Выйти", onClick: onLogout },
               { content: "Профиль", href: RoutePath.profile + authData.id },
+              //Очень классный ход!!!
+              ...(isAdminPanelAvaliable ? [{ content: "Админка", href: RoutePath.admin_panel }] : []),
             ]}
             direction="bottomRight"
             trigger={<Button>Oптиции</Button>}

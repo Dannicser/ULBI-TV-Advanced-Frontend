@@ -15,7 +15,9 @@ export const AppRouter: React.FC = () => {
       </Suspense>
     ); // отрисовываем компонент
 
-    return <Route key={route.path} path={route.path} element={route.authOnly ? <RequireAuth>{element}</RequireAuth> : element} />; // проверяем авторизов или нет
+    return (
+      <Route key={route.path} path={route.path} element={route.authOnly ? <RequireAuth roles={route?.roles}>{element}</RequireAuth> : element} />
+    ); // проверяем авторизов или нет
   }, []);
 
   return <Routes>{Object.values(routeConfig).map(renderWithWrapper)}</Routes>;

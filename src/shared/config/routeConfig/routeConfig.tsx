@@ -1,15 +1,19 @@
 import { AboutPageAsync } from "Pages/AboutPage";
 import { MainPageAsync } from "Pages/MainPage";
 import { NotFoundPage } from "Pages/NotFoundPage";
+import { UserRole } from "entities/User/model/types/user";
+import { AdminPanelPageAsync } from "pages/AdminPanelPage";
 import { ArticleDetailPageAsync } from "pages/ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailPage.async";
 import { ArticleEditPageAsync } from "pages/ArticleEditPage";
 import { ArticlesPageAsync } from "pages/ArticlesPage";
+import { ForbiddenPage } from "pages/ForbiddenPage";
 import { ProfilePageAsync } from "pages/ProfilePage";
 import { RouteProps } from "react-router-dom";
 
 // расширяемся от пропсов библиотеки
 export type AppRouteProps = RouteProps & {
   authOnly: boolean;
+  roles?: UserRole[];
 };
 
 export enum AppRoutes {
@@ -20,6 +24,8 @@ export enum AppRoutes {
   ACTICLE_CREATE = "acticle_create",
   ARTICLE_EDIT = "acticle_edit",
   ACTICLE_DETAIL = "acticle_details",
+  ADMIN_PANEL = "admin_panel",
+  FORBIDDEN = "forbidden",
   NOT_FOUND = "not_found",
 }
 
@@ -31,6 +37,8 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.ACTICLE_DETAIL]: "/articles/", // +id
   [AppRoutes.ACTICLE_CREATE]: "/articles/new",
   [AppRoutes.ARTICLE_EDIT]: "/articles/:id/edit", // +id
+  [AppRoutes.ADMIN_PANEL]: "/admin",
+  [AppRoutes.FORBIDDEN]: "/forbidden",
   [AppRoutes.NOT_FOUND]: "*",
 };
 
@@ -68,6 +76,17 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
   [AppRoutes.ACTICLE_CREATE]: {
     path: `${RoutePath.acticle_create}`,
     element: <ArticleEditPageAsync />,
+    authOnly: true,
+  },
+  [AppRoutes.ADMIN_PANEL]: {
+    path: `${RoutePath.admin_panel}`,
+    element: <AdminPanelPageAsync />,
+    authOnly: true,
+    roles: [UserRole.ADMIN, UserRole.MANAGER],
+  },
+  [AppRoutes.FORBIDDEN]: {
+    path: `${RoutePath.forbidden}`,
+    element: <ForbiddenPage />,
     authOnly: true,
   },
   [AppRoutes.NOT_FOUND]: {
