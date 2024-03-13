@@ -1,7 +1,7 @@
 import { HTMLAttributeAnchorTarget, useCallback } from "react";
 //
 
-import { AutoSizer, List, ListRowProps, WindowScroller } from "react-virtualized";
+import { List, ListRowProps, WindowScroller } from "react-virtualized";
 
 //
 import { classNames } from "shared/lib/classNames/classNames";
@@ -85,12 +85,11 @@ export const ArticleList: React.FC<IArticleListProps> = (props) => {
     return <Text title={"Статьи не найдены"} />;
   }
 
-  console.log(articles);
-
   return (
     <WindowScroller scrollElement={document.getElementById(PAGE_ID) as Element}>
       {({ height, width, registerChild, scrollTop, isScrolling, onChildScroll }) => {
         return (
+          //@ts-ignore
           <div ref={registerChild} className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
             <List
               scrollTop={scrollTop}

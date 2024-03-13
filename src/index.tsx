@@ -1,4 +1,4 @@
-import { render } from "react-dom";
+import { createRoot } from "react-dom/client";
 
 import { BrowserRouter } from "react-router-dom";
 
@@ -12,7 +12,15 @@ import "./app/style/index.scss";
 
 import "shared/config/i18n/i18n"; // обязательный импорт для работы i18n
 
-render(
+const container = document.getElementById("root");
+
+if (!container) {
+  throw Error("container has not been found");
+}
+
+const root = createRoot(container);
+
+root.render(
   <BrowserRouter>
     <StoreProvider>
       <ErrorBoundary>
@@ -21,8 +29,7 @@ render(
         </ThemeProvider>
       </ErrorBoundary>
     </StoreProvider>
-  </BrowserRouter>,
-  document.getElementById("root")
+  </BrowserRouter>
 );
 
 //BrowserRouter - выше

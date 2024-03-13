@@ -1,7 +1,7 @@
 import { classNames } from "shared/lib/classNames/classNames";
 
 import cls from "./Modal.module.scss";
-import { MutableRefObject, useCallback, useEffect, useRef, useState } from "react";
+import { MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import { Portal } from "../Portal/Portal";
 
 interface IModalProps {
@@ -9,6 +9,7 @@ interface IModalProps {
   isOpen?: boolean;
   onClose: () => void;
   isLazy?: boolean; // ленивая модалка, появляется в доме только после открытия
+  children: ReactNode;
 }
 
 const ANIMATION_DELAY = 300;

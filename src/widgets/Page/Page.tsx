@@ -1,7 +1,6 @@
 import { classNames } from "shared/lib/classNames/classNames";
 
-import cls from "./Page.module.scss";
-import { MutableRefObject, UIEvent, memo, useEffect, useRef } from "react";
+import { MutableRefObject, ReactNode, UIEvent, memo, useEffect, useRef } from "react";
 import { useInfiniteScroll } from "shared/lib/hooks/useInfiniteScroll";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { getScrollSaveByPath, scrollSaveActions } from "features/ScrollSave";
@@ -10,9 +9,12 @@ import { StateSchema } from "app/providers/StoreProvider";
 import { useLocation } from "react-router-dom";
 import { useThrottle } from "shared/lib/hooks/useThrottle";
 
+import cls from "./Page.module.scss";
+
 interface IPageProps {
   className?: string;
   onScrollEnd?: () => void;
+  children: ReactNode;
 }
 
 export const PAGE_ID = "PAGE_ID";

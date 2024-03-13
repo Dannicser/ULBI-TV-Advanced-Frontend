@@ -20,7 +20,9 @@
       "views": 1022,
       "createdAt": "26.04.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -90,7 +92,9 @@
       "views": 5204,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -112,7 +116,9 @@
       "views": 94002,
       "createdAt": "26.02.2019",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -134,7 +140,9 @@
       "views": 10222,
       "createdAt": "24.01.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -156,7 +164,9 @@
       "views": 10222,
       "createdAt": "26.02.2020",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -178,7 +188,9 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -200,7 +212,9 @@
       "views": 100,
       "createdAt": "21.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -222,7 +236,9 @@
       "views": 102222,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -244,7 +260,9 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -266,7 +284,9 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -288,7 +308,9 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -310,7 +332,9 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -332,7 +356,9 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -354,7 +380,9 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -376,7 +404,9 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -398,7 +428,9 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -420,7 +452,9 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -442,7 +476,9 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["ECONOMICS"],
+      "type": [
+        "ECONOMICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -464,7 +500,9 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["SCIENCE"],
+      "type": [
+        "SCIENCE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -576,21 +614,27 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://cs14.pikabu.ru/post_img/big/2023/02/13/8/1676295806139337963.png"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     },
     {
       "id": "3",
       "username": "manager",
       "password": "123",
-      "roles": ["MANAGER"],
+      "roles": [
+        "MANAGER"
+      ],
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
@@ -600,12 +644,12 @@
       "first": "jghwer",
       "lastname": "asfewr",
       "age": 465,
-      "currency": "RUB",
-      "country": "USA",
+      "currency": "USD",
+      "country": "RUSSIA",
       "city": "Moscow",
       "username": "admin213",
       "avatar": "https://avatars.mds.yandex.net/get-zen_doc/3413519/pub_5ff887b2fe4e686f6ae6ba3f_5ff887d7f906b16872a69755/scale_1200",
-      "firstname": "яa"
+      "firstname": "яas"
     },
     {
       "id": "2",

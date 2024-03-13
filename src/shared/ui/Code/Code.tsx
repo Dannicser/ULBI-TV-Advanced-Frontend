@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { ReactNode, memo } from "react";
 
 import { classNames } from "shared/lib/classNames/classNames";
 
@@ -8,6 +8,7 @@ import cls from "./Code.module.scss";
 
 interface ICodeProps {
   className?: string;
+  children: ReactNode;
 }
 
 export const Code: React.FC<ICodeProps> = memo(({ className, children }) => {

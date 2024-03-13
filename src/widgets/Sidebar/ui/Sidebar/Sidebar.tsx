@@ -12,9 +12,9 @@ import { SidebarItem } from "../SidebarItem/SidebarItem";
 
 import { getSidebarItems } from "widgets/Sidebar/model/selectors/getSidebarItems";
 
-import cls from "./Sidebar.module.scss";
-import { HStack } from "shared/ui/Stack/HStack/HStack";
 import { VStack } from "shared/ui/Stack/VStack/VStack";
+
+import cls from "./Sidebar.module.scss";
 
 interface ISidebarProps {
   className?: string;
