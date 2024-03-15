@@ -3,9 +3,11 @@ import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
+
+import CircularDependencyPlugin from "circular-dependency-plugin";
 
 import { IBuildOptions } from "./types/config";
-import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 
 export function buildPlugins({ paths, isDev, apiUrl, enviroment }: IBuildOptions): webpack.WebpackPluginInstance[] {
   const plugins = [
@@ -17,6 +19,7 @@ export function buildPlugins({ paths, isDev, apiUrl, enviroment }: IBuildOptions
       __API__: JSON.stringify(apiUrl),
       __ENVIROMENT__: JSON.stringify(enviroment),
     }),
+    new CircularDependencyPlugin({ exclude: /node_modules/, failOnError: true }),
   ];
 
   if (isDev) {

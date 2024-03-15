@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-import { ArticleSortField } from "entities/Article";
+import { ArticleSortField } from "../../model/consts/consts";
 
 import { classNames } from "shared/lib/classNames/classNames";
 import { ISelectOptions, Select } from "shared/ui/Select/Select";

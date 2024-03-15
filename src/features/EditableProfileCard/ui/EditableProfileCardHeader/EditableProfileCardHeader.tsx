@@ -10,10 +10,10 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 
 import { getAuthData } from "entities/User";
 
-import { getProfileReadonly } from "features/EditableProfileCard";
-import { getProfileData } from "features/EditableProfileCard";
-import { profileActions } from "features/EditableProfileCard";
-import { updateProfiledata } from "features/EditableProfileCard";
+import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly";
+import { getProfileData } from "../../model/selectors/getProfileData/getProfileData";
+import { profileActions } from "../../model/slice/profileSlice";
+import { updateProfiledata } from "../../model/services/updateProfileData/updateProfileData";
 
 import cls from "./EditableProfileCardHeader.module.scss";
 
