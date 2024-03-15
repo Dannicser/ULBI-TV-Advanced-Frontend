@@ -1,6 +1,6 @@
-import { ArticlesPageAsync } from "pages/ArticlesPage";
+import { ArticleDetailPageAsync } from "./ui/ArticleDetailsPage/ArticleDetailPage.async";
 import { IArticleDetailsPageSchema } from "./model/types/index";
 
-export { ArticlesPageAsync };
+export { ArticleDetailPageAsync };
 
 export type { IArticleDetailsPageSchema };

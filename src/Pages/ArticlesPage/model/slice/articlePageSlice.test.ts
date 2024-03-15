@@ -1,6 +1,6 @@
 import { ArticleSortField, ArticleType, ArticleView } from "entities/Article";
-import { IArticlePageSchema } from "../types/articlePageSchema";
 import { articlesPageActions, articlesPageReducer } from "./articlePageSlice";
+import { IArticlePageSchema } from "../types/articlePageSchema";
 
 describe("articlePageSlice", () => {
   test("setInit", () => {

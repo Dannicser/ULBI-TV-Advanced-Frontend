@@ -1,9 +1,9 @@
-import { AboutPageAsync } from "Pages/AboutPage";
-import { MainPageAsync } from "Pages/MainPage";
-import { NotFoundPage } from "Pages/NotFoundPage";
+import { AboutPageAsync } from "pages/AboutPage";
+import { MainPageAsync } from "pages/MainPage";
+import { NotFoundPage } from "pages/NotFoundPage";
 import { UserRole } from "entities/User";
 import { AdminPanelPageAsync } from "pages/AdminPanelPage";
-import { ArticleDetailPageAsync } from "pages/ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailPage.async";
+import { ArticleDetailPageAsync } from "pages/ArticleDetailsPage";
 import { ArticleEditPageAsync } from "pages/ArticleEditPage";
 import { ArticlesPageAsync } from "pages/ArticlesPage";
 import { ForbiddenPage } from "pages/ForbiddenPage";
