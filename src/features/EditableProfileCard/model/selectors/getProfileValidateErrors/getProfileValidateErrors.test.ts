@@ -1,6 +1,6 @@
 import { StateSchema } from "app/providers/StoreProvider";
 import { getProfileValidateErrors } from "./getProfileValidateErrors";
-import { ValidateProfileError } from "../../types/EditableProfileCardSchema";
+import { ValidateProfileError } from "../../consts/consts";
 describe("getProfileValidateErrors", () => {
   test("should return correct value", () => {
     const data = [ValidateProfileError.INCORRECT_USER_NAME];

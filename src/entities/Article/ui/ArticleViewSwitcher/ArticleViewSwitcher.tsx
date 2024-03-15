@@ -1,6 +1,4 @@
-import { useTranslation } from "react-i18next";
-
-import { ArticleView } from "../../../Article/model/types/article";
+import { ArticleView } from "../../../Article/model/consts/consts";
 import { Button } from "shared/ui/Button/Button";
 
 import cls from "./ArticleViewSwitcher.module.scss";

@@ -14,7 +14,7 @@ import { Text, ThemeText } from "shared/ui/Text";
 
 import { useTranslation } from "react-i18next";
 
-import { ValidateProfileError } from "../../model/types/EditableProfileCardSchema";
+import { ValidateProfileError } from "../../model/consts/consts";
 
 import { getProfileData } from "../../model/selectors/getProfileData/getProfileData";
 import { getProfileLoading } from "../../model/selectors/getProfileLoading/getProfileLoading";

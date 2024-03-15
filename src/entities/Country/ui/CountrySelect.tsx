@@ -1,7 +1,7 @@
 import { memo } from "react";
 
 import { classNames } from "shared/lib/classNames/classNames";
-import { County } from "../model/types/country";
+import { County } from "../model/consts/consts";
 
 import { Select } from "shared/ui/Select/Select";
 

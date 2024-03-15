@@ -1,7 +1,7 @@
 import { AboutPageAsync } from "Pages/AboutPage";
 import { MainPageAsync } from "Pages/MainPage";
 import { NotFoundPage } from "Pages/NotFoundPage";
-import { UserRole } from "entities/User/model/types/user";
+import { UserRole } from "entities/User";
 import { AdminPanelPageAsync } from "pages/AdminPanelPage";
 import { ArticleDetailPageAsync } from "pages/ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailPage.async";
 import { ArticleEditPageAsync } from "pages/ArticleEditPage";

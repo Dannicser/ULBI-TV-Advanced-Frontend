@@ -10,14 +10,16 @@ import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsLoading
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { fetchArticleById } from "entities/Article/model/services/fetchArticleById/fetchArticleById";
 
-import cls from "./ArticleDetails.module.scss";
 import { Text, ThemeText } from "shared/ui/Text";
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
 import { Avatar } from "shared/ui/Avatar/Avatar";
-import { ArticleBlockType, IArticleBlock } from "entities/Article/model/types/article";
+import { IArticleBlock } from "../../model/types/article";
+import { ArticleBlockType } from "../../model/consts/consts";
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleImgBlockComponent } from "../ArticleImgBlockComponent/ArticleImgBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
+
+import cls from "./ArticleDetails.module.scss";
 
 interface IArticleDetailProps {
   className?: string;

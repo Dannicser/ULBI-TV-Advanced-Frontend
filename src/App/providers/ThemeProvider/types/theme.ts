@@ -1,12 +1,6 @@
-export enum Theme {
-  LIGHT = "light",
-  DARK = "dark",
-  ORANGE = "orange",
-}
+import { Theme } from "../consts/consts";
 
 export interface IThemeContextProps {
   theme?: Theme;
   setTheme?: (theme: Theme) => void;
 }
-
-export const LOCAL_STORAGE_THEME_KEY: string = "theme";

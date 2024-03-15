@@ -6,7 +6,9 @@ import { List, ListRowProps, WindowScroller } from "react-virtualized";
 //
 import { classNames } from "shared/lib/classNames/classNames";
 
-import { ArticleView, IArticle } from "entities/Article/model/types/article";
+import { ArticleView } from "../../model/consts/consts";
+
+import { IArticle } from "../../model/types/article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 
 import { PAGE_ID } from "widgets/Page/Page";

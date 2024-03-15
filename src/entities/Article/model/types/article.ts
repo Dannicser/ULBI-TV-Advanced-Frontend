@@ -1,3 +1,5 @@
+import { ArticleBlockType, ArticleType } from "../consts/consts";
+
 export interface IArticle {
   id: string;
   title: string;
@@ -10,19 +12,7 @@ export interface IArticle {
   userId?: string;
 }
 
-export enum ArticleType {
-  IT = "IT",
-  SCIENCE = "SCIENCE",
-  ALL = "ALL",
-}
-
 export type IArticleBlock = IArticleCodeBlock | IArticleImageBlock | IArticleTextBlock;
-
-export enum ArticleBlockType {
-  CODE = "CODE",
-  IMAGE = "IMAGE",
-  TEXT = "TEXT",
-}
 
 export interface IArticleBlockBase {
   id: string;
@@ -44,19 +34,4 @@ export interface IArticleTextBlock extends IArticleBlockBase {
   type: ArticleBlockType.TEXT;
   paragraphs: string[];
   title?: string;
-}
-
-//list
-
-export enum ArticleView {
-  SMALL = "SMALL",
-  BIG = "BIG",
-}
-
-// sort
-
-export enum ArticleSortField {
-  VIEWS = "views",
-  TITLE = "title",
-  CREATED = "createdAt",
 }

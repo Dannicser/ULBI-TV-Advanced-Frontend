@@ -6,9 +6,7 @@ import { classNames } from "shared/lib/classNames/classNames";
 
 import { Select } from "shared/ui/Select/Select";
 
-import { Currency } from "../model/types/currency";
-
-import MyListbox from "shared/ui/ListBox/ListBox";
+import { Currency } from "../model/consts/consts";
 
 interface ICurrencySelectorProps {
   className?: string;

@@ -1,4 +1,5 @@
-import { ArticleView, IArticle, ArticleType, ArticleSortField } from "./model/types/article";
+import { ArticleView, ArticleType, ArticleSortField } from "./model/consts/consts";
+import { IArticle } from "./model/types/article";
 import { IArticleDetailsSchema } from "./model/types/articleDetailsSchema";
 import { ArticleDetails } from "./ui/ArticleDetail/ArticleDetails";
 
@@ -10,8 +11,6 @@ import { ArticleTypeTabs } from "./ui/ArticleTypeTabs/ArticleTypeTabs";
 
 export {
   ArticleDetails,
-  IArticle,
-  IArticleDetailsSchema,
   getArticleDetailsData,
   ArticleView,
   ArticleViewSwitcher,
@@ -21,3 +20,5 @@ export {
   ArticleSortSelector,
   ArticleTypeTabs,
 };
+
+export type { IArticle, IArticleDetailsSchema };

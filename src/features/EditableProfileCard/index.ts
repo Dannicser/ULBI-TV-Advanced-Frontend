@@ -6,4 +6,5 @@ import { profileActions } from "./model/slice/profileSlice";
 import { EditableProfileCard } from "./ui/EditableProfileCard/EditableProfileCard";
 import { IProfileSchema } from "./model/types/EditableProfileCardSchema";
 
-export { getProfileData, getProfileReadonly, updateProfiledata, profileActions, EditableProfileCard, IProfileSchema };
+export { getProfileData, getProfileReadonly, updateProfiledata, profileActions, EditableProfileCard };
+export type { IProfileSchema };
