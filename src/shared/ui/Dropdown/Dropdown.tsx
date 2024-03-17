@@ -3,6 +3,7 @@ import { Menu } from "@headlessui/react";
 import { classNames } from "shared/lib/classNames/classNames";
 
 import { AppLink } from "../AppLink/AppLink";
+
 import { To } from "react-router-dom";
 
 import cls from "./Dropdown.module.scss";

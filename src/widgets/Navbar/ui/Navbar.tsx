@@ -19,6 +19,8 @@ import { AppLink } from "shared/ui/AppLink/AppLink";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import MyDropdown from "shared/ui/Dropdown/Dropdown";
 
+import { NotificationList } from "entities/Notification";
+
 import cls from "./Navbar.module.scss";
 
 interface INavbarProps {
@@ -56,6 +58,8 @@ export const Navbar: React.FC<INavbarProps> = memo(({ className }) => {
   if (authData) {
     return (
       <header className={classNames(cls.Navbar, {}, [className])}>
+        <NotificationList className={cls.notifications} />
+
         <div className={cls.options}>
           <MyDropdown
             items={[
@@ -68,7 +72,6 @@ export const Navbar: React.FC<INavbarProps> = memo(({ className }) => {
             trigger={<Button>Oптиции</Button>}
           />
         </div>
-
         <div className={cls.links}>
           <AppLink className={cls.create} to={RoutePath.acticle_create}>
             <Button>{t("CreateArticle")}</Button>
