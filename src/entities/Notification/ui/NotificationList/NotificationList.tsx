@@ -4,10 +4,9 @@ import { classNames } from "shared/lib/classNames/classNames";
 
 import { useNotificationsList } from "../../api/notificationApi";
 
-import { HPopover } from "shared/ui/Popover/HPopover";
-import { Button } from "shared/ui/Button/Button";
-
 import { NotificationItem } from "../NotificationItem/NotificationItem";
+
+import { Skeleton } from "shared/ui/Skeleton/Skeleton";
 
 import cls from "./NotificationList.module.scss";
 
@@ -20,13 +19,15 @@ export const NotificationList: React.FC<INotificationListProps> = ({ className }
 
   const { data, isError, isLoading } = useNotificationsList(null);
 
+  if (isLoading) {
+    return <Skeleton />;
+  }
+
   return (
     <div className={classNames(cls.NotificationList, {}, [className])}>
-      <HPopover className={cls.notifications} trigger={<Button>Уведомления</Button>}>
-        {data?.map((item) => {
-          return <NotificationItem item={item} />;
-        })}
-      </HPopover>
+      {data?.map((item) => {
+        return <NotificationItem item={item} />;
+      })}
     </div>
   );
 };

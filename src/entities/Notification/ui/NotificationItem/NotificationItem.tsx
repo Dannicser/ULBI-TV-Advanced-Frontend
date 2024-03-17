@@ -4,8 +4,9 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { INotification } from "../../model/types/notification";
 import { Text } from "shared/ui/Text";
 
-import cls from "./NotificationItem.module.scss";
 import { AppLink } from "shared/ui/AppLink/AppLink";
+
+import cls from "./NotificationItem.module.scss";
 
 interface INotificationItemProps {
   className?: string;

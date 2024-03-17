@@ -5,20 +5,31 @@
 .list {
   width: 100%;
   position: absolute;
-  background-color: var(--primary-color);
+
   color: var(--inverted-primary-color);
   border-radius: 10px;
-  box-shadow: 4px 4px 1px var(--primary-color);
+
   z-index: 100;
   padding: 15px;
+
+  // background-color: var(--primary-color);
+  // box-shadow: 4px 4px 1px var(--primary-color);
 }
 
 .item {
-  display: block;
-  padding: 10px 15px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: none;
+  outline: none;
+  color: var(--inverted-primary-color);
+  cursor: pointer;
 }
 
 .btn {
-  position: absolute;
+}
+
+.bottomLeft {
   right: 0;
+  top: 100%;
 }

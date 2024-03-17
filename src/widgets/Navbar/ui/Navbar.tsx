@@ -21,6 +21,8 @@ import MyDropdown from "shared/ui/Dropdown/Dropdown";
 
 import { NotificationList } from "entities/Notification";
 
+import { Popover } from "shared/ui/Popover/HPopover";
+
 import cls from "./Navbar.module.scss";
 
 interface INavbarProps {
@@ -58,14 +60,15 @@ export const Navbar: React.FC<INavbarProps> = memo(({ className }) => {
   if (authData) {
     return (
       <header className={classNames(cls.Navbar, {}, [className])}>
-        <NotificationList className={cls.notifications} />
+        <Popover trigger={<Button>Уведомления</Button>}>
+          <NotificationList className={cls.notifications} />
+        </Popover>
 
         <div className={cls.options}>
-          <MyDropdown
+          <MyDropdown // можно вынести в фичу - 79!
             items={[
               { content: "Выйти", onClick: onLogout },
               { content: "Профиль", href: RoutePath.profile + authData.id },
-              //Очень классный ход!!!
               ...(isAdminPanelAvaliable ? [{ content: "Админка", href: RoutePath.admin_panel }] : []),
             ]}
             direction="bottomRight"

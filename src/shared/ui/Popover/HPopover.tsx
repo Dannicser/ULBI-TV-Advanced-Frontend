@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 import { useTranslation } from "react-i18next";
 
-import { Popover } from "@headlessui/react";
+import { Popover as HPopover } from "@headlessui/react";
 
 import { classNames } from "shared/lib/classNames/classNames";
 
@@ -14,16 +14,16 @@ interface IHPopoverProps {
   children: ReactNode;
 }
 
-export const HPopover: React.FC<IHPopoverProps> = ({ className, trigger, children }) => {
+export const Popover: React.FC<IHPopoverProps> = ({ className, trigger, children }) => {
   const { t, i18n } = useTranslation();
 
   return (
-    <Popover className={cls.Pupover}>
-      <Popover.Button className={cls.btn}>{trigger}</Popover.Button>
+    <HPopover className={cls.Pupover}>
+      <HPopover.Button className={cls.btn}>{trigger}</HPopover.Button>
 
-      <Popover.Panel as={"ul"} className={cls.list}>
+      <HPopover.Panel as={"ul"} className={classNames(cls.list, {}, [cls.bottomLeft])}>
         {children}
-      </Popover.Panel>
-    </Popover>
+      </HPopover.Panel>
+    </HPopover>
   );
 };
