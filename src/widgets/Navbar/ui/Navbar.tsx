@@ -2,13 +2,10 @@ import { memo, useCallback, useState } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-import { classNames } from "shared/lib/classNames/classNames";
-
 import { ThemeSwitcher } from "widgets/ThemeSwicher";
 import { LangSwitcher } from "widgets/LangSwitcher";
 
-import { Button } from "shared/ui/Button/Button";
-
+import { NotificationButton } from "features/NotificationButton";
 import { LoginModal } from "features/AuthByUserName";
 
 import { userActions, getAuthData, isUserAdmin, isUserManager } from "entities/User";
@@ -17,11 +14,10 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
-import MyDropdown from "shared/ui/Dropdown/Dropdown";
+import { Button } from "shared/ui/Button/Button";
+import { Dropdown } from "shared/ui/Dropdown/Dropdown";
 
-import { NotificationList } from "entities/Notification";
-
-import { Popover } from "shared/ui/Popover/HPopover";
+import { classNames } from "shared/lib/classNames/classNames";
 
 import cls from "./Navbar.module.scss";
 
@@ -60,12 +56,9 @@ export const Navbar: React.FC<INavbarProps> = memo(({ className }) => {
   if (authData) {
     return (
       <header className={classNames(cls.Navbar, {}, [className])}>
-        <Popover trigger={<Button>Уведомления</Button>}>
-          <NotificationList className={cls.notifications} />
-        </Popover>
-
+        <NotificationButton />
         <div className={cls.options}>
-          <MyDropdown // можно вынести в фичу - 79!
+          <Dropdown // можно вынести в фичу - 79!
             items={[
               { content: "Выйти", onClick: onLogout },
               { content: "Профиль", href: RoutePath.profile + authData.id },

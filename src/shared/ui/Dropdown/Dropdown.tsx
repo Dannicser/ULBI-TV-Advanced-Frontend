@@ -31,7 +31,7 @@ const mapDirectionClass: Record<DropDownDirection, string> = {
   bottomRight: cls.bottomRight,
 };
 
-export default function MyDropdown(props: IMyDropdownProps) {
+export function Dropdown(props: IMyDropdownProps) {
   const { className, items, trigger, direction } = props;
 
   return (
