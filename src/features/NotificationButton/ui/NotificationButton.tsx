@@ -15,6 +15,7 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { Button } from "shared/ui/Button/Button";
 
 import cls from "./NotificationButton.module.scss";
+import { AnimationProvider } from "shared/lib/components/AnimationProvider";
 
 interface INotificationButtonProps {
   className?: string;
@@ -43,9 +44,11 @@ export const NotificationButton: React.FC<INotificationButtonProps> = ({ classNa
 
       <MobileView>
         <Button onClick={onOpen}>Уведомления</Button>
-        <Drawer onClose={onClose} isOpen={isOpen}>
-          <NotificationList />
-        </Drawer>
+        <AnimationProvider>
+          <Drawer onClose={onClose} isOpen={isOpen}>
+            <NotificationList />
+          </Drawer>
+        </AnimationProvider>
       </MobileView>
     </div>
   );

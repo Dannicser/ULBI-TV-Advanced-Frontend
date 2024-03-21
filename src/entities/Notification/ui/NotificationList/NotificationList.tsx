@@ -26,7 +26,7 @@ export const NotificationList: React.FC<INotificationListProps> = ({ className }
   return (
     <div className={classNames(cls.NotificationList, {}, [className])}>
       {data?.map((item) => {
-        return <NotificationItem item={item} />;
+        return <NotificationItem key={item.id} item={item} />;
       })}
     </div>
   );
