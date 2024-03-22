@@ -1,12 +1,12 @@
 import { useTranslation } from "react-i18next";
 
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
 import { useNotificationsList } from "../../api/notificationApi";
 
 import { NotificationItem } from "../NotificationItem/NotificationItem";
 
-import { Skeleton } from "shared/ui/Skeleton/Skeleton";
+import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 
 import cls from "./NotificationList.module.scss";
 

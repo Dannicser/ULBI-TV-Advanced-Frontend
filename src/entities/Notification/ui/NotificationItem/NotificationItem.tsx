@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
 
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import { INotification } from "../../model/types/notification";
-import { Text } from "shared/ui/Text";
+import { Text } from "@/shared/ui/Text";
 
-import { AppLink } from "shared/ui/AppLink/AppLink";
+import { AppLink } from "@/shared/ui/AppLink/AppLink";
 
 import cls from "./NotificationItem.module.scss";
 

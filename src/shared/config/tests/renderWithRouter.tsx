@@ -1,6 +1,6 @@
 import { DeepPartial, ReducersMapObject } from "@reduxjs/toolkit";
 import { render } from "@testing-library/react";
-import { StateSchema, StoreProvider } from "app/providers/StoreProvider";
+import { StateSchema, StoreProvider } from "@/app/providers/StoreProvider";
 import { ReactNode, Suspense } from "react";
 import { I18nextProvider } from "react-i18next";
 import { MemoryRouter } from "react-router-dom";

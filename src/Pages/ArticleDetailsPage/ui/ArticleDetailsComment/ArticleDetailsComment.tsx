@@ -1,13 +1,13 @@
 import { useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 
-import { classNames } from "shared/lib/classNames/classNames";
-import { AddCommentFormAsync } from "features/AddCommentForm";
+import { classNames } from "@/shared/lib/classNames/classNames";
+import { AddCommentFormAsync } from "@/features/AddCommentForm";
 
-import { Text } from "shared/ui/Text";
+import { Text } from "@/shared/ui/Text";
 
-import { CommentList } from "entities/Comment";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+import { CommentList } from "@/entities/Comment";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 
 import { getArticleCommentsError, getArticleCommentsIsLoading } from "../../model/selectors/comments/comments";
 

@@ -1,9 +1,9 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
 import { IComment } from "../../../Comment/model/types/comment";
-import { Text } from "shared/ui/Text";
+import { Text } from "@/shared/ui/Text";
 import { CommentItem } from "../CommentItem/CommentItem";
-import { Skeleton } from "shared/ui/Skeleton/Skeleton";
+import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 
 import cls from "./CommentList.module.scss";
 

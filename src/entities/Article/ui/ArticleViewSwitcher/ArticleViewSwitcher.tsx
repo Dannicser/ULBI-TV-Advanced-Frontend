@@ -1,8 +1,8 @@
 import { ArticleView } from "../../../Article/model/consts/consts";
-import { Button } from "shared/ui/Button/Button";
+import { Button } from "@/shared/ui/Button/Button";
 
 import cls from "./ArticleViewSwitcher.module.scss";
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
 interface IArticleViewSwitcherProps {
   className?: string;

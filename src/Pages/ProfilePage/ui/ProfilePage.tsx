@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
-import { EditableProfileCard } from "features/EditableProfileCard";
+import { EditableProfileCard } from "@/features/EditableProfileCard";
 
-import { Page } from "widgets/Page/Page";
+import { Page } from "@/widgets/Page/Page";
 
 import cls from "./ProfilePage.module.scss";
 

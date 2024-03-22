@@ -2,20 +2,20 @@ import { useCallback, useState } from "react";
 
 import { useTranslation } from "react-i18next";
 
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
-import { NotificationList } from "entities/Notification";
+import { NotificationList } from "@/entities/Notification";
 
-import { Popover } from "shared/ui/Popover/HPopover";
+import { Popover } from "@/shared/ui/Popover/HPopover";
 
-import { Drawer } from "shared/ui/Drawer/Drawer";
+import { Drawer } from "@/shared/ui/Drawer/Drawer";
 
 import { BrowserView, MobileView } from "react-device-detect";
 
-import { Button } from "shared/ui/Button/Button";
+import { Button } from "@/shared/ui/Button/Button";
 
 import cls from "./NotificationButton.module.scss";
-import { AnimationProvider } from "shared/lib/components/AnimationProvider";
+import { AnimationProvider } from "@/shared/lib/components/AnimationProvider";
 
 interface INotificationButtonProps {
   className?: string;

@@ -4,15 +4,15 @@ import { useNavigate } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
 
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
-import { Button, ThemeButton } from "shared/ui/Button/Button";
+import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
+import { Button, ThemeButton } from "@/shared/ui/Button/Button";
 
-import { getCanUserEditArticle } from "pages/ArticleDetailsPage/model/selectors/article/article";
+import { getCanUserEditArticle } from "@/pages/ArticleDetailsPage/model/selectors/article/article";
 
 import cls from "./ArticleDetailsPageHeader.module.scss";
-import { getArticleDetailsData } from "entities/Article";
+import { getArticleDetailsData } from "@/entities/Article";
 
 interface IArticleDetailsPageHeaderProps {
   className?: string;

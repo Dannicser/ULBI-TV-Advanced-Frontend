@@ -1,10 +1,10 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 
-import { Sidebar } from "widgets/Sidebar/index";
+import { Sidebar } from "@/widgets/Sidebar/index";
 
 import "@testing-library/jest-dom";
 
-import { componentRender } from "shared/config/tests/renderWithRouter";
+import { componentRender } from "@/shared/config/tests/renderWithRouter";
 
 describe("Sidebar", () => {
   test("there is", () => {

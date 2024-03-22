@@ -4,11 +4,11 @@ import { useTranslation } from "react-i18next";
 
 import { useArticleRecommendationsList } from "../../../ArticleRecommendationsList/api/articleRecommendationsApi";
 
-import { ArticleList } from "entities/Article";
+import { ArticleList } from "@/entities/Article";
 
-import { classNames } from "shared/lib/classNames/classNames";
-import { Text } from "shared/ui/Text";
-import { VStack } from "shared/ui/Stack/VStack/VStack";
+import { classNames } from "@/shared/lib/classNames/classNames";
+import { Text } from "@/shared/ui/Text";
+import { VStack } from "@/shared/ui/Stack/VStack/VStack";
 
 interface ArticleRecommendationsListProps {
   className?: string;

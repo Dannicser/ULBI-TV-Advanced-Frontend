@@ -2,17 +2,17 @@ import { useMemo, useState } from "react";
 
 import { useSelector } from "react-redux";
 
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
 import { useTranslation } from "react-i18next";
 
-import { Button, SizeButton, ThemeButton } from "shared/ui/Button/Button";
+import { Button, SizeButton, ThemeButton } from "@/shared/ui/Button/Button";
 
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 
-import { getSidebarItems } from "widgets/Sidebar/model/selectors/getSidebarItems";
+import { getSidebarItems } from "@/widgets/Sidebar/model/selectors/getSidebarItems";
 
-import { VStack } from "shared/ui/Stack/VStack/VStack";
+import { VStack } from "@/shared/ui/Stack/VStack/VStack";
 
 import cls from "./Sidebar.module.scss";
 

@@ -4,13 +4,13 @@ import { memo } from "react";
 
 import { useSelector } from "react-redux";
 
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 
-import { Currency } from "entities/Currency";
-import { County } from "entities/Country";
+import { Currency } from "@/entities/Currency";
+import { County } from "@/entities/Country";
 import { getProfileValidateErrors } from "../../model/selectors/getProfileValidateErrors/getProfileValidateErrors";
 
-import { Text, ThemeText } from "shared/ui/Text";
+import { Text, ThemeText } from "@/shared/ui/Text";
 
 import { useTranslation } from "react-i18next";
 
@@ -22,9 +22,9 @@ import { getProfileError } from "../../model/selectors/getProfileError/getProfil
 import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly";
 import { profileActions, profileReducer } from "../../model/slice/profileSlice";
 import { fetchProfileData } from "../../model/services/fetchProfileData/fetchProfileData";
-import { ProfileCard } from "entities/Profile";
+import { ProfileCard } from "@/entities/Profile";
 
-import { DynamicModelLoader, ReducersList } from "shared/lib/components/DynamicModelLoader";
+import { DynamicModelLoader, ReducersList } from "@/shared/lib/components/DynamicModelLoader";
 import { EditableProfileCardHeader } from "../EditableProfileCardHeader/EditableProfileCardHeader";
 
 interface EditableProfileCardProps {

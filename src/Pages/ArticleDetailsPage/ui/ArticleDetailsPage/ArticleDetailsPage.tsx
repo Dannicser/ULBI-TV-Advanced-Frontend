@@ -1,15 +1,15 @@
 import { useParams } from "react-router-dom";
 
-import { ArticleDetails } from "entities/Article";
+import { ArticleDetails } from "@/entities/Article";
 
-import { classNames } from "shared/lib/classNames/classNames";
-import { DynamicModelLoader, ReducersList } from "shared/lib/components/DynamicModelLoader";
+import { classNames } from "@/shared/lib/classNames/classNames";
+import { DynamicModelLoader, ReducersList } from "@/shared/lib/components/DynamicModelLoader";
 
-import { Page } from "widgets/Page/Page";
+import { Page } from "@/widgets/Page/Page";
 
 import { articleDetailsPageReducer } from "../../model/slice";
 
-import { ArticleRecommendationsList } from "features/ArticleRecommendationsList";
+import { ArticleRecommendationsList } from "@/features/ArticleRecommendationsList";
 
 import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
 

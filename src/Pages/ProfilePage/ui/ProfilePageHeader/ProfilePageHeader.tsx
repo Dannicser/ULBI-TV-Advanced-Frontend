@@ -1,22 +1,22 @@
 import { memo } from "react";
 
 import { useTranslation } from "react-i18next";
-import { Button } from "shared/ui/Button/Button";
+import { Button } from "@/shared/ui/Button/Button";
 
-import { classNames } from "shared/lib/classNames/classNames";
-import { Text } from "shared/ui/Text";
+import { classNames } from "@/shared/lib/classNames/classNames";
+import { Text } from "@/shared/ui/Text";
 
 import { useSelector } from "react-redux";
 
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 
-import { getAuthData } from "entities/User";
+import { getAuthData } from "@/entities/User";
 
 import cls from "./ProfilePageHeader.module.scss";
-import { getProfileReadonly } from "features/EditableProfileCard";
-import { getProfileData } from "features/EditableProfileCard";
-import { profileActions } from "features/EditableProfileCard";
-import { updateProfiledata } from "features/EditableProfileCard";
+import { getProfileReadonly } from "@/features/EditableProfileCard";
+import { getProfileData } from "@/features/EditableProfileCard";
+import { profileActions } from "@/features/EditableProfileCard";
+import { updateProfiledata } from "@/features/EditableProfileCard";
 
 interface IProfilePageHeaderProps {
   className?: string;

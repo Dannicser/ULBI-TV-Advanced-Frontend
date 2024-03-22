@@ -4,7 +4,7 @@ import { Counter } from "./Counter";
 
 import "@testing-library/jest-dom"; // !
 
-import { componentRender } from "shared/config/tests/renderWithRouter";
+import { componentRender } from "@/shared/config/tests/renderWithRouter";
 
 // это интеграционный тест
 

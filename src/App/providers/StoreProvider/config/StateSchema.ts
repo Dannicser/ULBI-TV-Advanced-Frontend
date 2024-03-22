@@ -1,18 +1,18 @@
 import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
 import { AxiosInstance } from "axios";
-import { IArticleDetailsSchema } from "entities/Article";
-import { ICounterSchema } from "entities/Counter";
+import { IArticleDetailsSchema } from "@/entities/Article";
+import { ICounterSchema } from "@/entities/Counter";
 
-import { IUserSchema } from "entities/User";
-import { IAddCommentFormSchema } from "features/AddCommentForm";
-import { ILoginSchema } from "features/AuthByUserName";
-import { IProfileSchema } from "features/EditableProfileCard";
-import { IScrollSaveSchema } from "features/ScrollSave";
-import { IArticleDetailsPageSchema } from "pages/ArticleDetailsPage";
+import { IUserSchema } from "@/entities/User";
+import { IAddCommentFormSchema } from "@/features/AddCommentForm";
+import { ILoginSchema } from "@/features/AuthByUserName";
+import { IProfileSchema } from "@/features/EditableProfileCard";
+import { IScrollSaveSchema } from "@/features/ScrollSave";
+import { IArticleDetailsPageSchema } from "@/pages/ArticleDetailsPage";
 
-import { IArticlePageSchema } from "pages/ArticlesPage";
+import { IArticlePageSchema } from "@/pages/ArticlesPage";
 import { NavigateOptions, To } from "react-router-dom";
-import { rtkApi } from "shared/api/rtkApi";
+import { rtkApi } from "@/shared/api/rtkApi";
 
 export interface StateSchema {
   //синхронные редьюсеры

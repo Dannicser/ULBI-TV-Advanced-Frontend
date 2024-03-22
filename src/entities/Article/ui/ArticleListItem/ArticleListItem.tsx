@@ -1,12 +1,12 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
 import { IArticle, IArticleTextBlock } from "../../../Article/model/types/article";
-import { Text } from "shared/ui/Text";
-import { Button, ThemeButton } from "shared/ui/Button/Button";
+import { Text } from "@/shared/ui/Text";
+import { Button, ThemeButton } from "@/shared/ui/Button/Button";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { HTMLAttributeAnchorTarget } from "react";
 
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
+import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
 
 import { Link } from "react-router-dom";
 

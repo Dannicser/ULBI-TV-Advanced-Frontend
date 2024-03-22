@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { IThunkConfig } from "app/providers/StoreProvider";
-import { ArticleType, IArticle } from "entities/Article";
+import { IThunkConfig } from "@/app/providers/StoreProvider";
+import { ArticleType, IArticle } from "@/entities/Article";
 import {
   getArticlesPageCount,
   getArticlesPageFieldSort,
@@ -9,7 +9,7 @@ import {
   getArticlesPageSearchText,
   getArticlesPageType,
 } from "../../selectors/getArticlePageSelectors/getArticlePageSelectors";
-import { addQuaryParams } from "shared/lib/url/addQuaryParams";
+import { addQuaryParams } from "@/shared/lib/url/addQuaryParams";
 
 interface IFetchArticlesListProps {
   isReplace?: boolean;

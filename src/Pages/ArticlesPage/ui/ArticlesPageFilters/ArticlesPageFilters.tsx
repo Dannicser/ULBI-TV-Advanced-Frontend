@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 import { useCallback } from "react";
 
-import { ArticleSortField, ArticleType, ArticleView, ArticleViewSwitcher } from "entities/Article";
+import { ArticleSortField, ArticleType, ArticleView, ArticleViewSwitcher } from "@/entities/Article";
 
 import { articlesPageActions } from "../../model/slice/articlePageSlice";
 
@@ -16,15 +16,15 @@ import {
 
 import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
 
-import { ArticleSortSelector } from "entities/Article";
-import { ArticleTypeTabs } from "entities/Article";
+import { ArticleSortSelector } from "@/entities/Article";
+import { ArticleTypeTabs } from "@/entities/Article";
 
-import { classNames } from "shared/lib/classNames/classNames";
-import { SortOrder } from "shared/types";
-import { useDebounce } from "shared/lib/hooks/useDebounce";
-import { ITabItem } from "shared/ui/Tabs/Tabs";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { Input } from "shared/ui/Input/Input";
+import { classNames } from "@/shared/lib/classNames/classNames";
+import { SortOrder } from "@/shared/types";
+import { useDebounce } from "@/shared/lib/hooks/useDebounce";
+import { ITabItem } from "@/shared/ui/Tabs/Tabs";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { Input } from "@/shared/ui/Input/Input";
 
 import cls from "./ArticlesPageFilters.module.scss";
 

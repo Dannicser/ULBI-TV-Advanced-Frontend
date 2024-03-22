@@ -1,14 +1,14 @@
 import { useTranslation } from "react-i18next";
-import { Button } from "shared/ui/Button/Button";
+import { Button } from "@/shared/ui/Button/Button";
 
-import { classNames } from "shared/lib/classNames/classNames";
-import { Text } from "shared/ui/Text";
+import { classNames } from "@/shared/lib/classNames/classNames";
+import { Text } from "@/shared/ui/Text";
 
 import { useSelector } from "react-redux";
 
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 
-import { getAuthData } from "entities/User";
+import { getAuthData } from "@/entities/User";
 
 import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly";
 import { getProfileData } from "../../model/selectors/getProfileData/getProfileData";

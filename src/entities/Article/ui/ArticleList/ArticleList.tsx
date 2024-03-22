@@ -4,18 +4,18 @@ import { HTMLAttributeAnchorTarget, useCallback } from "react";
 import { List, ListRowProps, WindowScroller } from "react-virtualized";
 
 //
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
 import { ArticleView } from "../../model/consts/consts";
 
 import { IArticle } from "../../model/types/article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 
-import { PAGE_ID } from "widgets/Page/Page";
+import { PAGE_ID } from "@/widgets/Page/Page";
 
-import { Skeleton } from "shared/ui/Skeleton/Skeleton";
+import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 
-import { Text } from "shared/ui/Text";
+import { Text } from "@/shared/ui/Text";
 
 import cls from "./ArticleList.module.scss";
 

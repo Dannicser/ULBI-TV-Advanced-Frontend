@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 
 import { Popover as HPopover } from "@headlessui/react";
 
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
 import cls from "./HPopover.module.scss";
 

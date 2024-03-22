@@ -1,4 +1,4 @@
-import { ArticleSortField, ArticleType, ArticleView } from "entities/Article";
+import { ArticleSortField, ArticleType, ArticleView } from "@/entities/Article";
 import { articlesPageActions, articlesPageReducer } from "./articlePageSlice";
 import { IArticlePageSchema } from "../types/articlePageSchema";
 

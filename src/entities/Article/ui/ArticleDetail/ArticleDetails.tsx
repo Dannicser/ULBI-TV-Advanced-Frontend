@@ -2,17 +2,17 @@ import { useSelector } from "react-redux";
 import { memo, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
-import { classNames } from "shared/lib/classNames/classNames";
-import { DynamicModelLoader, ReducersList } from "shared/lib/components/DynamicModelLoader";
+import { classNames } from "@/shared/lib/classNames/classNames";
+import { DynamicModelLoader, ReducersList } from "@/shared/lib/components/DynamicModelLoader";
 
-import { articleDetailsReducer } from "entities/Article/model/slice/articleDetailsSlice";
-import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsLoading } from "entities/Article/model/selectors/getArticleDetails";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { fetchArticleById } from "entities/Article/model/services/fetchArticleById/fetchArticleById";
+import { articleDetailsReducer } from "@/entities/Article/model/slice/articleDetailsSlice";
+import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsLoading } from "@/entities/Article/model/selectors/getArticleDetails";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { fetchArticleById } from "@/entities/Article/model/services/fetchArticleById/fetchArticleById";
 
-import { Text, ThemeText } from "shared/ui/Text";
-import { Skeleton } from "shared/ui/Skeleton/Skeleton";
-import { Avatar } from "shared/ui/Avatar/Avatar";
+import { Text, ThemeText } from "@/shared/ui/Text";
+import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
+import { Avatar } from "@/shared/ui/Avatar/Avatar";
 import { IArticleBlock } from "../../model/types/article";
 import { ArticleBlockType } from "../../model/consts/consts";
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";

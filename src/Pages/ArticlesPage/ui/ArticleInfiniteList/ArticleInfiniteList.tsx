@@ -2,12 +2,12 @@ import { useTranslation } from "react-i18next";
 
 import { getArticlesPageLoading, getArticlesPageView } from "../../model/selectors/getArticlePageSelectors/getArticlePageSelectors";
 
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
 import { useSelector } from "react-redux";
-import { getArticles } from "pages/ArticlesPage/model/slice/articlePageSlice";
+import { getArticles } from "@/pages/ArticlesPage/model/slice/articlePageSlice";
 
-import { ArticleList } from "entities/Article";
+import { ArticleList } from "@/entities/Article";
 
 interface IArticleInfiniteListProps {
   className?: string;

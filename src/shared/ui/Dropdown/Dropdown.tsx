@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { Menu } from "@headlessui/react";
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
 import { AppLink } from "../AppLink/AppLink";
 

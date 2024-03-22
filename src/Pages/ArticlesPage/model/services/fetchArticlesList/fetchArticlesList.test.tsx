@@ -1,9 +1,9 @@
 import { Dispatch } from "@reduxjs/toolkit";
-import { StateSchema } from "app/providers/StoreProvider";
+import { StateSchema } from "@/app/providers/StoreProvider";
 import axios, { AxiosStatic } from "axios";
 import { fetchArticlesList } from "./fetchArticlesList";
 
-import { ArticleSortField, ArticleType, ArticleView } from "entities/Article";
+import { ArticleSortField, ArticleType, ArticleView } from "@/entities/Article";
 
 jest.mock("axios");
 

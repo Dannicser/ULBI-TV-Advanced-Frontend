@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
 import { screen } from "@testing-library/react";
 
-import { componentRender } from "shared/config/tests/renderWithRouter";
+import { componentRender } from "@/shared/config/tests/renderWithRouter";
 import { EditableProfileCard } from "./EditableProfileCard";
 import { profileReducer } from "../../model/slice/profileSlice";
 

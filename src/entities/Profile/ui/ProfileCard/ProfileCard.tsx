@@ -1,13 +1,13 @@
-import { classNames } from "shared/lib/classNames/classNames";
-import { AlignText, Text, ThemeText } from "shared/ui/Text";
+import { classNames } from "@/shared/lib/classNames/classNames";
+import { AlignText, Text, ThemeText } from "@/shared/ui/Text";
 
-import { IProfile } from "entities/Profile/model/types/profile";
-import { PageLoader } from "widgets/PageLoader";
-import { Avatar } from "shared/ui/Avatar/Avatar";
-import { Input } from "shared/ui/Input/Input";
+import { IProfile } from "@/entities/Profile/model/types/profile";
+import { PageLoader } from "@/widgets/PageLoader";
+import { Avatar } from "@/shared/ui/Avatar/Avatar";
+import { Input } from "@/shared/ui/Input/Input";
 
-import { Currency, CurrencySelect } from "entities/Currency";
-import { CountrySelect, County } from "entities/Country";
+import { Currency, CurrencySelect } from "@/entities/Currency";
+import { CountrySelect, County } from "@/entities/Country";
 
 import cls from "./ProfileCard.module.scss";
 

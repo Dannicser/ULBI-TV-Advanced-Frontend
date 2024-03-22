@@ -1,10 +1,10 @@
 import { memo } from "react";
 
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
 import { IArticleCodeBlock } from "../../../Article/model/types/article";
 
-import { Code } from "shared/ui/Code/Code";
+import { Code } from "@/shared/ui/Code/Code";
 
 import cls from "./ArticleCodeBlockComponent.module.scss";
 

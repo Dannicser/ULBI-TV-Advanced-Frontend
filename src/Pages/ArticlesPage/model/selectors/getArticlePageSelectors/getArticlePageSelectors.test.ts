@@ -1,4 +1,4 @@
-import { StateSchema } from "app/providers/StoreProvider";
+import { StateSchema } from "@/app/providers/StoreProvider";
 import {
   getArticlesPageCount,
   getArticlesPageFieldSort,
@@ -11,7 +11,7 @@ import {
   getArticlesPageType,
   getArticlesPageView,
 } from "./getArticlePageSelectors";
-import { ArticleSortField, ArticleType, ArticleView } from "entities/Article";
+import { ArticleSortField, ArticleType, ArticleView } from "@/entities/Article";
 
 describe("getArticlePageSelectors", () => {
   test("getArticlesPageLoading should return correct value", () => {

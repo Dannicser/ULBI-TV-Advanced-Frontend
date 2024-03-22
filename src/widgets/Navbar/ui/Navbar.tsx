@@ -2,22 +2,22 @@ import { memo, useCallback, useState } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-import { ThemeSwitcher } from "widgets/ThemeSwicher";
-import { LangSwitcher } from "widgets/LangSwitcher";
+import { ThemeSwitcher } from "@/widgets/ThemeSwicher";
+import { LangSwitcher } from "@/widgets/LangSwitcher";
 
-import { NotificationButton } from "features/NotificationButton";
-import { LoginModal } from "features/AuthByUserName";
+import { NotificationButton } from "@/features/NotificationButton";
+import { LoginModal } from "@/features/AuthByUserName";
 
-import { userActions, getAuthData, isUserAdmin, isUserManager } from "entities/User";
+import { userActions, getAuthData, isUserAdmin, isUserManager } from "@/entities/User";
 
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 
-import { AppLink } from "shared/ui/AppLink/AppLink";
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
-import { Button } from "shared/ui/Button/Button";
-import { Dropdown } from "shared/ui/Dropdown/Dropdown";
+import { AppLink } from "@/shared/ui/AppLink/AppLink";
+import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
+import { Button } from "@/shared/ui/Button/Button";
+import { Dropdown } from "@/shared/ui/Dropdown/Dropdown";
 
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
 import cls from "./Navbar.module.scss";
 

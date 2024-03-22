@@ -1,4 +1,4 @@
-import "app/style/index.scss";
+import "@/app/style/index.scss";
 
 import { Story } from "@storybook/react";
 

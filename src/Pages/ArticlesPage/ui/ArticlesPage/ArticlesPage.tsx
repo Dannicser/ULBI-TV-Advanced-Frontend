@@ -2,14 +2,14 @@ import { useCallback, useEffect } from "react";
 
 import { useSearchParams } from "react-router-dom";
 
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
-import { Page } from "widgets/Page/Page";
+import { Page } from "@/widgets/Page/Page";
 
-import { DynamicModelLoader, ReducersList } from "shared/lib/components/DynamicModelLoader";
+import { DynamicModelLoader, ReducersList } from "@/shared/lib/components/DynamicModelLoader";
 import { articlesPageReducer } from "../../model/slice/articlePageSlice";
 
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 
 import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
 

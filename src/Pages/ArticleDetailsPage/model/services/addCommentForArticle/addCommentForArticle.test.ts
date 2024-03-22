@@ -1,5 +1,5 @@
 import { Dispatch } from "@reduxjs/toolkit";
-import { StateSchema } from "app/providers/StoreProvider";
+import { StateSchema } from "@/app/providers/StoreProvider";
 import axios, { AxiosStatic } from "axios";
 import { addCommentForArticle } from "./addCommentForArticle";
 

@@ -1,8 +1,8 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
-import { IArticle } from "entities/Article";
+import { IArticle } from "@/entities/Article";
 import { IArticleDetailsRecommendationSchema } from "../types/ArticleDetailsRecommendationSchema";
 import { fetchArticleRecommendations } from "../services/fetchArticleRecommendations/fetchArticleRecommendations";
-import { StateSchema } from "app/providers/StoreProvider";
+import { StateSchema } from "@/app/providers/StoreProvider";
 
 const articleRecommendationAdapter = createEntityAdapter<IArticle>({
   selectId: (article: IArticle) => article.id, // поле по которому идет нормализация

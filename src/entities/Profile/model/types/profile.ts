@@ -1,5 +1,5 @@
-import { County } from "entities/Country";
-import { Currency } from "entities/Currency";
+import { County } from "@/entities/Country";
+import { Currency } from "@/entities/Currency";
 
 export interface IProfile {
   id?: string;

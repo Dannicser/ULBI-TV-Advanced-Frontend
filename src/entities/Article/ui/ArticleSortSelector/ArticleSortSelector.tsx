@@ -2,9 +2,9 @@ import { useMemo } from "react";
 
 import { ArticleSortField } from "../../model/consts/consts";
 
-import { classNames } from "shared/lib/classNames/classNames";
-import { ISelectOptions, Select } from "shared/ui/Select/Select";
-import { SortOrder } from "shared/types";
+import { classNames } from "@/shared/lib/classNames/classNames";
+import { ISelectOptions, Select } from "@/shared/ui/Select/Select";
+import { SortOrder } from "@/shared/types";
 
 import cls from "./ArticleSortSelector.module.scss";
 
