@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack serve --env mode=development port=3000",
     "start:server": "node json-server ./json-server/db.json --port=5000",
-    "start:dev": "concurrently \"webpack serve --env mode=development port=3000\" \"node json-server ./json-server/db.json --port=5000\"",
+    "start:dev:webpack": "concurrently \"webpack serve --env mode=development port=3000\" \"node json-server ./json-server/db.json --port=5000\"",
+    "start:dev:vite": "concurrently \"vite\" \"node json-server ./json-server/db.json --port=5000\"",
     "build": "webpack --env mode=production",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "npx loki test",
@@ -50,6 +51,7 @@
     "@types/webpack-dev-server": "^4.7.2",
     "@typescript-eslint/eslint-plugin": "^5.12.1",
     "@typescript-eslint/parser": "^5.12.1",
+    "@vitejs/plugin-react": "^4.2.1",
     "babel-loader": "^8.2.3",
     "babel-plugin-i18next-extract": "^0.8.3",
     "circular-dependency-plugin": "^5.2.2",
@@ -82,8 +84,10 @@
     "stylelint": "^14.5.3",
     "stylelint-config-standard-scss": "^3.0.0",
     "ts-loader": "^9.2.6",
+    "ts-morph": "^22.0.0",
     "ts-node": "^10.5.0",
     "typescript": "^4.5.5",
+    "vite": "^5.2.2",
     "webpack": "^5.69.1",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.2",
@@ -105,8 +109,7 @@
     "react-i18next": "^11.18.3",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
-    "react-virtualized": "^9.22.3",
-    "ts-morph": "^22.0.0"
+    "react-virtualized": "^9.22.3"
   },
   "keywords": [],
   "author": "",
