@@ -8,7 +8,9 @@ export function buildResolvers(options: IBuildOptions): webpack.ResolveOptions {
     preferAbsolute: true, // абсолютные пути в приоритете
     modules: [options.paths.src, "node_modules"],
     mainFiles: ["index"],
-    alias: {},
+    alias: {
+      "@": options.paths.src,
+    },
     //
   };
 }

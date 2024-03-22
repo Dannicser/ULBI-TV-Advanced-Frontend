@@ -14,7 +14,7 @@
     "forceConsistentCasingInFileNames": false,
     "baseUrl": ".", // для абсолютного импорта
     "paths": {
-      "*": ["./src/*"] // все абсолютные импорты должны идти из папки src
+      "@/*": ["./src/*"] // все абсолютные импорты должны идти из папки src
     },
     "isolatedModules": true
   },
