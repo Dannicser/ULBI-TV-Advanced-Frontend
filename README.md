@@ -5,7 +5,7 @@
 
 ## UI
 
-Library components. 15+ UI components including **modal windows with portals, dropdowns, sidebar, buttons with different themes, skeletons, lazy images, drawer, avatars, etc**.
+Library components. 20+ UI components including **modal windows with portals, dropdowns, sidebar, buttons with different themes, skeletons, lazy images, drawer, avatars, etc**.
 Made all components accessible and semantic.
 
 ## Architecture
@@ -63,3 +63,23 @@ Implement our script, which **generate features\entities** with the entire struc
 ## Migration
 
 Migration from 17 to version 18 of React
+
+## Different Agents
+
+Depending on the user agent, render **mobile/desktop components**.
+
+## Browserlist
+
+Influence on bundle size
+
+## Automated refactoring
+
+Working with **abstract syntax tree nodes**, changing code throughout the entire project globally using scripts, creating files, adding the necessary content to them.
+
+## Alternative bundler
+
+Configuration of both **webpack and vite**
+
+## Circular dependencies
+
+**Detection and removal** using plugins
