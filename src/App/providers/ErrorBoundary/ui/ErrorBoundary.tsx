@@ -26,7 +26,6 @@ export class ErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBo
   }
 
   render() {
-    console.log(this.state, "!");
     if (this.state.isError) {
       // Можно отрендерить запасной UI произвольного вида
       return (

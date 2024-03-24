@@ -16,7 +16,9 @@ export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
 
   const scssLoader = buildCssLoaders(isDev);
 
-  return [codeBabelLoader, codeTsxBabelLoader, scssLoader];
+  const svgLoader = { test: /\.svg$/, use: ["@svgr/webpack"] };
+
+  return [codeBabelLoader, codeTsxBabelLoader, scssLoader, svgLoader];
 }
 
 // typescript loader умеет работать с реакт jsx по дефолту

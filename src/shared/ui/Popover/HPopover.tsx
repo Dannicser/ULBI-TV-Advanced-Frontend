@@ -19,7 +19,9 @@ export const Popover: React.FC<IHPopoverProps> = ({ className, trigger, children
 
   return (
     <HPopover className={cls.Pupover}>
-      <HPopover.Button className={cls.btn}>{trigger}</HPopover.Button>
+      <HPopover.Button as={"div"} className={cls.btn}>
+        {trigger}
+      </HPopover.Button>
 
       <HPopover.Panel as={"ul"} className={classNames(cls.list, {}, [cls.bottomLeft])}>
         {children}

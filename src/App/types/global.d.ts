@@ -6,6 +6,11 @@ declare module "*.module.scss" {
   export = classNames;
 }
 
+declare module "*.svg" {
+  const content: React.VFC<React.SVGProps<SVGSVGElement>>;
+  export default content;
+}
+
 declare const _IS_DEV_: boolean;
 declare const __API__: string;
 declare const __ENVIROMENT__: "storybook" | "frontend" | "jest";

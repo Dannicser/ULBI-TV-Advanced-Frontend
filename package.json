@@ -108,8 +108,7 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^11.18.3",
     "react-redux": "^7.2.6",
-    "react-router-dom": "^6.2.1",
-    "react-virtualized": "^9.22.3"
+    "react-router-dom": "^6.2.1"
   },
   "keywords": [],
   "author": "",
