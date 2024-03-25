@@ -9,7 +9,7 @@ import cls from "./Modal.module.scss";
 interface IModalProps {
   className?: string;
   isOpen?: boolean;
-  onClose: () => void;
+  onClose?: () => void;
   isLazy?: boolean; // ленивая модалка, появляется в доме только после открытия
   children: ReactNode;
 }

@@ -1,7 +1,7 @@
 import { MutableRefObject, useCallback, useEffect, useRef, useState } from "react";
 
 interface IUseModalProps {
-  onClose: () => void;
+  onClose?: () => void;
   isOpen?: boolean;
   animationDelay: number;
 }
@@ -24,7 +24,7 @@ export function useModal(props: IUseModalProps) {
   const close = useCallback(() => {
     setIsClosing(true);
     timeRef.current = setTimeout(() => {
-      onClose();
+      onClose?.();
       setIsClosing(false);
     }, animationDelay);
   }, [onClose]);

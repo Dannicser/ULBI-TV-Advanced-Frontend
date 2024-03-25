@@ -9,6 +9,10 @@
   }
 }
 
+.fullWidth {
+  width: 100%;
+}
+
 .clear {
   border: none;
   background-color: none;
@@ -32,4 +36,9 @@
 
 .large {
   font-size: var(--font-size-l);
+}
+
+.danger {
+  background-color: red;
+  color: white;
 }
