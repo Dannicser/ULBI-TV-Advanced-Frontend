@@ -17,10 +17,12 @@ export default {
     __API__: "",
     __ENVIROMENT__: "jest",
   },
+
   reporters: [
     "default",
     ["jest-html-reporters", { publicPath: "<rootDir>/reports/unit", inlineSource: true, filename: "report.html", openReport: false }],
   ],
+
   // setupFilesAfterEnv: ["<rootDir>config/jest/setup.ts"],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test

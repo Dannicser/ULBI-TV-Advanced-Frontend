@@ -11,7 +11,7 @@ import cls from "./StartRating.module.scss";
 interface IStartRatingProps {
   className?: string;
   onSelect?: (starCount: number) => void;
-  selectedStars?: number;
+  selectedStars: number;
   size?: number;
 }
 
@@ -20,7 +20,7 @@ const stars = [1, 2, 3, 4, 5];
 export const StartRating: React.FC<IStartRatingProps> = (props) => {
   const { className, onSelect, selectedStars, size = 30 } = props;
 
-  const [currentStarsCount, setCurrentStarsCount] = useState(0);
+  const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
   const [isSelected, setIsSelected] = useState(Boolean(currentStarsCount));
 
   const onHover = (starsCount: number) => {

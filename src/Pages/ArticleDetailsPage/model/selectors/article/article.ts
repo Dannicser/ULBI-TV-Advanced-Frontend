@@ -3,7 +3,6 @@ import { getArticleDetailsData } from "@/entities/Article";
 import { getAuthData } from "@/entities/User";
 
 export const getCanUserEditArticle = createSelector(getArticleDetailsData, getAuthData, (article, user) => {
-  console.log(article, user);
   if (!article || !user) {
     return false;
   }

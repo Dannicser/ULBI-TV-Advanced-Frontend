@@ -10,6 +10,7 @@ import { Page } from "@/widgets/Page/Page";
 import { articleDetailsPageReducer } from "../../model/slice";
 
 import { ArticleRecommendationsList } from "@/features/ArticleRecommendationsList";
+import { ArticleRatingAsync } from "@/features/ArticleRating";
 
 import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
 
@@ -38,6 +39,7 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({ className }) =
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
         <ArticleRecommendationsList />
+        <ArticleRatingAsync id={id} />
         <ArticleDetailsComment id={id} />
       </Page>
     </DynamicModelLoader>

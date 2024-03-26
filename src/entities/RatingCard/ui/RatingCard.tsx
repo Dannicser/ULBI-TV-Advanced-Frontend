@@ -18,15 +18,16 @@ interface IRatingCardProps {
   title?: string;
   feedbackTitle?: string;
   hasFeedBack?: boolean;
-  onCancel?: (starsCount?: number) => void;
-  onAccept?: (starsCount?: number, feedback?: string) => void;
+  onCancel?: (starsCount: number) => void;
+  onAccept?: (starsCount: number, feedback?: string) => void;
+  rate?: number;
 }
 
 export const RatingCard: React.FC<IRatingCardProps> = (props) => {
-  const { className, title, feedbackTitle, hasFeedBack, onCancel, onAccept } = props;
+  const { className, title, feedbackTitle, hasFeedBack, onCancel, onAccept, rate = 0 } = props;
 
   const [isModal, setIsModal] = useState(false);
-  const [starsCount, setStarsCount] = useState(0);
+  const [starsCount, setStarsCount] = useState(rate);
   const [feedback, setFeedback] = useState("");
 
   const onSelectStars = useCallback((selectedStarsCount: number) => {
@@ -63,7 +64,7 @@ export const RatingCard: React.FC<IRatingCardProps> = (props) => {
     <div className={classNames(cls.RatingCard, {}, [className])}>
       <VStack>
         <Text title={title} />
-        <StartRating onSelect={onSelectStars} />
+        <StartRating selectedStars={rate} onSelect={onSelectStars} />
       </VStack>
 
       <BrowserView>

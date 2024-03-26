@@ -11,8 +11,9 @@ import { Button, ThemeButton } from "@/shared/ui/Button/Button";
 
 import { getCanUserEditArticle } from "@/pages/ArticleDetailsPage/model/selectors/article/article";
 
-import cls from "./ArticleDetailsPageHeader.module.scss";
 import { getArticleDetailsData } from "@/entities/Article";
+
+import cls from "./ArticleDetailsPageHeader.module.scss";
 
 interface IArticleDetailsPageHeaderProps {
   className?: string;
