@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 
 import { classNames } from "@/shared/lib/classNames/classNames";
 
-import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
+import { RoutePath } from "@/app/router/config/routeConfig";
 import { Button, ThemeButton } from "@/shared/ui/Button/Button";
 
 import { getCanUserEditArticle } from "@/pages/ArticleDetailsPage/model/selectors/article/article";

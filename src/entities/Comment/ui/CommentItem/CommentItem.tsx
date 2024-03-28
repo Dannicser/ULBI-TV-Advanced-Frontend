@@ -6,7 +6,7 @@ import { Text } from "@/shared/ui/Text";
 
 import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
-import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
+import { RoutePath } from "@/app/router/config/routeConfig";
 
 import cls from "./CommentItem.module.scss";
 

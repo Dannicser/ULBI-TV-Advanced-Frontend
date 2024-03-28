@@ -6,7 +6,7 @@ import { Button, ThemeButton } from "@/shared/ui/Button/Button";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { HTMLAttributeAnchorTarget } from "react";
 
-import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
+import { RoutePath } from "@/app/router/config/routeConfig";
 
 import { Link } from "react-router-dom";
 

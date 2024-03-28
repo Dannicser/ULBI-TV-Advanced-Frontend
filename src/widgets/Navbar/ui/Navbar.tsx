@@ -13,7 +13,7 @@ import { userActions, getAuthData, isUserAdmin, isUserManager } from "@/entities
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
-import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
+import { RoutePath } from "@/app/router/config/routeConfig";
 import { Button } from "@/shared/ui/Button/Button";
 import { Dropdown } from "@/shared/ui/Dropdown/Dropdown";
 

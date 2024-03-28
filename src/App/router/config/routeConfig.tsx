@@ -1,33 +1,19 @@
 import { AboutPageAsync } from "@/pages/AboutPage";
 import { MainPageAsync } from "@/pages/MainPage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
-import { UserRole } from "@/entities/User";
 import { AdminPanelPageAsync } from "@/pages/AdminPanelPage";
 import { ArticleDetailPageAsync } from "@/pages/ArticleDetailsPage";
 import { ArticleEditPageAsync } from "@/pages/ArticleEditPage";
 import { ArticlesPageAsync } from "@/pages/ArticlesPage";
 import { ForbiddenPage } from "@/pages/ForbiddenPage";
 import { ProfilePageAsync } from "@/pages/ProfilePage";
-import { RouteProps } from "react-router-dom";
+
+import { UserRole } from "@/entities/User";
+
+import { AppRoutes } from "@/shared/const/router";
+import { AppRouteProps } from "@/shared/types/router";
 
 // расширяемся от пропсов библиотеки
-export type AppRouteProps = RouteProps & {
-  authOnly: boolean;
-  roles?: UserRole[];
-};
-
-export enum AppRoutes {
-  MAIN = "main",
-  ABOUT = "about",
-  PROFILE = "profile",
-  ARTICLES = "articles",
-  ACTICLE_CREATE = "acticle_create",
-  ARTICLE_EDIT = "acticle_edit",
-  ACTICLE_DETAIL = "acticle_details",
-  ADMIN_PANEL = "admin_panel",
-  FORBIDDEN = "forbidden",
-  NOT_FOUND = "not_found",
-}
 
 export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: "/",
