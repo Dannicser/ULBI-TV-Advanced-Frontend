@@ -7,10 +7,11 @@ export default {
   moduleNameMapper: {
     "\\.scss$": "identity-obj-proxy", // позволяет jest работать с css!!!!!!!
     "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"), // mapper для работы с svg in jest 24
+    "^@/(.*)$": "<rootDir>/src/$1",
   },
+  rootDir: "../../", //!!!!!!!!!!!!!! не забудь указать к руту путь
   coveragePathIgnorePatterns: ["\\\\node_modules\\\\"],
   moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "node"],
-  roots: ["../../"],
   testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[tj]s?(x)"],
   globals: {
     _IS_DEV_: true, // глобальные перемененные, о которых не знает jest
