@@ -13,13 +13,13 @@ import { userActions, getAuthData, isUserAdmin, isUserManager } from "@/entities
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
-import { RoutePath } from "@/app/router/config/routeConfig";
 import { Button } from "@/shared/ui/Button/Button";
 import { Dropdown } from "@/shared/ui/Dropdown/Dropdown";
 
 import { classNames } from "@/shared/lib/classNames/classNames";
 
 import cls from "./Navbar.module.scss";
+import { getRouteAdmin, getRouteArticleCreate, getRouteProfile } from "@/app/router/config/routeConfig";
 
 interface INavbarProps {
   className?: string; // если снаружи заходим изменить стили
@@ -61,15 +61,15 @@ export const Navbar: React.FC<INavbarProps> = memo(({ className }) => {
           <Dropdown // можно вынести в фичу - 79!
             items={[
               { content: "Выйти", onClick: onLogout },
-              { content: "Профиль", href: RoutePath.profile + authData.id },
-              ...(isAdminPanelAvaliable ? [{ content: "Админка", href: RoutePath.admin_panel }] : []),
+              { content: "Профиль", href: getRouteProfile(authData.id) },
+              ...(isAdminPanelAvaliable ? [{ content: "Админка", href: getRouteAdmin() }] : []),
             ]}
             direction="bottomRight"
             trigger={<Button>Oптиции</Button>}
           />
         </div>
         <div className={cls.links}>
-          <AppLink className={cls.create} to={RoutePath.acticle_create}>
+          <AppLink className={cls.create} to={getRouteArticleCreate()}>
             <Button>{t("CreateArticle")}</Button>
           </AppLink>
         </div>

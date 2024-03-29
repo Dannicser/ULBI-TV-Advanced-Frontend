@@ -1,10 +1,10 @@
 import { PayloadAction, createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 import { ArticleSortField, ArticleType, ArticleView, IArticle } from "@/entities/Article";
-import { IArticlePageSchema } from "../types/articlePageSchema";
 import { StateSchema } from "@/app/providers/StoreProvider";
 import { fetchArticlesList } from "../services/fetchArticlesList/fetchArticlesList";
 import { ARTICLE_VIEW_KEY } from "@/shared/const/localStorage";
 import { SortOrder } from "@/shared/types";
+import { IArticlePageSchema } from "../types/articlePageSchema";
 
 // суть нормализации - относиться к данным в стейте, как в базе данных, НЕ ХРАНИТЬ ОДИНАКОВЫЕ ДАННЫЕ!
 

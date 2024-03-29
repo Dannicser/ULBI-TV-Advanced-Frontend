@@ -6,7 +6,8 @@ import { Text } from "@/shared/ui/Text";
 
 import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
-import { RoutePath } from "@/app/router/config/routeConfig";
+
+import { getRouteProfile } from "@/app/router/config/routeConfig";
 
 import cls from "./CommentItem.module.scss";
 
@@ -26,7 +27,7 @@ export const CommentItem: React.FC<ICommentItemProps> = ({ className, comment, i
   }
   return (
     <div className={classNames(cls.CommentItem, {}, [className])}>
-      <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={cls.header}>
+      <AppLink to={getRouteProfile(comment.id)} className={cls.header}>
         <Avatar src={comment.user.avatar} size={50} />
         <Text title={comment.user.username} />
       </AppLink>

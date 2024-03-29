@@ -6,7 +6,6 @@ import { useTranslation } from "react-i18next";
 
 import { classNames } from "@/shared/lib/classNames/classNames";
 
-import { RoutePath } from "@/app/router/config/routeConfig";
 import { Button, ThemeButton } from "@/shared/ui/Button/Button";
 
 import { getCanUserEditArticle } from "@/pages/ArticleDetailsPage/model/selectors/article/article";
@@ -14,6 +13,7 @@ import { getCanUserEditArticle } from "@/pages/ArticleDetailsPage/model/selector
 import { getArticleDetailsData } from "@/entities/Article";
 
 import cls from "./ArticleDetailsPageHeader.module.scss";
+import { getRouteArticleEdit, getRouteArticles } from "@/app/router/config/routeConfig";
 
 interface IArticleDetailsPageHeaderProps {
   className?: string;
@@ -29,12 +29,12 @@ export const ArticleDetailsPageHeader: React.FC<IArticleDetailsPageHeaderProps> 
   const canEdit = useSelector(getCanUserEditArticle); // логика в селекторе!!! очень грамотно
 
   const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles);
+    navigate(getRouteArticles());
   }, []);
 
   const onEditArticle = useCallback(() => {
     if (article?.id) {
-      navigate(RoutePath.articles + "/" + article?.id + "/" + "edit");
+      navigate(getRouteArticleEdit(article.id));
     }
   }, [article?.id]);
 

@@ -6,13 +6,12 @@ import { Button, ThemeButton } from "@/shared/ui/Button/Button";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { HTMLAttributeAnchorTarget } from "react";
 
-import { RoutePath } from "@/app/router/config/routeConfig";
-
 import { Link } from "react-router-dom";
 
 import { ArticleBlockType, ArticleView } from "../../model/consts/consts";
 
 import cls from "./ArticleListItem.module.scss";
+import { getRouteArticleDetails } from "@/app/router/config/routeConfig";
 
 interface IArticleListItemProps {
   className?: string;
@@ -44,7 +43,7 @@ export const ArticleListItem: React.FC<IArticleListItemProps> = (props) => {
           <hr className={cls.hr} />
 
           <div className={cls.footer}>
-            <Link target={target} to={RoutePath.acticle_details + article.id}>
+            <Link target={target} to={getRouteArticleDetails(article.id)}>
               <Button theme={ThemeButton.OUTLINE}>Читать далее</Button>
             </Link>
             <Text text={"Просмотров - " + article.views.toString()} />
@@ -55,7 +54,7 @@ export const ArticleListItem: React.FC<IArticleListItemProps> = (props) => {
   }
 
   return (
-    <Link target={target} to={RoutePath.acticle_details + article.id} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+    <Link target={target} to={getRouteArticleDetails(article.id)} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
       <div className={cls.card}>
         <div className={cls.imgWrapper}>
           <img src={article.img} alt="" />

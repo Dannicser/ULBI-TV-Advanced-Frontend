@@ -1,20 +1,20 @@
 import { createSelector } from "@reduxjs/toolkit";
 
 import { getAuthData } from "@/entities/User";
-import { RoutePath } from "@/app/router/config/routeConfig";
 
 import { SidebarItemType } from "../types/sidebar";
+import { getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile } from "@/app/router/config/routeConfig";
 
 export const getSidebarItems = createSelector(getAuthData, (userData) => {
   const sidebarItemsList: SidebarItemType[] = [
-    { path: RoutePath.main, text: "Main", authOnly: false },
-    { path: RoutePath.about, text: "About", authOnly: false },
+    { path: getRouteMain(), text: "Main", authOnly: false },
+    { path: getRouteAbout(), text: "About", authOnly: false },
   ];
 
   if (userData) {
     sidebarItemsList.push(
-      { path: RoutePath.profile + userData?.id, text: "Profile", authOnly: true },
-      { path: RoutePath.articles, text: "Articles", authOnly: true }
+      { path: getRouteProfile(userData.id), text: "Profile", authOnly: true },
+      { path: getRouteArticles(), text: "Articles", authOnly: true }
     );
   }
 
