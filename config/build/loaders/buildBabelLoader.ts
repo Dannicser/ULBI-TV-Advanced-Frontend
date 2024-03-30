@@ -10,6 +10,7 @@ export function buildBabelLoader({ isDev, isTsx = true }: IBuildBabelLoaderProps
     use: {
       loader: "babel-loader",
       options: {
+        cacheDirectory: true, //!!!! важно, ребилд быстрее намного, но нужно удалять кеш перед загрузкой новой либы
         presets: ["@babel/preset-env"],
         plugins: [
           [

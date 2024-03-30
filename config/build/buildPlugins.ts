@@ -14,7 +14,6 @@ export function buildPlugins({ paths, isDev, apiUrl, enviroment }: IBuildOptions
   const plugins = [
     new HtmlWebpackPlugin({ template: paths.html }),
     new webpack.ProgressPlugin(),
-    new MiniCssExtractPlugin({ filename: "css/[name].[contenthash:8].css" }),
     new webpack.DefinePlugin({
       _IS_DEV_: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
@@ -37,6 +36,11 @@ export function buildPlugins({ paths, isDev, apiUrl, enviroment }: IBuildOptions
   if (isDev) {
     plugins.push(new ReactRefreshWebpackPlugin());
     plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
+  }
+
+  //prod
+  if (!isDev) {
+    plugins.push(new MiniCssExtractPlugin({ filename: "css/[name].[contenthash:8].css" }));
   }
 
   return plugins;
