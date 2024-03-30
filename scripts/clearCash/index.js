@@ -1,8 +1,15 @@
 const path = require("path");
 const fs = require("fs");
 
-(function clearCash() {
+(function clearCashe() {
   const pathCashe = path.resolve(__dirname, "..", "..", "node_modules", ".cache");
+  const isThereFolder = fs.existsSync(pathCashe);
 
-  fs.rmdirSync(pathCashe, { recursive: true });
+  if (isThereFolder) {
+    fs.rmSync(pathCashe, { recursive: true });
+
+    return;
+  }
+
+  console.error("Cashe has already been cleaned");
 })();
