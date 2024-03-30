@@ -1,5 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
-import { counterActions } from "../model/slice/counterSlice";
+import { useCounterActions } from "../model/slice/counterSlice";
 import { useCounterValue } from "../model/selectors/getCounterValue/getCounterValue";
 
 interface ICounterProps {
@@ -7,15 +6,20 @@ interface ICounterProps {
 }
 
 export const Counter: React.FC<ICounterProps> = () => {
-  const dispatch = useDispatch();
   const counterValue = useCounterValue();
 
+  const { increment, decrement, addNumber } = useCounterActions();
+
   function inc() {
-    dispatch(counterActions.increment());
+    increment();
   }
 
   function dec() {
-    dispatch(counterActions.decrement());
+    decrement();
+  }
+
+  function add() {
+    addNumber(5);
   }
 
   return (
@@ -27,6 +31,8 @@ export const Counter: React.FC<ICounterProps> = () => {
       <button data-testid={"inc-button"} onClick={inc}>
         inc
       </button>
+
+      <button onClick={add}>add</button>
     </>
   );
 };

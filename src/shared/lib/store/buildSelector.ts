@@ -1,6 +1,8 @@
 import { StateSchema } from "@/app/providers/StoreProvider";
 import { useSelector } from "react-redux";
 
+// идея - избавиться от useSelector в компонентах
+
 type Selector<T> = (state: StateSchema) => T;
 type Result<T> = [() => T, Selector<T>];
 
