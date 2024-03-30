@@ -1,8 +1,9 @@
 import { memo, useCallback, useMemo } from "react";
 
+import { ArticleType } from "@/entities/Article";
+
 import { classNames } from "@/shared/lib/classNames/classNames";
 import { ITabItem, Tabs } from "@/shared/ui/Tabs/Tabs";
-import { ArticleType } from "../../model/consts/consts";
 
 import cls from "./ArticleTypeTabs.module.scss";
 

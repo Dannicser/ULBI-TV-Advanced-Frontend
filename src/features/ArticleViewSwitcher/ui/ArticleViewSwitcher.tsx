@@ -1,8 +1,10 @@
-import { ArticleView } from "../../../Article/model/consts/consts";
+import { ArticleView } from "@/entities/Article";
+
 import { Button } from "@/shared/ui/Button/Button";
 
-import cls from "./ArticleViewSwitcher.module.scss";
 import { classNames } from "@/shared/lib/classNames/classNames";
+
+import cls from "./ArticleViewSwitcher.module.scss";
 
 interface IArticleViewSwitcherProps {
   className?: string;

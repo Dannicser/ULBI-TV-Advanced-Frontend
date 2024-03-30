@@ -1,8 +1,6 @@
-import { useSelector } from "react-redux";
-
 import { useCallback } from "react";
 
-import { ArticleSortField, ArticleType, ArticleView, ArticleViewSwitcher } from "@/entities/Article";
+import { useSelector } from "react-redux";
 
 import { articlesPageActions } from "../../model/slice/articlePageSlice";
 
@@ -16,8 +14,12 @@ import {
 
 import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
 
-import { ArticleSortSelector } from "@/entities/Article";
-import { ArticleTypeTabs } from "@/entities/Article";
+import { ArticleTypeTabs } from "@/features/ArticleTypeTabs";
+
+import { ArticleSortSelector } from "@/features/ArticleSortSelector";
+import { ArticleViewSwitcher } from "@/features/ArticleViewSwitcher";
+
+import { ArticleSortField, ArticleType, ArticleView } from "@/entities/Article";
 
 import { classNames } from "@/shared/lib/classNames/classNames";
 import { SortOrder } from "@/shared/types";
