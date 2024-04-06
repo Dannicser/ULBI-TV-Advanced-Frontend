@@ -12,6 +12,8 @@ import { ArticleBlockType, ArticleView } from "../../model/consts/consts";
 
 import cls from "./ArticleListItem.module.scss";
 import { getRouteArticleDetails } from "@/app/router/config/routeConfig";
+import { AppImage } from "@/shared/ui/AppImage/AppImage";
+import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 
 interface IArticleListItemProps {
   className?: string;
@@ -36,7 +38,7 @@ export const ArticleListItem: React.FC<IArticleListItemProps> = (props) => {
           <div className={cls.header}>{article.createdAt}</div>
           <Text className={cls.types} text={article.type.join(" ")} />
 
-          <img src={article.img} alt="" />
+          <AppImage fallback={<Skeleton />} src={article.img} />
 
           {text && <ArticleTextBlockComponent className={cls.textBlock} block={text} />}
 
@@ -57,7 +59,7 @@ export const ArticleListItem: React.FC<IArticleListItemProps> = (props) => {
     <Link target={target} to={getRouteArticleDetails(article.id)} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
       <div className={cls.card}>
         <div className={cls.imgWrapper}>
-          <img src={article.img} alt="" />
+          <AppImage fallback={<Skeleton />} src={article.img} alt="" />
           <Text className={cls.date} text={article.createdAt} />
         </div>
         <div className={cls.infoWrapper}>
