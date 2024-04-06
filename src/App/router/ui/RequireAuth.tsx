@@ -4,7 +4,7 @@ import { getAuthData } from "@/entities/User";
 import { getUserRoles } from "@/entities/User/";
 import { UserRole } from "@/entities/User";
 import { useLocation, Navigate } from "react-router-dom";
-import { getRouteMain, getRouteNotFound } from "../config/routeConfig";
+import { getRouteForbidden, getRouteMain } from "../config/routeConfig";
 
 interface IRequireAuth {
   children: JSX.Element;
@@ -29,7 +29,7 @@ export const RequireAuth: React.FC<IRequireAuth> = ({ children, roles }) => {
   }, [roles]);
 
   if (!hasRequiredRoles) {
-    return <Navigate to={getRouteNotFound()} state={{ from: location }} replace />;
+    return <Navigate to={getRouteForbidden()} state={{ from: location }} replace />;
   }
 
   if (!auth) {

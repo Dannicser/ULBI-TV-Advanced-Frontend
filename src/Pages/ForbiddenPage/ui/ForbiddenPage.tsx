@@ -10,5 +10,9 @@ interface IForbiddenPageProps {
 export const ForbiddenPage: React.FC<IForbiddenPageProps> = ({ className }) => {
   const { t, i18n } = useTranslation();
 
-  return <Page className={classNames("", {}, [className])}>401</Page>;
+  return (
+    <Page data-testid="ForbiddenPage" className={classNames("", {}, [className])}>
+      401
+    </Page>
+  );
 };

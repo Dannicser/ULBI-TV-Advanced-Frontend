@@ -22,7 +22,7 @@ import { ArticleViewSwitcher } from "@/features/ArticleViewSwitcher";
 import { ArticleSortField, ArticleType, ArticleView } from "@/entities/Article";
 
 import { classNames } from "@/shared/lib/classNames/classNames";
-import { SortOrder } from "@/shared/types";
+import { SortOrder } from "@/shared/types/sort";
 import { useDebounce } from "@/shared/lib/hooks/useDebounce";
 import { ITabItem } from "@/shared/ui/Tabs/Tabs";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";

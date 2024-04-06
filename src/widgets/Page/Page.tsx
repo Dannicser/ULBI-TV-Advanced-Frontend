@@ -1,17 +1,20 @@
+import { MutableRefObject, ReactNode, UIEvent, memo, useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
+
 import { classNames } from "@/shared/lib/classNames/classNames";
 
-import { MutableRefObject, ReactNode, UIEvent, memo, useEffect, useRef } from "react";
+import { StateSchema } from "@/app/providers/StoreProvider";
+import { getScrollSaveByPath, scrollSaveActions } from "@/features/ScrollSave";
+
 import { useInfiniteScroll } from "@/shared/lib/hooks/useInfiniteScroll";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
-import { getScrollSaveByPath, scrollSaveActions } from "@/features/ScrollSave";
-import { useSelector } from "react-redux";
-import { StateSchema } from "@/app/providers/StoreProvider";
-import { useLocation } from "react-router-dom";
+import { ITestProps } from "@/shared/types/tests";
 import { useThrottle } from "@/shared/lib/hooks/useThrottle";
 
 import cls from "./Page.module.scss";
 
-interface IPageProps {
+interface IPageProps extends ITestProps {
   className?: string;
   onScrollEnd?: () => void;
   children: ReactNode;
@@ -19,7 +22,9 @@ interface IPageProps {
 
 export const PAGE_ID = "PAGE_ID";
 
-export const Page: React.FC<IPageProps> = memo(({ className, children, onScrollEnd }) => {
+export const Page: React.FC<IPageProps> = memo((props) => {
+  const { className, children, onScrollEnd } = props;
+
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
 
@@ -44,7 +49,7 @@ export const Page: React.FC<IPageProps> = memo(({ className, children, onScrollE
   useInfiniteScroll({ callback: onScrollEnd, wrapperRef, triggerRef });
 
   return (
-    <main id={PAGE_ID} onScroll={onScroll} ref={wrapperRef} className={classNames(cls.Page, {}, [className])}>
+    <main data-testid={props["data-testid"]} id={PAGE_ID} onScroll={onScroll} ref={wrapperRef} className={classNames(cls.Page, {}, [className])}>
       {children}
       {/* при достижении этого дива срабатывает callback - trigger */}
       {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}

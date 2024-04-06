@@ -7,7 +7,7 @@ const MainPage: React.FC = () => {
   const { t, i18n } = useTranslation(); // внутрь хука можно добавить имя файла с переводами, и тогда тянуть перевод можно частично
 
   return (
-    <Page>
+    <Page data-testid="MainPage">
       <Counter />
       {t("MainPage")}
     </Page>

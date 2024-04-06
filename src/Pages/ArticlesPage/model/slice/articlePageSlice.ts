@@ -3,7 +3,7 @@ import { ArticleSortField, ArticleType, ArticleView, IArticle } from "@/entities
 import { StateSchema } from "@/app/providers/StoreProvider";
 import { fetchArticlesList } from "../services/fetchArticlesList/fetchArticlesList";
 import { ARTICLE_VIEW_KEY } from "@/shared/const/localStorage";
-import { SortOrder } from "@/shared/types";
+import { SortOrder } from "@/shared/types/sort";
 import { IArticlePageSchema } from "../types/articlePageSchema";
 
 // суть нормализации - относиться к данным в стейте, как в базе данных, НЕ ХРАНИТЬ ОДИНАКОВЫЕ ДАННЫЕ!

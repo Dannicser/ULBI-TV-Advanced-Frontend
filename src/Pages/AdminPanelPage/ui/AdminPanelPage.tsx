@@ -10,7 +10,11 @@ interface IAdminPanelPageProps {
 const AdminPanelPage: React.FC<IAdminPanelPageProps> = ({ className }) => {
   const { t, i18n } = useTranslation();
 
-  return <Page className={classNames("", {}, [className])}>AdminPanelPage</Page>;
+  return (
+    <Page data-testid={"AdminPanelPage"} className={classNames("", {}, [className])}>
+      AdminPanelPage
+    </Page>
+  );
 };
 
 export default AdminPanelPage;
