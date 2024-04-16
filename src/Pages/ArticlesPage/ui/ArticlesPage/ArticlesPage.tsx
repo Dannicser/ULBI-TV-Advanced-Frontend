@@ -43,7 +43,7 @@ const ArticlesPage: React.FC<IArticlesPageProps> = ({ className }) => {
 
   return (
     <DynamicModelLoader isRemoveAfterUnmount={false} reducers={reducers}>
-      <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlesPage, {}, [className])}>
+      <Page data-testid="ArticlesPage" onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlesPage, {}, [className])}>
         <ArticlesPageFilters />
         <ArticleInfiniteList />
       </Page>
