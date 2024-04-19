@@ -26,7 +26,7 @@ export const CommentList: React.FC<ICommentListProps> = ({ className, comments, 
   }
 
   return (
-    <div className={classNames(cls.CommentList, {}, [className])}>
+    <div data-testid={"CommentList"} className={classNames(cls.CommentList, {}, [className])}>
       {comments.length ? (
         comments.map((comment) => <CommentItem key={comment.id} isLoading={isLoading} className={cls.comment} comment={comment} />)
       ) : (

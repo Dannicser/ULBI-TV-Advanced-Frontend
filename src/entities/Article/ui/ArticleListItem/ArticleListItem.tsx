@@ -33,7 +33,7 @@ export const ArticleListItem: React.FC<IArticleListItemProps> = (props) => {
     }) as IArticleTextBlock;
 
     return (
-      <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+      <div data-testid={"ArticleListItem"} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
         <div className={cls.card}>
           <div className={cls.header}>{article.createdAt}</div>
           <Text className={cls.types} text={article.type.join(" ")} />
@@ -56,7 +56,12 @@ export const ArticleListItem: React.FC<IArticleListItemProps> = (props) => {
   }
 
   return (
-    <Link target={target} to={getRouteArticleDetails(article.id)} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+    <Link
+      data-testid={"ArticleListItem"}
+      target={target}
+      to={getRouteArticleDetails(article.id)}
+      className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+    >
       <div className={cls.card}>
         <div className={cls.imgWrapper}>
           <AppImage fallback={<Skeleton />} src={article.img} alt="" />

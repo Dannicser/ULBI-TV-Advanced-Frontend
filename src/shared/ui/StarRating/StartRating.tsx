@@ -53,6 +53,7 @@ export const StartRating: React.FC<IStartRatingProps> = (props) => {
             onMouseEnter={() => onHover(starRate)}
             width={size}
             height={size}
+            data-testid={"StartRating." + starRate}
             //!!!! не забыть, что мы тут пробегаемся по массиву и выводим числа (starRate) от 1 до 5
             className={classNames(
               cls.starIcon,

@@ -35,7 +35,7 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({ className }) =
 
   return (
     <DynamicModelLoader reducers={reducers} isRemoveAfterUnmount>
-      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+      <Page data-testid={"ArticleDetailsPage"} className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
         <ArticleRecommendationsList />

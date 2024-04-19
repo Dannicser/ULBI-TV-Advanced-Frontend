@@ -26,7 +26,7 @@ export const CommentItem: React.FC<ICommentItemProps> = ({ className, comment, i
     );
   }
   return (
-    <div className={classNames(cls.CommentItem, {}, [className])}>
+    <div data-testid={"CommentItem"} className={classNames(cls.CommentItem, {}, [className])}>
       <AppLink to={getRouteProfile(comment.id)} className={cls.header}>
         <Avatar src={comment.user.avatar} size={50} />
         <Text title={comment.user.username} />

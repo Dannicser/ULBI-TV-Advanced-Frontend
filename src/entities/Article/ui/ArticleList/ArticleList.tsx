@@ -39,7 +39,7 @@ export const ArticleList: React.FC<IArticleListProps> = (props) => {
 
   if (!isVirtualized) {
     return (
-      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+      <div data-testid={"ArticleList"} className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
         {articles.length ? articles.map((article) => renderArticle(article)) : null}
         {isLoading && getSkeletons()}
       </div>

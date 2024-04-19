@@ -55,13 +55,13 @@ export const RatingCard: React.FC<IRatingCardProps> = (props) => {
     <>
       <VStack>
         <Text title={feedbackTitle} />
-        <Input value={feedback} onChange={setFeedback} placeholder="Введите отзыв" />
+        <Input data-testid={"RatingCard.Input"} value={feedback} onChange={setFeedback} placeholder="Введите отзыв" />
       </VStack>
     </>
   );
 
   return (
-    <div className={classNames(cls.RatingCard, {}, [className])}>
+    <div data-testid={"RatingCard"} className={classNames(cls.RatingCard, {}, [className])}>
       <VStack>
         <Text title={title} />
         <StartRating selectedStars={rate} onSelect={onSelectStars} />
@@ -72,10 +72,10 @@ export const RatingCard: React.FC<IRatingCardProps> = (props) => {
           {modalContent}
 
           <HStack gap={"4"} justify="end">
-            <Button onClick={onCancelHander} theme={ThemeButton.DANGER}>
+            <Button data-testid={"RatingCard.Button.Close"} onClick={onCancelHander} theme={ThemeButton.DANGER}>
               Закрыть
             </Button>
-            <Button onClick={onAcceptHander} theme={ThemeButton.OUTLINE}>
+            <Button data-testid={"RatingCard.Button.Send"} onClick={onAcceptHander} theme={ThemeButton.OUTLINE}>
               Отправить
             </Button>
           </HStack>

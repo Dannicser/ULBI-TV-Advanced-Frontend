@@ -51,7 +51,7 @@ export const ProfileCard: React.FC<IProfileCardProps> = (props) => {
   }
 
   return (
-    <div className={classNames(cls.ProfileCard, {}, [className])}>
+    <div data-testid="ProfileCard" className={classNames(cls.ProfileCard, {}, [className])}>
       <div>
         <div className={cls.avatar}>
           {!data?.avatar ? (

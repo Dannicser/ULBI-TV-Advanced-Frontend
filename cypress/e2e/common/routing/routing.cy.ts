@@ -20,7 +20,7 @@ describe("Routing", () => {
 
   describe("authorized", () => {
     beforeEach(() => {
-      cy.login("user", "123");
+      cy.login();
     });
 
     it("go to MainPage", () => {

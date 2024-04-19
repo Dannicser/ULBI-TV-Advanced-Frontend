@@ -56,5 +56,9 @@ export const Flex: React.FC<IFlexProps> = (props) => {
     [cls.max]: max,
   };
 
-  return <div className={classNames(cls.Flex, mods, classes)}>{children}</div>;
+  return (
+    <div {...props} className={classNames(cls.Flex, mods, classes)}>
+      {children}
+    </div>
+  );
 };
